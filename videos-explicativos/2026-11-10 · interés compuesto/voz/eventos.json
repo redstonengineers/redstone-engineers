@@ -1,0 +1,120 @@
+{
+ "dur": 441.32,
+ "eventos": [
+  {
+   "t": 17.84,
+   "tipo": "whoosh",
+   "ganancia": 0.8
+  },
+  {
+   "t": 23.44,
+   "tipo": "whoosh",
+   "ganancia": 0.6
+  },
+  {
+   "t": 17.84,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 23.44,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 55.68,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 87.8,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 102.8,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 115.52,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 137.76,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 167.24,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 193.64,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 207.72,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 231.96,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 253.4,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 280.04,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 336.04,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 362.013,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 414.08,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 426.44,
+   "tipo": "whoosh",
+   "ganancia": 0.45
+  },
+  {
+   "t": 7.76,
+   "tipo": "dinero",
+   "ganancia": 0.9
+  },
+  {
+   "t": 131,
+   "tipo": "pop",
+   "ganancia": 0.7
+  },
+  {
+   "t": 324.84,
+   "tipo": "pop",
+   "ganancia": 0.7
+  },
+  {
+   "t": 329.24,
+   "tipo": "dinero",
+   "ganancia": 0.8
+  }
+ ]
+}

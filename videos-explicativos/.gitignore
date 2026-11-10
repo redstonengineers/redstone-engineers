@@ -1,0 +1,9 @@
+# Archivos pesados generados (vídeos, audio, tomas, fotogramas)
+*.mp4
+*.mp3
+*.wav
+*.png
+*.jpg
+resultados/
+voz/tomas/
+__pycache__/
