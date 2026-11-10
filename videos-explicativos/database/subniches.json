@@ -1,0 +1,164 @@
+[
+ {
+  "estado": "usado",
+  "subnicho": "¿Por qué el interés compuesto lo cambia todo? (números cotidianos)",
+  "proyecto": "2026-11-10 · interés compuesto",
+  "nota": "Producido ANTES de fijar el nicho de ciencia; cuenta como usado"
+ },
+ {
+  "estado": "en_produccion",
+  "subnicho": "¿Por qué el hielo flota (y por qué eso salvó la vida en lagos y mares)?",
+  "proyecto": "2026-11-10 · por qué flota el hielo",
+  "nota": ""
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Cómo se sostiene un avión en el aire? (por qué la explicación de las alas es incompleta)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué el cielo es azul y los atardeceres rojos? (dispersión de Rayleigh)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué nos mareamos en un coche leyendo? (conflicto de señales; sin consejo médico)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué un cohete tiene etapas? (la ecuación del cohete)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Cómo funciona un microondas y por qué calienta el agua primero?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué el agua hirviendo sube más despacio en alta montaña? (presión y punto de ebullición)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué los relojes atómicos son tan exactos y qué es un segundo?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Cómo sabemos la edad de la Tierra? (datación radiactiva)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué los terremotos se miden en escala logarítmica?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Cómo funciona el GPS y por qué necesita la relatividad?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué el hielo seco 'no se derrite'? (sublimación)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿por qué las burbujas del champán suben en línea? (nucleación)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Cómo funciona una batería de litio por dentro?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué el arcoíris es un círculo completo? (geometría de la luz)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué las pompas de jabón tienen colores? (interferencia en láminas delgadas)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Cómo se forman los relámpagos? (carga en nubes)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué la Luna siempre muestra la misma cara? (acoplamiento de marea)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Qué es un agujero negro y cómo se midió la primera imagen? (EHT)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué el aluminio no se oxida como el hierro? (capa de óxido protectora)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Cómo funciona un MRI sin radiación ionizante? (solo mecanismo físico)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué un huevo duro se vuelve duro? (desnaturalización de proteínas)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué el sonido viaja más rápido en el agua?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Cómo se mide la distancia a las estrellas? (paralaje y cefeidas)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Por qué los metales sienten más fríos que la madera a la misma temperatura?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "¿Cómo funciona el efecto Doppler y por qué sabemos que el universo se expande?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado y fuentes"
+ }
+]

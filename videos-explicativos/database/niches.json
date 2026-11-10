@@ -1,0 +1,15 @@
+{
+ "nicho_activo": "Ciencia explicada «cómo funciona» (física, química, espacio, mecanismos cotidianos; sin medicina)",
+ "idioma": "es",
+ "voz": "Duke - Warm Spanish Narrator (5vRWedd4xV6g3a1SoelU)",
+ "formato": "horizontal 16:9, ~7:30",
+ "decidido": "2026-11-10 por el usuario: todos los vídeos del canal serán de este nicho",
+ "confianza": "baja (sin datos de NexLev hasta 2026-11-15)",
+ "validacion": "decidir escalar/mantener/abandonar con >=5 vídeos publicados medidos a 7 y 28 días",
+ "reglas": [
+  "el nicho no cambia",
+  "el subnicho NUNCA se repite (ni reformulado)",
+  "no es consejo médico/financiero",
+  "cada vídeo con fuentes verificables y aporte propio, formato visual variado"
+ ]
+}
