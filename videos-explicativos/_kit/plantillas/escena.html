@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>TEMA</title>
+<link rel="stylesheet" href="motor/explica.css">
+<script src="voz/timeline.js"></script>
+<script src="motor/explica.js"></script>
+<script src="motor/materiales.js"></script>
+<style>
+  /* estilos propios de este vídeo (piezas, etiquetas, tarjetas). Los colores base están en motor/explica.css (:root) */
+  .tag { font-family: 'Bricolage'; font-weight: 700; font-size: 54px; fill: var(--linea); letter-spacing: -1px; }
+  .tag.ac { fill: var(--acento); }
+  .tagp { font-family: 'Mono'; font-weight: 700; font-size: 32px; fill: var(--tenue); letter-spacing: 3px; }
+  .pill { position: absolute; left: 50%; transform: translateX(-50%); padding: 16px 30px; border-radius: 999px; font-family: 'Mono'; font-weight: 700;
+    font-size: 34px; letter-spacing: 2px; white-space: nowrap; background: rgba(23,21,28,.9); border: 2px solid var(--tenue2); }
+</style></head>
+<body><div id="lienzo">
+  <div class="rejilla"></div>
+  <!-- EL MUNDO: todo lo que se mueve con la cámara va dentro de #cam (coordenadas libres; la cámara elige qué se ve) -->
+  <svg id="mundo-svg" viewBox="0 0 1080 1920"><g id="cam"><g id="contenido"><!-- todo el mundo va aquí dentro (la lupa lo amplía) -->
+    <!-- 1 · dibuja aquí el objeto real en sección (trazos .l / .lf, rellenos con colores de significado) -->
+    <path id="pieza" class="l" d="M240 900 L840 900"/>
+    <!-- etiquetas del mundo: un grupo por etiqueta. Si un grupo necesita transform, envuélvelo: <g transform="…"><g id="x">…</g></g> -->
+    <g id="eti1"><text class="tag ac" x="540" y="860" text-anchor="middle">PIEZA</text></g>
+    <g id="flujo"></g>
+  </g><!-- /contenido -->
+  <!-- aquí, fuera de #contenido: la lupa (X.lupa) para que no se amplíe a sí misma -->
+  </g></svg>
+  <!-- encima de la cámara (fijo en pantalla): titular del gancho y píldoras de estado -->
+  <div id="titular" class="titular" style="top:200px">¿Por qué <em>pasa esto</em>?</div>
+  <div id="estado" class="pill" style="top:190px">DATO CLAVE</div>
+  <div id="subs"></div>
+  <div id="barra" class="progreso"></div>
+</div>
+<script>
+X.listo(() => {
+  const $ = (id) => document.getElementById(id);
+  // 2 · anclas: una por idea, con la palabra exacta de voz.txt (X.debe para el render si falta)
+  const A = {
+    gancho: 0.05,
+    pieza: X.debe(X.en('PALABRA'), 'PALABRA'),
+  };
+  // 3 · cámara: plano general → detalle de cada paso → vuelve a abrir en el giro
+  const camaras = [
+    { t: 0, x: 540, y: 900, z: 1.0 },
+    { t: A.pieza + 0.2, x: 540, y: 900, z: 1.5 },
+  ];
+  camaras.slice(1).forEach((c) => X.sonido(c.t - 0.8, 'whoosh', 0.7));
+  X.sonido(A.pieza, 'pop', 0.6);
+  // 4 · flujos (agua, gas, calor…): ruta(u) → [x, y]
+  const flujo = X.particulas($('flujo'), { n: 20, ruta: (u) => [240 + 600 * u, 900], vuelta: 2, tam: [8, 14], color: 'var(--agua)' });
+  const subs = X.subtitulos($('subs'), { max: 3, y: 1470, claves: ['PALABRA'] });
+  return (t) => {
+    X.camara($('cam'), t, camaras);
+    $('barra').style.width = (100 * t / X.dur).toFixed(2) + '%';
+    X.anima($('titular'), t, { entra: 0, dur: 0.5, sale: A.pieza - 0.2, desde: { y: -30, blur: 16, s: 0.96 } });
+    X.traza($('pieza'), t, A.pieza - 0.1, 0.8);
+    X.anima($('eti1'), t, { entra: A.pieza, dur: 0.5, desde: { y: 20, blur: 10 } });
+    flujo.dibuja(t, A.pieza + 0.4, null);
+    subs.dibuja(t);
+  };
+});
+</script></body></html>
