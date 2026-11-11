@@ -10,3 +10,5 @@ __pycache__/
 
 # Excepción: identidad del canal (archivos pequeños)
 !canal/perfil.png
+!canal/banner.png
+!canal/perfil2.png
