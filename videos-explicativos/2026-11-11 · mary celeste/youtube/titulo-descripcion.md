@@ -35,7 +35,7 @@ Smithsonian: https://www.smithsonianmag.com/smart-news/an-abandoned-merchant-shi
 UCL: https://www.ucl.ac.uk/news/2006/may/solved-mystery-mary-celeste
 The Log: https://www.thelog.com/news-departments/bizarre-facts-what-happened-to-the-mary-celeste/
 
-#MaryCeleste #Misterios #CasosReales
+#MaryCeleste #Misterios #CasosReales #Historia #BarcoFantasma #ExpedienteAbierto
 
 ## Miniatura
 `miniatura.png` (1280×720, <2 MB). Texto grande y corto («SIN NADIE A BORDO»), barco dibujado, etiqueta con el caso y sello «SIN RESOLVER». El rincón inferior derecho queda libre para la marca de duración de YouTube.
