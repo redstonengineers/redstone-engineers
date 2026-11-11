@@ -1,7 +1,7 @@
 # Short · H. H. Holmes (49 s)
 
 ## Título (Shorts: corto y con gancho)
-**El «Castillo del asesino»: ¿cuánto es verdad? #shorts**
+**El «Castillo del asesino»: ¿cuánto es verdad?**
 
 ## Descripción
 Hoy separamos leyenda y hechos del «Castillo del asesino» de H. H. Holmes (Chicago, 1893): pasillos sin salida, trampillas y cámaras secretas… que casi todos salen de los periódicos de la época.
