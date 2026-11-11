@@ -162,10 +162,10 @@
   "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
  },
  {
-  "estado": "en_produccion",
+  "estado": "descartado",
   "subnicho": "El mecanismo de Anticitera: ¿quién construyó una máquina de cálculo hace 2.000 años?",
   "proyecto": "2026-11-10 · mecanismo de anticitera",
-  "nota": ""
+  "nota": "El usuario pidió el 2026-11-11 NO producir este tema. Guion y fuentes se conservan, no se usa."
  },
  {
   "estado": "candidato",
@@ -174,16 +174,16 @@
   "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
  },
  {
-  "estado": "candidato",
+  "estado": "en_produccion",
   "subnicho": "La Mary Celeste (1872): el barco que apareció sin tripulación",
-  "proyecto": "",
-  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+  "proyecto": "2026-11-11 · mary celeste",
+  "nota": ""
  },
  {
-  "estado": "candidato",
+  "estado": "descartado",
   "subnicho": "El Manuscrito Voynich: el libro que nadie ha podido leer",
-  "proyecto": "",
-  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+  "proyecto": "2026-11-11 · manuscrito voynich",
+  "nota": "El usuario lo descartó el 2026-11-11 (quiere un caso más interesante). Guion y carpeta se conservan, no se usan."
  },
  {
   "estado": "candidato",
