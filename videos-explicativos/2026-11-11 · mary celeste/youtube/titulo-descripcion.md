@@ -7,13 +7,18 @@
 
 La miniatura dice «SIN NADIE A BORDO»: el título 1 no la repite, la completa.
 
-## Descripción (para pegar)
+## Descripción (formato corto, como la del canal) — 675 caracteres
 
-En diciembre de 1872, un barco apareció a la deriva en el Atlántico, en buen estado y con su carga… pero sin las diez personas que iban a bordo. Más de siglo y medio después, nadie sabe qué pasó.
+El Mary Celeste (1872): un barco que apareció a la deriva en el Atlántico, en buen estado, con su carga… y sin las diez personas que iban a bordo.
 
-Abrimos el expediente del Mary Celeste: qué está comprobado, qué teorías hay (motín, piratas, vapores de alcohol, un terremoto submarino…) y cuáles no tienen pruebas. Y cuánto de lo que crees saber nació de un cuento de ficción de 1884.
+En este expediente separamos lo que está comprobado de lo que no: qué teorías hay (motín, piratas, vapores de alcohol, un terremoto submarino), cuáles no tienen pruebas y cuánto de lo que crees saber nació de un cuento de ficción de 1884. Cada afirmación va marcada como CONFIRMADO, HIPÓTESIS o SIN PRUEBAS.
 
-⏱ CAPÍTULOS
+Aquí no hay conspiraciones ni respuestas fáciles: cuando no se sabe algo, lo decimos.
+
+📂 Fuentes consultadas: Britannica, Smithsonian, UCL y The Log (enlaces abajo).
+🔔 Suscríbete para no perderte el próximo expediente.
+
+### Capítulos (opcional, pegar debajo)
 0:00 Diciembre de 1872
 0:36 El expediente: lo comprobado
 0:55 Las diez personas a bordo
@@ -21,19 +26,14 @@ Abrimos el expediente del Mary Celeste: qué está comprobado, qué teorías hay
 1:53 Gibraltar y las sospechas
 2:29 Teorías sin pruebas
 3:06 Las hipótesis que sí encajan
-4:28 Lo que añadió la leyenda (Conan Doyle)
-5:21 Resumen: lo que sabemos y lo que no
+4:28 Lo que añadió la leyenda
+5:21 Lo que sabemos y lo que no
 
-📚 FUENTES CONSULTADAS
-· Encyclopaedia Britannica, «Mary Celeste»: https://www.britannica.com/topic/Mary-Celeste
-· Smithsonian Magazine: https://www.smithsonianmag.com/smart-news/an-abandoned-merchant-ship-was-discovered-floating-in-the-atlantic-1872-the-mystery-its-missing-crew-was-never-solved-180985547/
-· University College London (experimento de Andrea Sella, 2006): https://www.ucl.ac.uk/news/2006/may/solved-mystery-mary-celeste
-· The Log: https://www.thelog.com/news-departments/bizarre-facts-what-happened-to-the-mary-celeste/
-· Portsmouth / Conan Doyle, «Mary Celeste or Marie Celeste?»: https://visitportsmouth.co.uk/conan-doyle/blog/read/2025/03/mary-celeste-or-marie-celeste-b137
-
-En este canal marcamos cada afirmación como CONFIRMADO, HIPÓTESIS o SIN PRUEBAS. Si ves un dato que no encaja, escríbelo en los comentarios.
-
-🔔 Suscríbete para no perderte el próximo expediente.
+### Enlaces de fuentes (opcional, pegar debajo)
+Britannica: https://www.britannica.com/topic/Mary-Celeste
+Smithsonian: https://www.smithsonianmag.com/smart-news/an-abandoned-merchant-ship-was-discovered-floating-in-the-atlantic-1872-the-mystery-its-missing-crew-was-never-solved-180985547/
+UCL: https://www.ucl.ac.uk/news/2006/may/solved-mystery-mary-celeste
+The Log: https://www.thelog.com/news-departments/bizarre-facts-what-happened-to-the-mary-celeste/
 
 #MaryCeleste #Misterios #CasosReales
 
