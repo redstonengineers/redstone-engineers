@@ -180,9 +180,7 @@ X.listo(() => {
     let cur = null;
     beats.forEach((b) => { const vis = t >= b.t0 - 0.001 && t < b.t1 + 0.22; if (vis) { const k0 = sm(cl((t - b.t0) / 0.22)), k1 = t > b.t1 ? 1 - sm(cl((t - b.t1) / 0.22)) : 1; b.o.g.style.display = ''; b.o.g.setAttribute('opacity', (k0 * k1).toFixed(3)); if (t >= b.t0 && t < b.t1) cur = b; } else { b.o.g.style.display = 'none'; } });
     if (cur) { const u = cl((t - cur.t0) / (cur.t1 - cur.t0)), tt = t - cur.t0; cur.o.dibuja(u, tt);
-      // cámara por plano: golpe de zoom al entrar + deriva lenta con dirección distinta en cada plano
-      const d = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [-1, 1]][cur.i % 6], punch = 0.09 * Math.exp(-tt * 7), zoom = 1 + 0.045 * u + punch, sh = tt < 0.32 ? 6 * Math.sin(tt * 80) * (cur.nom === 'sello' ? 1 : 0) : 0;
-      $('cam').setAttribute('transform', `translate(960 540) scale(${zoom.toFixed(4)}) translate(${(-960 + d[0] * 26 * u + sh).toFixed(1)} ${(-540 + d[1] * 18 * u).toFixed(1)})`); }
+    }
     let c = ''; caps.forEach(([s, n]) => { if (t >= s) c = n; }); if (c !== capAnt) { $('cap').innerHTML = '<b>●</b> ' + c; capAnt = c; }
     subs.dibuja(t); grano(t);
   };
