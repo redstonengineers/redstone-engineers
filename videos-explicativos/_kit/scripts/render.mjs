@@ -106,10 +106,16 @@ async function trozo(br, port, f0, f1, salida, cv) {
   } else {
     await pg.close();
     const total = Math.round(info.dur * FPS), cv = codec(), t0 = Date.now();
-    const n = Math.max(1, Math.min(HILOS, Math.ceil(total / 120))), tam = Math.ceil(total / n), dir = fs.mkdtempSync(path.join(os.tmpdir(), 'exp-'));
-    console.log(`→ ${total} fotogramas · ${FPS} fps · ${Math.round(FW * ESC)}×${Math.round(FH * ESC)} · ${n} hilos · desenfoque de movimiento ×${MB}`);
-    const partes = Array.from({ length: n }, (_, k) => path.join(dir, `p${k}.mp4`));
-    await Promise.all(partes.map((p, k) => trozo(br, port, k * tam, Math.min(total, (k + 1) * tam), p, cv)));
+    // render REANUDABLE: tramos de ~15 s guardados en resultados/partes-<calidad>; si el proceso muere, al relanzar se saltan los ya hechos
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'exp-')), pdir = path.join(out, 'partes-' + CAL + '-' + FPS + 'fps-' + MB); fs.mkdirSync(pdir, { recursive: true });
+    const tam = FPS * 15, n = Math.ceil(total / tam), partes = Array.from({ length: n }, (_, k) => path.join(pdir, `parte-${String(k).padStart(3, '0')}.mp4`));
+    const hechas = partes.filter((p) => fs.existsSync(p)).length;
+    console.log(`→ ${total} fotogramas · ${FPS} fps · ${Math.round(FW * ESC)}×${Math.round(FH * ESC)} · ${HILOS} hilos · desenfoque ×${MB} · ${n} tramos (${hechas} ya hechos)`);
+    let sig = 0, listos = hechas;
+    await Promise.all(Array.from({ length: Math.max(1, Math.min(HILOS, n)) }, async () => {
+      for (;;) { const k = sig++; if (k >= n) return; if (fs.existsSync(partes[k])) continue;
+        const tmp = partes[k].replace('.mp4', '.tmp.mp4'); await trozo(br, port, k * tam, Math.min(total, (k + 1) * tam), tmp, cv); fs.renameSync(tmp, partes[k]);
+        console.log(`  tramo ${++listos}/${n}`); } }));
     fs.writeFileSync(path.join(dir, 'lista.txt'), partes.map((p) => `file '${p.replace(/\\/g, '/')}'`).join('\n'));
     const muda = path.join(dir, 'muda.mp4');
     spawnSync('ffmpeg', ['-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', path.join(dir, 'lista.txt'), '-c', 'copy', muda]);
