@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>H. H. Holmes</title>
+<script>window.FORMATO = { w: 1920, h: 1080 };</script>
+<link rel="stylesheet" href="motor/explica.css">
+<script src="voz/timeline.js"></script>
+<script src="motor/explica.js"></script>
+<script src="motor/materiales.js"></script>
+<style>
+  :root { --acento: #E8A33D; --fondo: #08090D; }
+  .cap { position: absolute; left: 110px; top: 70px; font-family: 'Mono'; font-weight: 700; font-size: 28px; letter-spacing: 5px; color: var(--tenue); text-transform: uppercase; }
+  .cap b { color: #C9342B; }
+  .nota { position: absolute; right: 90px; top: 78px; font-family: 'Mono'; font-weight: 700; font-size: 20px; letter-spacing: 2px; color: rgba(243,238,230,.38); }
+  .g-t { font-family: 'Bricolage'; font-weight: 700; fill: var(--linea); }
+  .g-f { font-family: 'Figtree'; font-weight: 700; fill: var(--linea); }
+  .g-m { font-family: 'Mono'; font-weight: 700; fill: var(--tenue); letter-spacing: 3px; }
+  #lienzo { background: radial-gradient(1000px 650px at 50% 42%, #1A1620 0%, #08090D 75%); }
+</style></head>
+<body><div id="lienzo">
+  <div class="rejilla" style="opacity:.12"></div>
+  <svg id="mundo-svg" viewBox="0 0 1920 1080"><g id="cam"><g id="contenido"></g></g></svg>
+  <div id="cap" class="cap"></div>
+  <div class="nota">CASO HISTÓRICO · SIN IMÁGENES GRÁFICAS</div>
+  <div id="subs"></div>
+  <div id="barra" class="progreso" style="background:#C9342B"></div>
+</div>
+<script>
+X.listo(() => {
+  const NS = 'http://www.w3.org/2000/svg', $ = (id) => document.getElementById(id), C = $('contenido');
+  const AM = '#E8A33D', RJ = '#D2382E', VD = '#5BE49B', TX = '#F3EEE6', PA = '#E6DCC3', GR = '#8A93A3';
+  const el = (tag, at = {}, p = C) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); p.appendChild(e); return e; };
+  const g = (p = C, at = {}) => el('g', at, p);
+  const tx = (p, x, y, s, cl = 'g-f', size = 48, anchor = 'middle', fill) => { const e = el('text', { x, y, 'text-anchor': anchor, class: cl, 'font-size': size }, p); if (fill) e.setAttribute('fill', fill); e.textContent = s; return e; };
+  const sm = (u) => u * u * (3 - 2 * u), cl = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v)), L = X.lerp;
+  const R = X.azar(7), pick = (a) => a[Math.floor(R() * a.length)];
+  const card = (p, x, y, w, h, c = AM, f = 'rgba(18,20,28,.94)') => el('rect', { x, y, width: w, height: h, rx: 22, fill: f, stroke: c, 'stroke-width': 3 }, p);
+  const stampEl = (p, x, y, texto, color, rot = -6, size = 40) => { const gg = g(p, { transform: `translate(${x},${y}) rotate(${rot})` }); const w = texto.length * size * 0.68 + 44;
+    el('rect', { x: -w / 2, y: -size * 0.95, width: w, height: size * 1.55, rx: 9, fill: 'rgba(8,9,13,.55)', stroke: color, 'stroke-width': 6 }, gg); tx(gg, 0, size * 0.22, texto, 'g-m', size, 'middle', color); return gg; };
+
+  // ============ MÓDULOS ============ (cada uno devuelve { g, dibuja(u, tt) }; u = progreso 0..1 del plano, tt = segundos)
+  const mod = {};
+  mod.texto = (a) => { const gg = g(); const lines = a.l; const y0 = 540 - (lines.length - 1) * (a.size || 120) * 0.55;
+    const es = lines.map((s, i) => tx(gg, a.align === 'izq' ? 200 : 960, y0 + i * (a.size || 120) * 1.1, s, 'g-t', a.size || 120, a.align === 'izq' ? 'start' : 'middle', i ? (a.c2 || AM) : (a.c1 || TX)));
+    const r = el('rect', { x: a.align === 'izq' ? 200 : 560, y: y0 + lines.length * (a.size || 120) * 1.1 - 40, width: 0, height: 8, fill: a.c2 || AM }, gg);
+    if (a.sub) tx(gg, 960, 880, a.sub, 'g-m', 30);
+    return { g: gg, dibuja: (u, tt) => { es.forEach((e, i) => { const k = sm(cl((tt - i * 0.25) / 0.5)); e.setAttribute('opacity', k); e.setAttribute('transform', `translate(0 ${(1 - k) * 24})`); });
+      r.setAttribute('width', (a.align === 'izq' ? 700 : 800) * sm(cl((tt - 0.5) / 0.8))); if (a.flicker) gg.setAttribute('opacity', (0.75 + 0.25 * Math.sin(tt * 40) * Math.sin(tt * 13)).toFixed(2)); } }; };
+  mod.sello = (a) => { const gg = g(); card(gg, 460, 300, 1000, 480, a.c, 'rgba(14,15,20,.9)'); tx(gg, 960, 400, a.top || '', 'g-m', 34); const s = stampEl(gg, 960, 560, a.t, a.c, -5, a.size || 96); if (a.sub) tx(gg, 960, 700, a.sub, 'g-f', 44, 'middle', 'rgba(243,238,230,.85)');
+    return { g: gg, dibuja: (u, tt) => { const k = sm(cl(tt / 0.25)); s.setAttribute('transform', `translate(960,560) rotate(-5) scale(${L(2.6, 1, k)})`); s.setAttribute('opacity', k); gg.setAttribute('transform', `translate(${tt < 0.5 && tt > 0.25 ? 8 * Math.sin(tt * 90) : 0} 0)`); } }; };
+  mod.feria = (a) => { const gg = g(); const est = Array.from({ length: 60 }, () => el('circle', { cx: R() * 1920, cy: R() * 500, r: 1 + R() * 2, fill: TX, opacity: 0.4 }, gg));
+    el('rect', { x: 0, y: 760, width: 1920, height: 320, fill: '#0C0E14' }, gg);
+    [[300, 130], [560, 190], [820, 110], [1500, 170], [1760, 120]].forEach(([x, r]) => { el('rect', { x: x - r * 1.2, y: 760 - r * 0.7, width: r * 2.4, height: r * 0.7, fill: '#C9C2B0', opacity: 0.85 }, gg); el('path', { d: `M${x - r} ${760 - r * 0.7} A${r} ${r} 0 0 1 ${x + r} ${760 - r * 0.7} Z`, fill: '#EDE6D2' }, gg);
+      for (let i = 0; i < 6; i++) el('rect', { x: x - r * 1.1 + i * (r * 2.2 / 5.5), y: 760 - r * 0.62, width: 8, height: r * 0.62, fill: '#9C957F' }, gg); });
+    const rueda = g(gg, { transform: 'translate(1160 470)' }); const wh = g(rueda); el('circle', { r: 260, fill: 'none', stroke: TX, 'stroke-width': 7 }, wh); el('circle', { r: 200, fill: 'none', stroke: TX, 'stroke-width': 3, opacity: 0.6 }, wh);
+    for (let i = 0; i < 16; i++) { const an = (i / 16) * 6.283; el('line', { x1: 0, y1: 0, x2: Math.cos(an) * 260, y2: Math.sin(an) * 260, stroke: TX, 'stroke-width': 3, opacity: 0.8 }, wh); el('circle', { cx: Math.cos(an) * 260, cy: Math.sin(an) * 260, r: 11, fill: AM }, wh); }
+    el('path', { d: 'M-150 290 L0 0 L150 290', fill: 'none', stroke: TX, 'stroke-width': 7 }, rueda);
+    const luces = Array.from({ length: 70 }, (_, i) => el('circle', { cx: 80 + R() * 1760, cy: 600 + R() * 150, r: 3 + R() * 3, fill: '#FFD98A' }, gg));
+    if (a.t) tx(gg, 960, 190, a.t, 'g-t', 100, 'middle', a.c || TX); if (a.s) tx(gg, 960, 260, a.s, 'g-m', 32);
+    return { g: gg, dibuja: (u, tt) => { wh.setAttribute('transform', `rotate(${tt * 6})`); luces.forEach((l, i) => l.setAttribute('opacity', (0.45 + 0.55 * Math.sin(tt * 3 + i * 1.7)).toFixed(2))); } }; };
+  mod.gente = (a) => { const gg = g(); el('rect', { x: 0, y: 800, width: 1920, height: 280, fill: '#0C0E14' }, gg); const fig = Array.from({ length: 46 }, () => { const x = R() * 2200, s = 0.7 + R() * 0.7, c = g(gg); el('circle', { cx: 0, cy: -70, r: 15, fill: '#05060A' }, c); el('path', { d: 'M-24 0 Q0 -66 24 0 Z', fill: '#05060A' }, c); return { c, x, s, v: 40 + R() * 90, y: 850 + R() * 170 }; });
+    tx(gg, 960, 330, a.t, 'g-t', 110); tx(gg, 960, 430, a.s || '', 'g-m', 34, 'middle', AM);
+    return { g: gg, dibuja: (u, tt) => fig.forEach((f) => { const x = ((f.x + f.v * tt) % 2300) - 150; f.c.setAttribute('transform', `translate(${x} ${f.y}) scale(${f.s * 1.7})`); }) }; };
+  mod.edificio = (a) => { const gg = g(); const fx = 960, top = 310, W = 900, H = 560; const sky = el('rect', { x: 0, y: 0, width: 1920, height: 1080, fill: 'none' }, gg);
+    const b = g(gg); el('rect', { x: fx - W / 2, y: top, width: W, height: H, fill: '#171923', stroke: '#2A2E3C', 'stroke-width': 4 }, b);
+    el('rect', { x: fx - W / 2 - 14, y: top - 26, width: W + 28, height: 26, fill: '#222634' }, b);
+    const ven = []; for (let f = 0; f < 3; f++) for (let i = 0; i < 8; i++) ven.push(el('rect', { x: fx - W / 2 + 44 + i * 104, y: top + 40 + f * 140, width: 56, height: 84, rx: 4, fill: '#E8A33D', opacity: 0.4 }, b));
+    for (let i = 0; i < 4; i++) { el('rect', { x: fx - W / 2 + 30 + i * 214, y: top + 460, width: 190, height: 110, fill: '#0F1118', stroke: '#2A2E3C', 'stroke-width': 3 }, b); el('path', { d: `M${fx - W / 2 + 30 + i * 214} ${top + 460} l190 0 l-12 -30 l-166 0 z`, fill: i % 2 ? '#7A2420' : '#2C4A63' }, b); }
+    const sign = tx(b, fx, top - 50, a.sign || 'HOTEL DE LA FERIA', 'g-t', 48, 'middle', AM); const lamp = el('circle', { cx: fx + W / 2 + 90, cy: top + 430, r: 70, fill: '#FFD98A', opacity: 0.25 }, gg); el('rect', { x: fx + W / 2 + 86, y: top + 430, width: 8, height: 150, fill: '#2A2E3C' }, gg);
+    const niebla = el('rect', { x: 0, y: 760, width: 1920, height: 320, fill: '#0A0B10', opacity: 0.8 }, gg); if (a.t) tx(gg, 960, 160, a.t, 'g-t', 66, 'middle', a.c || TX);
+    return { g: gg, dibuja: (u, tt) => { const rise = a.rise ? sm(cl(u * 1.4)) : 1; b.setAttribute('transform', `translate(0 ${(1 - rise) * 640})`); ven.forEach((v, i) => { const on = a.dark ? (i === 13 ? 1 : 0.04) : (Math.sin(tt * (a.rojo ? 9 : 2) + i * 2.3) > (a.rojo ? -0.2 : -0.8)) ? 0.9 : 0.18; v.setAttribute('opacity', on); v.setAttribute('fill', a.rojo ? RJ : AM); }); sign.setAttribute('opacity', a.dark ? 0.1 : (0.7 + 0.3 * Math.sin(tt * 7))); lamp.setAttribute('opacity', a.dark ? 0.08 : 0.25); } }; };
+  mod.plano = (a) => { const gg = g(); const x0 = 360, y0 = 220, W = 1200, H = 560, cols = 6, rows = 3, cw = W / cols, rh = H / rows;
+    el('rect', { x: x0, y: y0, width: W, height: H, fill: 'rgba(18,20,28,.9)', stroke: TX, 'stroke-width': 6 }, gg);
+    const hab = []; for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) hab.push(el('rect', { x: x0 + c * cw + 8, y: y0 + r * rh + 8, width: cw - 16, height: rh - 16, fill: 'none', stroke: GR, 'stroke-width': 2.5, opacity: 0.8 }, gg));
+    const ex = g(gg); const marc = [];
+    if (a.m === 'laberinto') { for (let i = 0; i < 22; i++) { const h = R() > 0.5, x = x0 + Math.floor(R() * cols) * cw, y = y0 + Math.floor(R() * rows) * rh; marc.push(el('line', h ? { x1: x, y1: y, x2: x + cw, y2: y, stroke: RJ, 'stroke-width': 6 } : { x1: x, y1: y, x2: x, y2: y + rh, stroke: RJ, 'stroke-width': 6 }, ex)); } }
+    if (a.m === 'pasillos') { const d = `M${x0} ${y0 + rh * 1.5} H${x0 + cw * 2.5} V${y0 + rh * 0.5} H${x0 + cw * 4.5} V${y0 + rh * 2} H${x0 + cw * 5.5}`; const p = el('path', { d, fill: 'none', stroke: AM, 'stroke-width': 12, 'stroke-linecap': 'round' }, ex); marc.push(p); tx(ex, x0 + cw * 5.7, y0 + rh * 2 + 22, '✕', 'g-t', 60, 'middle', RJ); }
+    if (a.m === 'trampillas') for (let i = 0; i < 9; i++) { const q = el('rect', { x: x0 + 40 + R() * (W - 140), y: y0 + 40 + R() * (H - 140), width: 56, height: 56, fill: RJ, opacity: 0.3 }, ex); marc.push(q); }
+    if (a.m === 'sinventanas') hab.forEach((h, i) => { if (i % 3 !== 1) { h.setAttribute('fill', 'rgba(210,56,46,.35)'); marc.push(h); } });
+    if (a.m === 'camaras') [2, 7, 9, 14].forEach((i) => { hab[i].setAttribute('fill', 'rgba(210,56,46,.55)'); const b = hab[i].getBBox(); tx(ex, b.x + b.width / 2, b.y + b.height / 2 + 24, '✕', 'g-t', 64); marc.push(hab[i]); });
+    tx(gg, 960, 160, 'PLANO ESQUEMÁTICO · LO QUE CUENTA LA LEYENDA', 'g-m', 28, 'middle', AM); stampEl(gg, 1480, 860, a.sello || 'LEYENDA', RJ, -6, 40); if (a.t) tx(gg, 960, 880, a.t, 'g-t', 54, 'middle', TX);
+    return { g: gg, dibuja: (u, tt) => marc.forEach((m, i) => { const k = sm(cl((tt - i * 0.12) / 0.4)); m.setAttribute('opacity', a.m === 'trampillas' ? k * (0.4 + 0.6 * Math.abs(Math.sin(tt * 4 + i))) : k); }) }; };
+  mod.puerta = () => { const gg = g(); el('rect', { x: 700, y: 180, width: 520, height: 720, fill: '#10121A', stroke: TX, 'stroke-width': 8 }, gg);
+    const muro = g(gg); el('rect', { x: 720, y: 200, width: 480, height: 680, fill: '#3A2420' }, muro); for (let r = 0; r < 12; r++) for (let c = 0; c < 4; c++) el('rect', { x: 720 + c * 120 + (r % 2 ? -60 : 0), y: 200 + r * 57, width: 116, height: 53, fill: 'none', stroke: '#1C100E', 'stroke-width': 3 }, muro);
+    const puerta = el('path', { fill: '#6B4A2B', stroke: '#2A1A0E', 'stroke-width': 6 }, gg); tx(gg, 960, 960, 'PUERTAS QUE SE ABRÍAN A PAREDES', 'g-t', 52, 'middle', RJ);
+    return { g: gg, dibuja: (u, tt) => { const k = sm(cl(tt / 1.4)), w = 480 * (1 - k * 0.92); puerta.setAttribute('d', `M720 200 L${720 + w} ${200 - 30 * k} L${720 + w} ${880 + 30 * k} L720 880 Z`); } }; };
+  mod.periodico = (a) => { const gg = g(); const hojas = []; for (let n = 0; n < (a.n || 1); n++) { const h = g(gg); el('rect', { x: -330, y: -420, width: 660, height: 840, fill: PA, stroke: '#9C927A', 'stroke-width': 3 }, h);
+      tx(h, 0, -350, a.mast || 'LA GACETA DEL DÍA', 'g-t', 44, 'middle', '#241E14'); el('line', { x1: -300, y1: -325, x2: 300, y2: -325, stroke: '#241E14', 'stroke-width': 4 }, h);
+      const t1 = a.h1 || '¡EL HORROR', t2 = a.h2 || 'DEL CASTILLO!', fs = Math.min(78, 600 / (Math.max(t1.length, t2.length) * 0.56)); tx(h, 0, -230, t1, 'g-t', fs, 'middle', '#1A1510'); tx(h, 0, -140, t2, 'g-t', fs, 'middle', '#8E1F18');
+      for (let i = 0; i < 14; i++) el('rect', { x: -300 + (i % 2) * 310, y: -90 + Math.floor(i / 2) * 44, width: 280 - R() * 90, height: 14, fill: '#6B634F', opacity: 0.8 }, h);
+      el('rect', { x: -110, y: 250, width: 220, height: 130, fill: '#C9BF9F', stroke: '#9C927A' }, h); hojas.push(h); }
+    stampEl(gg, 520, 760, a.stamp || 'RECREACIÓN', a.sc || AM, -8, 34); if (a.t) tx(gg, 960, 990, a.t, 'g-m', 30);
+    return { g: gg, dibuja: (u, tt) => hojas.forEach((h, i) => { const k = sm(cl((tt - i * 0.35) / 0.5)); h.setAttribute('transform', `translate(${960 + (i - (hojas.length - 1) / 2) * (hojas.length > 2 ? 250 : 170)} ${500 + 20 * Math.sin(tt * 1.2 + i)}) rotate(${(i - (hojas.length - 1) / 2) * 5 + 2 * Math.sin(tt * 0.9 + i)}) scale(${L(1.2, hojas.length > 2 ? 0.62 : 0.8, k)})`); h.setAttribute('opacity', k); }) }; };
+  mod.retrato = (a) => { const gg = g(); const lz = el('circle', { cx: 960, cy: 470, r: 360, fill: a.c || AM, opacity: 0.12 }, gg); const f = g(gg);
+    el('path', { d: 'M660 900 Q660 650 960 640 Q1260 650 1260 900 Z', fill: '#05060A' }, f); el('circle', { cx: 960, cy: 500, r: 120, fill: '#05060A' }, f);
+    if (a.m === 'detective') { el('ellipse', { cx: 960, cy: 410, rx: 190, ry: 26, fill: '#05060A' }, f); el('path', { d: 'M820 410 Q830 310 960 300 Q1090 310 1100 410 Z', fill: '#05060A' }, f); }
+    else { el('ellipse', { cx: 960, cy: 395, rx: 175, ry: 24, fill: '#05060A' }, f); el('path', { d: 'M850 395 Q850 300 960 295 Q1070 300 1070 395 Z', fill: '#05060A' }, f); }
+    el('path', { d: 'M900 535 Q960 560 1020 535', fill: 'none', stroke: '#1A1D28', 'stroke-width': 12, 'stroke-linecap': 'round' }, f);
+    const sonrisa = el('path', { d: 'M905 540 Q960 600 1015 540', fill: 'none', stroke: '#E8D9B0', 'stroke-width': 7, 'stroke-linecap': 'round', opacity: 0 }, f);
+    const barras = g(gg, { opacity: 0 }); for (let i = 0; i < 9; i++) el('rect', { x: 560 + i * 100, y: 120, width: 14, height: 800, fill: '#2B2E3B' }, barras);
+    const n1 = tx(gg, 960, 905, a.n1 || '', 'g-t', 56, 'middle', a.c || AM), n2 = tx(gg, 960, 905, a.n2 || '', 'g-t', 56, 'middle', TX); n2.setAttribute('opacity', 0);
+    return { g: gg, dibuja: (u, tt) => { f.setAttribute('transform', `translate(0 ${4 * Math.sin(tt * 1.3)})`); if (a.m === 'swap') { const k = sm(cl((tt - 1.0) / 0.6)); n1.setAttribute('opacity', 1 - k); n2.setAttribute('opacity', k); } if (a.m === 'sonrisa') sonrisa.setAttribute('opacity', sm(cl((tt - 0.4) / 0.8))); if (a.m === 'barras') barras.setAttribute('opacity', sm(cl(tt / 0.8))); lz.setAttribute('opacity', 0.1 + 0.05 * Math.sin(tt * 2)); } }; };
+  mod.doc = (a) => { const gg = g(); const d = g(gg, { transform: 'translate(960 520) rotate(-2)' }); el('rect', { x: -420, y: -340, width: 840, height: 680, fill: PA, stroke: '#9C927A', 'stroke-width': 3 }, d); tx(d, 0, -270, a.title, 'g-t', 56, 'middle', '#241E14');
+    for (let i = 0; i < 9; i++) el('rect', { x: -360, y: -200 + i * 44, width: 720 - (i % 3) * 120, height: 12, fill: '#6B634F', opacity: 0.75 }, d);
+    const firma = el('path', { d: 'M-300 270 q40 -60 80 0 t80 0 t80 -20 t100 10', fill: 'none', stroke: '#1E2A44', 'stroke-width': 6, 'stroke-linecap': 'round' }, d); firma.style.strokeDasharray = 700;
+    const sl = a.stamp ? stampEl(gg, 1230, 330, a.stamp, a.sc || RJ, 10, 44) : null; if (a.t) tx(gg, 960, 990, a.t, 'g-f', 40, 'middle', 'rgba(243,238,230,.85)');
+    return { g: gg, dibuja: (u, tt) => { firma.style.strokeDashoffset = 700 * (1 - sm(cl((tt - 0.3) / 1.6))); if (sl) { const k = sm(cl((tt - 1.1) / 0.3)); sl.setAttribute('opacity', k); sl.setAttribute('transform', `translate(1230,330) rotate(10) scale(${L(2.2, 1, k)})`); } } }; };
+  mod.dos = (a) => { const gg = g(); const pf = (x, n, c) => { const q = g(gg, { transform: `translate(${x} 560)` }); el('circle', { cx: 0, cy: -100, r: 70, fill: '#05060A', stroke: c, 'stroke-width': 5 }, q); el('path', { d: 'M-130 140 Q-130 -10 0 -20 Q130 -10 130 140 Z', fill: '#05060A', stroke: c, 'stroke-width': 5 }, q); tx(q, 0, 230, n, 'g-t', 48, 'middle', c); return q; };
+    pf(560, 'HOLMES', AM); pf(1360, 'PITEZEL', GR); const l = el('path', { d: 'M700 480 H1220', stroke: RJ, 'stroke-width': 8, 'stroke-dasharray': '4 16', 'stroke-linecap': 'round' }, gg); tx(gg, 960, 440, a.t || 'SEGURO DE VIDA', 'g-m', 32, 'middle', RJ);
+    return { g: gg, dibuja: (u, tt) => l.setAttribute('stroke-dashoffset', -tt * 60) }; };
+  mod.luces = (a) => { const gg = g(); const ls = [0, 1, 2].map((i) => { const x = 660 + i * 300; el('circle', { cx: x, cy: 520, r: 90, fill: AM, opacity: 0.12 }, gg); return el('circle', { cx: x, cy: 520, r: 28, fill: '#FFD98A' }, gg); }); tx(gg, 960, 330, a.t, 'g-t', 90, 'middle', TX); tx(gg, 960, 800, a.s || '', 'g-m', 34);
+    return { g: gg, dibuja: (u, tt) => ls.forEach((l, i) => { const out = a.apaga ? sm(cl((tt - 0.8 - i * 0.7) / 0.5)) : 0; l.setAttribute('opacity', (0.55 + 0.45 * Math.sin(tt * 6 + i)) * (1 - out)); }) }; };
+  mod.mapa = (a) => { const gg = g(); const N = { Chicago: [380, 560], Toronto: [980, 340], Boston: [1560, 330], Filadelfia: [1420, 700] };
+    for (let i = 0; i < 12; i++) el('line', { x1: 160 + i * 150, y1: 180, x2: 160 + i * 150, y2: 900, stroke: TX, opacity: 0.06, 'stroke-width': 2 }, gg);
+    Object.entries(N).forEach(([n, [x, y]]) => { el('circle', { cx: x, cy: y, r: 16, fill: a.f === n ? AM : GR }, gg); tx(gg, x, y + 60, n.toUpperCase(), 'g-t', 40, 'middle', a.f === n ? AM : TX); });
+    const rutas = (a.r || []).map(([p, q, c]) => el('path', { d: `M${N[p][0]} ${N[p][1]} Q${(N[p][0] + N[q][0]) / 2} ${Math.min(N[p][1], N[q][1]) - 130} ${N[q][0]} ${N[q][1]}`, fill: 'none', stroke: c || AM, 'stroke-width': 8, 'stroke-dasharray': '3 18', 'stroke-linecap': 'round' }, gg));
+    tx(gg, 960, 130, a.t || '', 'g-t', 56, 'middle', TX); tx(gg, 960, 990, 'ESQUEMA · NO A ESCALA', 'g-m', 24);
+    return { g: gg, dibuja: (u, tt) => rutas.forEach((r, i) => { r.setAttribute('opacity', sm(cl((tt - i * 0.6) / 0.5))); r.setAttribute('stroke-dashoffset', -tt * 40); }) }; };
+  mod.cartas = () => { const gg = g(); const es = [0, 1, 2].map((i) => { const e = g(gg); el('rect', { x: -170, y: -110, width: 340, height: 220, fill: PA, stroke: '#9C927A', 'stroke-width': 3 }, e); el('path', { d: 'M-170 -110 L0 20 L170 -110', fill: 'none', stroke: '#9C927A', 'stroke-width': 3 }, e); stampEl(e, 70, 60, 'SIN ENVIAR', RJ, -10, 22); return e; });
+    tx(gg, 960, 280, 'CARTAS SIN ENVIAR', 'g-t', 90, 'middle', AM); return { g: gg, dibuja: (u, tt) => es.forEach((e, i) => e.setAttribute('transform', `translate(${560 + i * 400} ${600 + 18 * Math.sin(tt * 1.4 + i * 2)}) rotate(${-8 + i * 8})`)) }; };
+  mod.grafico = (a) => { const gg = g(); const x0 = 460, y0 = 820, H = 520, vals = [[9, 'NUEVE', 'indicios razonables', VD], [27, '27', 'su confesión', AM], [50, '≈ 50', 'tope de historiadores', AM], [200, '200', 'cálculo de prensa', RJ]]; el('line', { x1: x0 - 40, x2: 1500, y1: y0, y2: y0, stroke: TX, 'stroke-width': 4 }, gg);
+    const bs = vals.map(([v, n, s, c], i) => { const x = x0 + i * 280, h = (H * v) / 200 + 6, b = el('rect', { x, y: y0 - h, width: 190, height: h, fill: c, opacity: 0 }, gg); const l = tx(gg, x + 95, y0 - h - 22, n, 'g-t', 56, 'middle', c); const s2 = tx(gg, x + 95, y0 + 44, s, 'g-m', 20); l.setAttribute('opacity', 0); s2.setAttribute('opacity', 0); return { b, l, s2 }; });
+    tx(gg, 960, 170, a.t || '¿CUÁNTAS VÍCTIMAS?', 'g-t', 76); const q = tx(gg, 1250, 560, '?', 'g-t', 400, 'middle', RJ); q.setAttribute('opacity', 0.12);
+    return { g: gg, dibuja: (u, tt) => bs.forEach((o, i) => { const k = i < (a.n || 0) ? sm(cl((tt - i * 0.45) / 0.5)) : 0; o.b.setAttribute('opacity', k); o.l.setAttribute('opacity', k); o.s2.setAttribute('opacity', k); }) }; };
+  mod.linea = (a) => { const gg = g(); const ev = [['1893', 'La Feria'], ['NOV. 1894', 'Detenido en Boston'], ['1895', 'Juicio en Filadelfia'], ['7 MAYO 1896', 'Ejecutado']]; el('line', { x1: 240, x2: 1680, y1: 540, y2: 540, stroke: TX, 'stroke-width': 6, opacity: 0.6 }, gg);
+    const ns = ev.map(([y, s], i) => { const x = 330 + i * 420, q = g(gg, { transform: `translate(${x} 540)` }); el('circle', { r: 22, fill: i === a.f ? AM : GR }, q); tx(q, 0, -60, y, 'g-t', i === a.f ? 62 : 44, 'middle', i === a.f ? AM : TX); tx(q, 0, 90, s, 'g-f', 34, 'middle', i === a.f ? TX : GR); return q; });
+    return { g: gg, dibuja: (u, tt) => ns.forEach((q, i) => q.setAttribute('opacity', i <= (a.u ?? 3) ? sm(cl((tt - i * 0.2) / 0.4)) : 0.12)) }; };
+  mod.cifra = (a) => { const gg = g(); const n = tx(gg, 960, 560, '', 'g-t', a.size || 280, 'middle', a.c || AM); tx(gg, 960, 700, a.s, 'g-m', 36); tx(gg, 960, 260, a.t || '', 'g-t', 64, 'middle', TX);
+    return { g: gg, dibuja: (u, tt) => { const k = sm(cl(tt / (a.d || 1.8))); n.textContent = (a.pre || '') + Math.round(L(0, a.v, k)).toLocaleString('de-DE') + (a.suf || ''); } }; };
+  mod.libro = () => { const gg = g(); const l = g(gg); el('rect', { x: -230, y: -330, width: 460, height: 660, rx: 10, fill: '#141A24', stroke: AM, 'stroke-width': 5 }, l); el('rect', { x: -230, y: -330, width: 26, height: 660, fill: '#0C1017' }, l); tx(l, 10, -150, 'EL DIABLO', 'g-t', 62, 'middle', AM); tx(l, 10, -80, 'EN LA CIUDAD', 'g-t', 44); tx(l, 10, -30, 'BLANCA', 'g-t', 62); tx(l, 10, 220, '2003', 'g-m', 40); el('path', { d: 'M-120 60 q60 -60 120 0 t120 0', fill: 'none', stroke: TX, 'stroke-width': 4, opacity: 0.6 }, l);
+    return { g: gg, dibuja: (u, tt) => l.setAttribute('transform', `translate(960 520) rotate(${-6 + 4 * Math.sin(tt)}) scale(${1 + 0.05 * u})`) }; };
+  mod.dos_col = (a) => { const gg = g(); const cols = [[480, 'LEYENDA', RJ, ['Laberinto de pasillos', 'Trampillas y cámaras', 'Crematorio en el sótano']], [1440, 'DOCUMENTADO', VD, ['Un hotel en Englewood', 'Fraude de seguros', 'Condenado por Pitezel']]]; const cs = cols.map(([x, t, c, it]) => { const q = g(gg); card(q, x - 400, 220, 800, 600, c); tx(q, x, 310, t, 'g-t', 66, 'middle', c); it.forEach((s, i) => tx(q, x, 440 + i * 110, s, 'g-f', 44)); return q; });
+    return { g: gg, dibuja: (u, tt) => cs.forEach((q, i) => q.setAttribute('opacity', i < a.k ? sm(cl(tt / 0.5)) : 0.1)) }; };
+  mod.resumen = (a) => { const gg = g(); const it = a.items; tx(gg, 960, 190, a.t, 'g-t', 76, 'middle', a.c || AM); const qs = it.map((s, i) => { const q = g(gg); card(q, 300, 290 + i * 150, 1320, 120, a.c || AM); tx(q, 960, 368 + i * 150, s, 'g-f', 42); return q; });
+    return { g: gg, dibuja: (u, tt) => qs.forEach((q, i) => q.setAttribute('opacity', i <= a.k ? sm(cl((tt - (i === a.k ? 0 : -9)) / 0.4)) : 0)) }; };
+  mod.pasillo = (a) => { const gg = g(); const vp = [960, 500]; el('path', { d: 'M0 1080 L960 560 L1920 1080 Z', fill: '#0D0F16' }, gg); el('path', { d: 'M0 0 L960 470 L0 1080 Z', fill: '#12141D' }, gg); el('path', { d: 'M1920 0 L960 470 L1920 1080 Z', fill: '#12141D' }, gg);
+    const pu = []; for (let i = 0; i < 6; i++) { const k = 1 - i * 0.16, x = 960 - 760 * k * 0.9, w = 120 * k, h = 300 * k; [[x, -1], [1920 - x - w, 1]].forEach(([xx]) => pu.push(el('rect', { x: xx, y: 540 - h * 0.75, width: w, height: h, fill: i === 5 ? '#FFD98A' : '#05060A', stroke: '#2A2E3C', 'stroke-width': 3, opacity: 0.9 }, gg))); }
+    if (a.t) tx(gg, 960, 150, a.t, 'g-t', 66, 'middle', TX); return { g: gg, dibuja: (u, tt) => pu.forEach((p, i) => p.setAttribute('opacity', (0.5 + 0.4 * Math.sin(tt * 3 + i * 1.3)) * (a.apaga ? 1 - u * 0.8 : 1))) }; };
+
+  // ============ GUION DE PLANOS ============ [segundo, módulo, args]
+  const B = [
+    [0.0, 'feria', { t: 'CHICAGO · 1893', c: TX }], [3.2, 'feria', { t: 'LA CIUDAD ENTERA BRILLA', c: AM }], [5.4, 'gente', { t: 'MILLONES DE VISITANTES', s: 'EXPOSICIÓN UNIVERSAL' }], [9.0, 'feria', { t: 'LUCES · CÚPULAS BLANCAS', c: TX, s: 'inventos del futuro' }],
+    [12.9, 'texto', { l: ['A UNOS KILÓMETROS', 'DE ESE ESPECTÁCULO'], size: 110, c2: RJ }], [17.2, 'texto', { l: ['ENGLEWOOD'], size: 190, c1: AM, sub: 'UN BARRIO DE CHICAGO' }], [20.2, 'edificio', { rise: true, t: 'UN EDIFICIO ENORME' }], [22.4, 'edificio', { t: 'UN HOTEL' }], [23.7, 'edificio', { rojo: true, t: 'SEGÚN LA LEYENDA…', c: RJ }],
+    [26.4, 'luces', { t: 'ALGUNOS HUÉSPEDES', s: 'NO VOLVÍAN A SALIR', apaga: true }],
+    [29.0, 'retrato', { n1: 'H. H. HOLMES', m: 'normal' }], [31.9, 'texto', { l: ['EL «CASTILLO', 'DEL ASESINO»'], size: 130, c2: RJ }], [34.5, 'periodico', { n: 3, h1: '¡TERROR EN', h2: 'LA FERIA!', t: 'LO QUE CONTARON LOS PERIÓDICOS' }], [37.6, 'sello', { t: 'VERDAD', top: '¿QUÉ PASÓ DE VERDAD?', c: AM, sub: 'SEPARAR HECHOS Y LEYENDA' }],
+    [40.2, 'retrato', { n1: 'EL HOMBRE', m: 'normal' }], [42.1, 'retrato', { n1: 'H. H. HOLMES', n2: 'NO SE LLAMABA ASÍ', m: 'swap' }], [44.1, 'retrato', { n1: 'H. H. HOLMES', n2: 'HERMAN WEBSTER MUDGETT', m: 'swap', c: AM }], [47.5, 'texto', { l: ['CAMBIÓ DE NOMBRE', 'Y CON ÉL, DE VIDA'], size: 100 }],
+    [50.2, 'retrato', { n1: 'CARISMÁTICO · EDUCADO · AMABLE', m: 'sonrisa' }], [53.5, 'sello', { t: 'ESTAFADOR', top: 'PERO ERA…', c: RJ }],
+    [55.5, 'edificio', { rise: true, t: 'UN SOLAR EN ENGLEWOOD', c: TX }], [58.8, 'edificio', { t: 'TIENDAS ABAJO · HABITACIONES ARRIBA', c: AM }], [62.3, 'edificio', { sign: 'HOTEL DE LA FERIA', t: 'EL HOTEL DE LA FERIA' }], [64.6, 'texto', { l: ['UN NEGOCIO', 'PERFECTO'], size: 130 }], [66.3, 'gente', { t: 'MILES DE TURISTAS', s: 'NECESITABAN DÓNDE DORMIR' }],
+    [69.2, 'sello', { t: 'DOCUMENTADO', top: 'HASTA AQUÍ', c: VD }], [72.0, 'texto', { l: ['AHORA VIENE', 'LA PARTE QUE DA MIEDO'], size: 100, c2: RJ, flicker: true }], [74.1, 'sello', { t: 'LEYENDA', top: 'LO QUE SE CUENTA', c: RJ }],
+    [75.8, 'plano', { m: 'laberinto', t: 'UN LABERINTO' }], [78.6, 'plano', { m: 'pasillos', t: 'PASILLOS SIN SALIDA' }], [80.9, 'puerta', {}], [82.7, 'plano', { m: 'trampillas', t: 'TRAMPILLAS' }], [83.8, 'plano', { m: 'sinventanas', t: 'HABITACIONES SIN VENTANAS' }], [85.6, 'plano', { m: 'camaras', t: 'CÁMARAS SELLADAS' }], [89.2, 'luces', { t: 'SIN POSIBILIDAD', s: 'DE PEDIR AYUDA', apaga: true }],
+    [92.5, 'edificio', { rojo: true, t: 'UNA HISTORIA TERRORÍFICA', c: RJ }], [94.4, 'cifra', { v: 133, suf: ' AÑOS', t: 'CIRCULANDO DESDE 1893', s: 'MÁS DE UN SIGLO CONTÁNDOSE', d: 2.6, size: 240 }],
+    [97.3, 'texto', { l: ['PERO HAY', 'UN PROBLEMA'], size: 140, c2: AM }], [98.9, 'periodico', { n: 1, h1: '¡HORROR EN', h2: 'CHICAGO!', t: 'DE AHÍ SALE CASI TODO' }], [101.4, 'periodico', { n: 2, mast: 'EL GRITO DE LA CIUDAD', h1: 'CÁMARAS DE', h2: 'LA MUERTE', t: 'PERIÓDICOS DE 1890' }], [104.0, 'periodico', { n: 4, h1: '¡EXTRA!', h2: '¡EXTRA!', stamp: 'A VENDER', sc: RJ, t: 'PRENSA SENSACIONALISTA' }],
+    [108.3, 'texto', { l: ['HISTORIADORES', 'ACTUALES'], size: 120, c2: VD }], [111.0, 'sello', { t: 'EXAGERADO', top: 'MUCHAS DESCRIPCIONES', c: AM }], [113.0, 'sello', { t: 'INVENTADO', top: 'O INCLUSO…', c: RJ }],
+    [114.9, 'dos_col', { k: 0 }], [116.8, 'dos_col', { k: 2 }], [118.2, 'dos_col', { k: 2 }],
+    [120.2, 'doc', { title: 'PÓLIZA DE VIDA', t: 'LO DOCUMENTADO EMPIEZA CON UN SEGURO' }], [122.7, 'doc', { title: 'PLAN DE COBRO', t: 'COBRAR EL SEGURO', stamp: 'FRAUDE', sc: RJ }], [126.6, 'dos', { t: 'ALIADOS' }], [130.3, 'dos', { t: 'FINGIR UNA MUERTE' }],
+    [134.3, 'texto', { l: ['PERO EL PLAN', 'ACABÓ DE OTRA MANERA'], size: 100, c2: RJ }], [136.5, 'texto', { l: ['PITEZEL', 'MURIÓ DE VERDAD'], size: 130, c2: RJ }], [138.4, 'retrato', { n1: 'NO QUERÍA CABOS SUELTOS', m: 'normal', c: RJ }], [141.0, 'luces', { t: 'TRES NIÑOS', s: 'SE LOS LLEVÓ CONSIGO' }], [144.0, 'texto', { l: ['«LOS CUIDARÍA»'], size: 150, c1: GR, sub: 'LE DIJO A SU FAMILIA' }], [146.6, 'luces', { t: 'NUNCA VOLVIERON', s: '', apaga: true }],
+    [148.5, 'retrato', { n1: 'DETECTIVE FRANK GEYER', m: 'detective', c: GR }], [152.6, 'mapa', { t: 'UN VIAJE LARGO', f: 'Chicago', r: [['Filadelfia', 'Chicago', AM]] }], [155.4, 'texto', { l: ['UNA PISTA', 'MUY SENCILLA'], size: 130 }], [157.5, 'cartas', {}], [162.4, 'mapa', { t: 'TORONTO', f: 'Toronto', r: [['Chicago', 'Toronto', AM]] }], [163.8, 'edificio', { dark: true, t: 'UNA CASA ALQUILADA CON OTRO NOMBRE', c: GR }], [167.6, 'texto', { l: ['ENCONTRÓ', 'LO QUE TEMÍA'], size: 120, c1: TX, c2: GR }],
+    [169.4, 'periodico', { n: 1, h1: 'OTRO', h2: 'MITO', t: 'LA INVESTIGACIÓN TAMBIÉN GENERÓ LEYENDAS' }], [173.0, 'texto', { l: ['SE HA CONTADO', 'QUE LA MUJER Y LA HIJA', 'DEL DETECTIVE…'], size: 84, c1: TX, c2: GR }], [175.7, 'texto', { l: ['…MURIERON', 'EN UN INCENDIO'], size: 130, c1: RJ, c2: GR }], [179.0, 'sello', { t: 'FALSO', top: 'EL INCENDIO', c: RJ }], [180.1, 'texto', { l: ['VIVIERON', 'MUCHOS AÑOS MÁS'], size: 120, c2: VD }],
+    [182.4, 'retrato', { n1: 'YA ESTABA DETENIDO', m: 'barras', c: RJ }], [185.4, 'linea', { f: 1, u: 1 }], [190.2, 'sello', { t: 'NO POR ASESINATO', top: 'NOVIEMBRE DE 1894', c: AM, size: 64 }], [191.6, 'doc', { title: 'FRAUDE DE SEGUROS', t: 'ESA FUE LA ACUSACIÓN', stamp: 'FRAUDE', sc: AM }], [193.4, 'mapa', { t: 'DESPUÉS INVESTIGARON SU PASADO', f: 'Chicago', r: [['Filadelfia', 'Chicago', RJ]] }], [196.9, 'edificio', { rojo: true, t: 'HASTA EL EDIFICIO DE ENGLEWOOD', c: AM }],
+    [200.4, 'texto', { l: ['Y AQUÍ', 'VIENE EL GIRO'], size: 150, c2: RJ }], [202.0, 'sello', { t: 'SIN CASTILLO', top: 'NO LO CONDENARON POR…', c: RJ }], [205.9, 'doc', { title: 'SENTENCIA', t: 'LA MUERTE DE BENJAMIN PITEZEL', stamp: 'CULPABLE', sc: RJ }], [209.0, 'linea', { f: 2, u: 2 }], [213.3, 'plano', { m: 'ninguno', t: 'SIN NINGUNA CÁMARA SECRETA', sello: 'NINGUNA' }], [216.3, 'doc', { title: 'PRUEBAS CIRCUNSTANCIALES', t: 'Y EL TESTIMONIO DE SUS ESTAFADOS' }],
+    [219.5, 'linea', { f: 3, u: 3 }], [222.9, 'texto', { l: ['EJECUTADO', 'A LOS 34 AÑOS'], size: 130, c2: GR }],
+    [225.1, 'texto', { l: ['PERO ANTES', 'OCURRIÓ ALGO MÁS'], size: 120, c2: AM }], [227.5, 'cifra', { v: 7500, pre: '$ ', t: 'VENDIÓ SU CONFESIÓN A LA PRENSA DE HEARST', s: 'DÓLARES', size: 260, d: 1.6 }], [233.0, 'cifra', { v: 27, t: 'ASEGURABA HABER MATADO A', s: 'PERSONAS', size: 360, c: RJ, d: 1.2 }], [236.8, 'sello', { t: 'ESTABAN VIVAS', top: 'ALGUNAS DE ELLAS…', c: RJ, size: 80 }],
+    [241.6, 'retrato', { n1: 'UN CONDENADO VENDIENDO SU HISTORIA', m: 'normal', c: RJ }], [245.9, 'periodico', { n: 5, h1: '¡CONFESIÓN', h2: 'COMPLETA!', t: 'PUBLICAR LO QUE ASUSTE', stamp: 'A VENDER', sc: RJ }],
+    [250.4, 'grafico', { n: 0 }], [253.7, 'grafico', { n: 0, t: 'NADIE LO SABE CON SEGURIDAD' }], [255.6, 'grafico', { n: 1 }], [258.8, 'grafico', { n: 3 }], [263.9, 'grafico', { n: 4 }], [267.2, 'sello', { t: 'SOLO PRENSA', top: 'LA CIFRA DE 200', c: RJ, size: 90 }],
+    [271.3, 'plano', { m: 'trampillas', t: 'TRAMPILLAS · CÁMARAS · CREMATORIO', sello: 'SIN RESPALDO' }], [275.5, 'sello', { t: 'SIN RESPALDO', top: 'LOS DETALLES MÁS FAMOSOS', c: RJ, size: 80 }], [279.8, 'periodico', { n: 2, h1: 'PERIODISMO', h2: 'AMARILLISTA', t: 'SEGÚN ALGUNAS FUENTES', stamp: 'EXAGERADO', sc: AM }],
+    [284.0, 'texto', { l: ['OTRA PREGUNTA'], size: 160, c1: AM }], [285.5, 'cifra', { v: 133, suf: ' AÑOS', t: '¿POR QUÉ SIGUE VIVA LA LEYENDA?', s: 'MÁS DE UN SIGLO DESPUÉS', size: 240, d: 2.4 }], [289.6, 'periodico', { n: 3, h1: 'UN CASO REAL', h2: 'HECHO ESPECTÁCULO', t: 'LA PRENSA DE ENTONCES' }], [294.6, 'texto', { l: ['CONTADA UNA', 'Y OTRA VEZ'], size: 130, c2: RJ }], [298.3, 'libro', {}], [302.4, 'texto', { l: ['OTRA VEZ', 'EN BOCA DE TODOS'], size: 120, c2: AM }], [305.7, 'edificio', { rojo: true, t: 'CADA VERSIÓN, UN POCO MÁS DE MIEDO', c: RJ }],
+    [309.8, 'texto', { l: ['RESUMAMOS', 'LO QUE SABEMOS'], size: 130, c2: VD }], [311.6, 'resumen', { t: 'LO QUE SABEMOS', c: VD, k: 0, items: ['Mudgett, alias Holmes, construyó un edificio en Chicago (1893)', 'Detenido por fraude en 1894; condenado por matar a Pitezel', 'Murieron tres niños de la familia Pitezel', 'Fue ejecutado en 1896'] }], [316.2, 'edificio', { t: 'UN EDIFICIO EN CHICAGO', c: TX }], [318.1, 'feria', { t: 'EXPOSICIÓN UNIVERSAL · 1893', c: AM }], [321.6, 'resumen', { t: 'LO QUE SABEMOS', c: VD, k: 1, items: ['Mudgett, alias Holmes, construyó un edificio en Chicago (1893)', 'Detenido por fraude en 1894; condenado por matar a Pitezel', 'Murieron tres niños de la familia Pitezel', 'Fue ejecutado en 1896'] }], [325.6, 'doc', { title: 'SENTENCIA', t: 'CONDENADO POR EL ASESINATO DE PITEZEL', stamp: 'CULPABLE', sc: RJ }], [329.2, 'resumen', { t: 'LO QUE SABEMOS', c: VD, k: 2, items: ['Mudgett, alias Holmes, construyó un edificio en Chicago (1893)', 'Detenido por fraude en 1894; condenado por matar a Pitezel', 'Murieron tres niños de la familia Pitezel', 'Fue ejecutado en 1896'] }], [332.6, 'sello', { t: 'DOCUMENTADO', top: 'ESA PARTE', c: VD }], [334.5, 'resumen', { t: 'LO QUE SABEMOS', c: VD, k: 3, items: ['Mudgett, alias Holmes, construyó un edificio en Chicago (1893)', 'Detenido por fraude en 1894; condenado por matar a Pitezel', 'Murieron tres niños de la familia Pitezel', 'Fue ejecutado en 1896'] }],
+    [338.6, 'resumen', { t: 'LO QUE NO SABEMOS', c: RJ, k: -1, items: ['Cuántas personas más mató', 'Qué había de verdad en el edificio', 'Cuánto nació de periódicos que vendían miedo'] }], [340.2, 'resumen', { t: 'LO QUE NO SABEMOS', c: RJ, k: 0, items: ['Cuántas personas más mató', 'Qué había de verdad en el edificio', 'Cuánto nació de periódicos que vendían miedo'] }], [342.0, 'resumen', { t: 'LO QUE NO SABEMOS', c: RJ, k: 1, items: ['Cuántas personas más mató', 'Qué había de verdad en el edificio', 'Cuánto nació de periódicos que vendían miedo'] }], [344.1, 'resumen', { t: 'LO QUE NO SABEMOS', c: RJ, k: 2, items: ['Cuántas personas más mató', 'Qué había de verdad en el edificio', 'Cuánto nació de periódicos que vendían miedo'] }],
+    [348.4, 'edificio', { dark: true, t: 'LO MÁS INQUIETANTE', c: GR }], [351.9, 'retrato', { n1: 'NO PARECÍA UN MONSTRUO', m: 'normal', c: AM }], [354.4, 'retrato', { n1: 'UN HOMBRE AMABLE, EDUCADO', m: 'sonrisa', c: AM }], [357.5, 'pasillo', { t: 'NADIE IBA A PREGUNTAR', apaga: true }], [361.7, 'pasillo', { t: 'POR QUIEN NO VOLVÍA', apaga: true }],
+  ];
+  const FIN = X.dur, beats = B.map(([t0, m, a], i) => { const o = mod[m === 'plano' && a.m === 'ninguno' ? 'plano' : m](a); o.g.setAttribute('opacity', 0); o.g.style.display = 'none'; return { t0, t1: i + 1 < B.length ? B[i + 1][0] : FIN, o, i, nom: m }; });
+  const sombra = g(C); const niebla = Array.from({ length: 7 }, (_, i) => { const c = el('ellipse', { rx: 420 + i * 40, ry: 90 + i * 12, fill: '#CFC8D8', opacity: 0.045 }, sombra); c.style.filter = 'blur(40px)'; return c; });
+  const grano = X.grano($('lienzo'), 0.08);
+  const subs = X.subtitulos($('subs'), { max: 4, y: 950, claves: ['miedo', 'leyenda', 'Holmes', 'castillo', 'asesino'] });
+  X.sonido(0.1, 'whoosh', 0.6); [23.7, 53.5, 74.1, 136.5, 179.0, 236.8, 275.5].forEach((t) => X.sonido(t, 'pop', 0.8)); X.sonido(227.5, 'dinero', 0.8);
+  const caps = [[0, 'Chicago, 1893'], [29, 'El hombre'], [75.8, 'La leyenda'], [114.9, 'Lo documentado'], [200.4, 'El giro'], [250.4, 'Las víctimas'], [309.8, 'Resumen']];
+  let capAnt = '';
+
+  return (t) => {
+    $('barra').style.width = (100 * t / X.dur).toFixed(2) + '%';
+    niebla.forEach((n, i) => { n.setAttribute('cx', 960 + 900 * Math.sin(t * 0.05 + i * 1.7)); n.setAttribute('cy', 640 + 220 * Math.sin(t * 0.07 + i * 2.3) + i * 20); });
+    let cur = null;
+    beats.forEach((b) => { const vis = t >= b.t0 - 0.001 && t < b.t1 + 0.22; if (vis) { const k0 = sm(cl((t - b.t0) / 0.22)), k1 = t > b.t1 ? 1 - sm(cl((t - b.t1) / 0.22)) : 1; b.o.g.style.display = ''; b.o.g.setAttribute('opacity', (k0 * k1).toFixed(3)); if (t >= b.t0 && t < b.t1) cur = b; } else { b.o.g.style.display = 'none'; } });
+    if (cur) { const u = cl((t - cur.t0) / (cur.t1 - cur.t0)), tt = t - cur.t0; cur.o.dibuja(u, tt);
+      // cámara por plano: golpe de zoom al entrar + deriva lenta con dirección distinta en cada plano
+      const d = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [-1, 1]][cur.i % 6], punch = 0.09 * Math.exp(-tt * 7), zoom = 1 + 0.045 * u + punch, sh = tt < 0.32 ? 6 * Math.sin(tt * 80) * (cur.nom === 'sello' ? 1 : 0) : 0;
+      $('cam').setAttribute('transform', `translate(960 540) scale(${zoom.toFixed(4)}) translate(${(-960 + d[0] * 26 * u + sh).toFixed(1)} ${(-540 + d[1] * 18 * u).toFixed(1)})`); }
+    let c = ''; caps.forEach(([s, n]) => { if (t >= s) c = n; }); if (c !== capAnt) { $('cap').innerHTML = '<b>●</b> ' + c; capAnt = c; }
+    subs.dibuja(t); grano(t);
+  };
+});
+</script></body></html>

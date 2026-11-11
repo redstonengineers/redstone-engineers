@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: 'Bricolage'; src: url('../../_kit/motor/fuentes/bricolage-700.ttf'); font-weight: 700; }
+@font-face { font-family: 'Mono'; src: url('../../_kit/motor/fuentes/jetbrainsmono-700.woff'); font-weight: 700; }
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#07080C}
+</style></head><body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <radialGradient id="f" cx="30%" cy="40%" r="90%"><stop offset="0" stop-color="#2A1B22"/><stop offset="1" stop-color="#06070B"/></radialGradient>
+    <linearGradient id="n" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9AA0B4" stop-opacity="0"/><stop offset="1" stop-color="#9AA0B4" stop-opacity="0.55"/></linearGradient>
+    <filter id="b"><feGaussianBlur stdDeviation="22"/></filter>
+  </defs>
+  <rect width="1280" height="720" fill="url(#f)"/>
+  <circle cx="330" cy="360" r="260" fill="#D2382E" opacity="0.22" filter="url(#b)"/>
+  <!-- edificio -->
+  <g transform="translate(40 120)">
+    <rect x="0" y="40" width="620" height="520" fill="#14161F" stroke="#2A2E3C" stroke-width="5"/><rect x="-12" y="14" width="644" height="26" fill="#202431"/>
+    <g fill="#D2382E">
+      <rect x="40" y="80" width="54" height="86"/><rect x="130" y="80" width="54" height="86" opacity="0.25"/><rect x="220" y="80" width="54" height="86"/><rect x="310" y="80" width="54" height="86" opacity="0.25"/><rect x="400" y="80" width="54" height="86"/><rect x="490" y="80" width="54" height="86" opacity="0.25"/>
+      <rect x="40" y="220" width="54" height="86" opacity="0.25"/><rect x="130" y="220" width="54" height="86"/><rect x="220" y="220" width="54" height="86" opacity="0.25"/><rect x="310" y="220" width="54" height="86"/><rect x="400" y="220" width="54" height="86" opacity="0.25"/><rect x="490" y="220" width="54" height="86"/>
+      <rect x="40" y="360" width="54" height="86"/><rect x="130" y="360" width="54" height="86" opacity="0.25"/><rect x="220" y="360" width="54" height="86"/><rect x="310" y="360" width="54" height="86"/><rect x="400" y="360" width="54" height="86" opacity="0.25"/><rect x="490" y="360" width="54" height="86"/>
+    </g>
+  </g>
+  <rect x="0" y="360" width="1280" height="360" fill="url(#n)"/>
+  <!-- silueta -->
+  <g transform="translate(990 450)">
+    <path d="M-260 270 Q-260 40 0 20 Q260 40 260 270 Z" fill="#030407"/><circle cx="0" cy="-70" r="110" fill="#030407"/><ellipse cx="0" cy="-165" rx="160" ry="22" fill="#030407"/><path d="M-100 -165 Q-100 -255 0 -260 Q100 -255 100 -165 Z" fill="#030407"/>
+    <path d="M-40 -40 Q0 -20 40 -40" fill="none" stroke="#E8D9B0" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+  </g>
+  <!-- texto -->
+  <text x="48" y="580" font-family="Bricolage" font-weight="700" font-size="124" fill="#F3EEE6" letter-spacing="-3" stroke="#06070B" stroke-width="10" paint-order="stroke">EL CASTILLO</text>
+  <text x="48" y="690" font-family="Bricolage" font-weight="700" font-size="124" fill="#D2382E" letter-spacing="-3" stroke="#06070B" stroke-width="10" paint-order="stroke">DEL ASESINO</text>
+  <g transform="translate(975 90) rotate(5)" font-family="Mono" font-weight="700"><rect x="-235" y="-42" width="470" height="84" rx="10" fill="#06070B" fill-opacity="0.75" stroke="#E8A33D" stroke-width="7"/><text x="0" y="12" text-anchor="middle" font-size="33" fill="#E8A33D" letter-spacing="3">¿VERDAD O LEYENDA?</text></g>
+</svg></body></html>
