@@ -7,3 +7,6 @@
 resultados/
 voz/tomas/
 __pycache__/
+
+# Excepción: identidad del canal (archivos pequeños)
+!canal/perfil.png
