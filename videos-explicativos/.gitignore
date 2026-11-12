@@ -1,0 +1,15 @@
+# Archivos pesados generados (vídeos, audio, tomas, fotogramas)
+*.mp4
+*.mp3
+*.wav
+*.png
+*.jpg
+resultados/
+voz/tomas/
+__pycache__/
+
+# Excepción: identidad del canal (archivos pequeños)
+!canal/perfil.png
+!canal/banner.png
+!canal/perfil2.png
+!*/youtube/miniatura.png

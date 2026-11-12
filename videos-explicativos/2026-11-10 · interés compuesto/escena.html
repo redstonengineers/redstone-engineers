@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>El interés compuesto</title>
+<script>window.FORMATO = { w: 1920, h: 1080 };</script>
+<link rel="stylesheet" href="motor/explica.css">
+<script src="voz/timeline.js"></script>
+<script src="motor/explica.js"></script>
+<script src="motor/materiales.js"></script>
+<style>
+  :root { --acento: #2F8BFF; --oro: #FFB84D; }
+  .cap { position: absolute; left: 110px; top: 70px; font-family: 'Mono'; font-weight: 700; font-size: 30px; letter-spacing: 5px; color: var(--tenue); text-transform: uppercase; }
+  .cap b { color: var(--acento); }
+  .nota { position: absolute; right: 90px; top: 78px; font-family: 'Mono'; font-weight: 700; font-size: 20px; letter-spacing: 2px; color: rgba(243,238,230,.38); }
+  .g-t { font-family: 'Bricolage'; font-weight: 700; fill: var(--linea); }
+  .g-f { font-family: 'Figtree'; font-weight: 700; fill: var(--linea); }
+  .g-m { font-family: 'Mono'; font-weight: 700; fill: var(--tenue); letter-spacing: 3px; }
+  .ax { stroke: var(--tenue); stroke-width: 3; fill: none; }
+  .gr { stroke: rgba(243,238,230,.10); stroke-width: 2; fill: none; }
+</style></head>
+<body><div id="lienzo">
+  <div class="rejilla"></div>
+  <svg id="mundo-svg" viewBox="0 0 1920 1080"><g id="cam"><g id="contenido"></g></g></svg>
+  <div id="cap" class="cap"></div>
+  <div class="nota">EJEMPLO ILUSTRATIVO · NO ES CONSEJO FINANCIERO</div>
+  <div id="subs"></div>
+  <div id="barra" class="progreso"></div>
+</div>
+<script>
+X.listo(() => {
+  const NS = 'http://www.w3.org/2000/svg', $ = (id) => document.getElementById(id), C = $('contenido');
+  const AC = '#2F8BFF', OR = '#FFB84D', RJ = '#FF5A5F', VD = '#5BE49B', TX = '#F3EEE6';
+  const T = (f, n = 1) => X.debe(X.en(f, n), f);
+  const el = (tag, at = {}, p = C) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); p.appendChild(e); return e; };
+  const g = (p = C, at = {}) => el('g', at, p);
+  const tx = (p, x, y, s, cl = 'g-f', size = 48, anchor = 'middle', fill) => { const e = el('text', { x, y, 'text-anchor': anchor, class: cl, 'font-size': size }, p); if (fill) e.setAttribute('fill', fill); e.textContent = s; return e; };
+  const euro = (n) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €';
+  const euro2 = (n) => n.toFixed(2).replace('.', ',') + ' €';
+  const sm = (u) => u * u * (3 - 2 * u);
+  const L = X.lerp, seg = X.seg;
+  // curva por claves [[t, v], ...] con suavizado entre claves
+  const keys = (t, ks) => { if (t <= ks[0][0]) return ks[0][1]; for (let i = 1; i < ks.length; i++) if (t <= ks[i][0]) return L(ks[i - 1][1], ks[i][1], sm(seg(t, ks[i - 1][0], ks[i][0]))); return ks[ks.length - 1][1]; };
+
+  // ---------- anclas ----------
+  const A = {
+    durante30: T('durante 30 días'), cinco: T('Más de 5 millones'), seLlama: T('Se llama interés compuesto'), despacio: T('Vamos a hacerlo despacio'),
+    d1: T('Día 1'), d2: T('Día 2'), d3: T('Día 3'), d4: T('Día 4'), d10: T('Al día 10'), d20: T('Al día 20'), d30: T('Al día 30'),
+    dinero: T('Ahora, el dinero real'), ano1: T('Año 1'), ano2: T('Año 2'), acelera: T('Mira cómo se acelera'),
+    y10: T('A los 10 años'), y20: T('A los 20'), y30: T('A los 30'), y40: T('a los 40 años'),
+    fijate: T('Fíjate en algo'), prim10: T('Los primeros diez años'), ult10: T('los últimos diez', 2),
+    formula: T('La fórmula cabe en una línea'), tasa: T('Si la tasa es'), da76: T('Eso da 7,6'),
+    atajo: T('Ahora, un atajo'), r6: T('Al 6 %, 72 entre 6'), r3: T('Al 3 %, 24 años'), r9: T('Al 9 %, 8 años'), r7: T('Con nuestro 7 %'),
+    pacioli: T('Esta regla no es nueva'), aprox: T('Es una aproximación'), bonita: T('Hasta aquí, la parte bonita'),
+    nodist: T('El interés compuesto no distingue'), tarjeta: T('Piensa en una tarjeta'), deuda: T('Imagina una deuda de 3.000'), poco3: T('En poco más de tres años'), mas6: T('Más de 6.000 euros'),
+    cruel: T('Y aquí pasa lo más cruel'), seCalc: T('los intereses se calculan'), bde: T('Por eso el Banco de España avisa'),
+    buena: T('Ahora vuelve a la buena noticia'), dos: T('Imagina a dos personas'), ahorran: T('Las dos ahorran'), prim: T('La primera empieza'), seg: T('La segunda empieza'),
+    segAp: T('La segunda aportó'), a163: T('unos 163.000'), priAp: T('La primera aportó'), a296: T('unos 296.000'), doble: T('Casi el doble'), extra: T('Esos diez años extra'), m130: T('más de 130.000'),
+    signif: T('¿Significa esto que tienes que invertir'), neg: T('hay años negativos'), com: T('hay comisiones'), imp: T('hay impuestos'), inf: T('hay inflación'),
+    real: T('Pero la idea sí que es real'), t1: T('Primero. El tiempo pesa'), t2: T('Segundo. Una pequeña diferencia'), t3: T('Tercero. Las comisiones'), t4: T('Y cuarto. Las deudas caras'),
+    cosa: T('Si te quedas con una sola cosa'), comoC: T('Como el céntimo'), prim20: T('Los primeros 20 días'), ult10b: T('los últimos diez', 3), pregunta: T('La pregunta no es si'),
+  };
+  const FIN = X.dur;
+
+  // ---------- etapas: grupos que se funden según su ventana ----------
+  const etapas = [];
+  const etapa = (nombre, ini, fin, cap) => { const gg = g(C, { opacity: 0 }); const e = { gg, ini, fin, cap, nombre }; etapas.push(e); return gg; };
+  const vis = (e, t) => { const a = sm(seg(t, e.ini - 0.05, e.ini + 0.5)), b = 1 - sm(seg(t, e.fin - 0.4, e.fin)); return Math.min(a, b); };
+  const pop = (grupo, t, t0, o = {}) => X.anima(grupo, t, Object.assign({ entra: t0, dur: 0.55, desde: { y: 26, blur: 10, s: 0.97 }, curva: 'firme' }, o));
+
+  // ---------- componente: barras del céntimo (30 días) ----------
+  function barras(gg, { y0 = 800, hmax = 520, x0 = 160, w = 1600 } = {}) {
+    const n = 30, bw = w / n, rects = [];
+    el('line', { x1: x0 - 10, x2: x0 + w + 10, y1: y0 + 2, y2: y0 + 2, class: 'ax' }, gg);
+    for (let i = 0; i < n; i++) rects.push(el('rect', { x: x0 + i * bw + 4, width: bw - 8, rx: 6, fill: i < 20 ? AC : OR }, gg));
+    const cDia = tx(gg, x0, 235, 'DÍA 1', 'g-m', 36, 'start'), cVal = tx(gg, x0, 340, '0,01 €', 'g-t', 112, 'start');
+    const marca = tx(gg, x0 + w - 6, y0 + 52, '30', 'g-m', 28, 'end');
+    tx(gg, x0 + 6, y0 + 52, '1', 'g-m', 28, 'start');
+    return { dibuja(day, pulso = 0) {
+      const d = X.limita(day, 1, 30), full = Math.floor(d), fr = d - full;
+      rects.forEach((r, i) => {
+        const k = i + 1, u = k < full ? 1 : k === full ? 1 : k === full + 1 ? fr : 0;
+        const val = Math.pow(2, k - 1) / Math.pow(2, 29), h = u <= 0 ? 0 : Math.max(4, hmax * val) * (k === full + 1 ? sm(fr) : 1);
+        r.setAttribute('y', (y0 - h).toFixed(1)); r.setAttribute('height', h.toFixed(1)); r.setAttribute('opacity', u <= 0 ? 0 : 1);
+      });
+      const v = Math.pow(2, full - 1) / 100;
+      cDia.textContent = 'DÍA ' + full; cVal.textContent = v < 1000 ? euro2(v) : euro(v); cVal.setAttribute('fill', full >= 21 ? OR : TX);
+    } };
+  }
+  // ---------- componente: curva ----------
+  function curva(gg, { x0, y0, w, h, xmax, ymax, f, color = AC, nx = 8, ny = 5, fx = (v) => v, fy = (v) => euro(v), grid = true, pasos = 140 }) {
+    if (grid) for (let i = 0; i <= ny; i++) { const yy = y0 - (h * i) / ny; el('line', { x1: x0, x2: x0 + w, y1: yy, y2: yy, class: 'gr' }, gg); if (i) tx(gg, x0 - 16, yy + 10, fy((ymax * i) / ny), 'g-m', 24, 'end'); }
+    el('line', { x1: x0, x2: x0 + w, y1: y0, y2: y0, class: 'ax' }, gg); el('line', { x1: x0, x2: x0, y1: y0, y2: y0 - h, class: 'ax' }, gg);
+    for (let i = 0; i <= nx; i++) tx(gg, x0 + (w * i) / nx, y0 + 40, fx((xmax * i) / nx), 'g-m', 24);
+    const p = el('path', { fill: 'none', stroke: color, 'stroke-width': 9, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, gg);
+    const ar = el('path', { fill: color, opacity: 0.12 }, gg), pt = el('circle', { r: 14, fill: color }, gg), lab = tx(gg, 0, 0, '', 'g-t', 54, 'middle');
+    return { dibuja(x, { label = true } = {}) {
+      const xe = X.limita(x, 0, xmax); let d = '';
+      for (let i = 0; i <= pasos; i++) { const xv = (xe * i) / pasos, px = x0 + (w * xv) / xmax, py = y0 - (h * Math.min(f(xv), ymax * 1.02)) / ymax; d += (i ? ' L' : 'M') + px.toFixed(1) + ' ' + py.toFixed(1); }
+      p.setAttribute('d', d); const ex = x0 + (w * xe) / xmax, ey = y0 - (h * Math.min(f(xe), ymax * 1.02)) / ymax;
+      ar.setAttribute('d', d + ` L${ex.toFixed(1)} ${y0} L${x0} ${y0} Z`); pt.setAttribute('cx', ex); pt.setAttribute('cy', ey); pt.setAttribute('opacity', xe > 0.01 ? 1 : 0);
+      lab.setAttribute('x', Math.min(ex, x0 + w - 120)); lab.setAttribute('y', ey - 34); lab.textContent = label && xe > 0.01 ? fy(f(xe)) : ''; lab.setAttribute('fill', color);
+    } };
+  }
+  // tarjeta de texto
+  function tarjeta(gg, x, y, w, h, color = AC) { const r = el('rect', { x, y, width: w, height: h, rx: 28, fill: 'rgba(23,21,28,.92)', stroke: color, 'stroke-width': 3 }, gg); return r; }
+
+  // ===== 1 · GANCHO: barras del céntimo =====
+  const eHook = etapa('hook', 0, A.seLlama, 'Un céntimo · 30 días');
+  const hookBars = barras(eHook);
+  const hookTit = tx(eHook, 1060, 200, '1 céntimo × 2 cada día', 'g-t', 76);
+  const hookNum = g(eHook); tx(hookNum, 1000, 480, 'más de 5 millones de euros', 'g-t', 62, 'middle', OR);
+
+  // ===== 2 · TÍTULO =====
+  const eTit = etapa('titulo', A.seLlama, A.despacio, 'Interés compuesto');
+  tx(eTit, 960, 470, 'INTERÉS COMPUESTO', 'g-t', 150); tx(eTit, 960, 570, 'ganar intereses… sobre los intereses', 'g-f', 52, 'middle', OR);
+  const tLinea = el('path', { d: 'M560 640 L1360 640', stroke: AC, 'stroke-width': 8, fill: 'none', 'stroke-linecap': 'round' }, eTit);
+
+  // ===== 3 · EL TRUCO DEL CÉNTIMO (día a día) =====
+  const eCent = etapa('cent', A.despacio, A.dinero, 'El truco del céntimo');
+  const centBars = barras(eCent);
+  const kk = [[A.d1, 1], [A.d2, 2], [A.d3, 3], [A.d4, 4], [A.d10 + 0.2, 10], [A.d20 + 0.3, 20], [A.d30 - 0.4, 21], [A.d30 + 2.2, 30]];
+  const centGlob = g(eCent); tx(centGlob, 1300, 520, 'casi todo ocurre al final', 'g-t', 58, 'middle', OR);
+  const centNada = g(eCent); tx(centNada, 1000, 520, 'parece nada…', 'g-t', 90, 'middle', 'rgba(243,238,230,.85)');
+
+  // ===== 4 · 1.000 € AL 7 % : año 1 y año 2 =====
+  const eY = etapa('anos', A.dinero, A.acelera, '1.000 € al 7 % anual');
+  const yIntro = g(eY); tx(yIntro, 960, 330, '1.000 €', 'g-t', 170); tx(yIntro, 960, 410, 'al 7 % anual', 'g-f', 60, 'middle', AC); tx(yIntro, 960, 480, 'un ejemplo, no una promesa', 'g-m', 30);
+  const yc1 = g(eY); tarjeta(yc1, 210, 560, 700, 300, AC); tx(yc1, 560, 625, 'AÑO 1', 'g-m', 32); tx(yc1, 560, 710, '7 % de 1.000 € = 70 €', 'g-f', 48); tx(yc1, 560, 800, '1.070 €', 'g-t', 90, 'middle', AC);
+  const yc2 = g(eY); tarjeta(yc2, 1010, 560, 700, 300, OR); tx(yc2, 1360, 625, 'AÑO 2', 'g-m', 32); tx(yc2, 1360, 710, '7 % de 1.070 € = 74,90 €', 'g-f', 48); tx(yc2, 1360, 800, '1.144,90 €', 'g-t', 90, 'middle', OR);
+  const yIn = g(eY); tx(yIn, 960, 905, 'interés sobre el interés ya ganado', 'g-f', 46, 'middle', OR);
+
+  // ===== 5 · CURVA 40 AÑOS =====
+  const eCur = etapa('curva', A.acelera, A.fijate, 'Así se acelera');
+  const f7 = (a) => 1000 * Math.pow(1.07, a);
+  const cv = curva(eCur, { x0: 230, y0: 780, w: 1450, h: 540, xmax: 40, ymax: 15000, f: f7, nx: 8, fx: (v) => Math.round(v), fy: (v) => euro(v) });
+  const cvK = [[A.acelera, 0], [A.y10, 10], [A.y20, 20], [A.y30, 30], [A.y40, 40], [A.y40 + 2.2, 40]];
+  tx(eCur, 960, 870, 'años', 'g-m', 28);
+
+  // ===== 6 · PRIMERA VS ÚLTIMA DÉCADA =====
+  const eDec = etapa('dec', A.fijate, A.formula, 'La misma tasa, distinto tiempo');
+  const d1g = g(eDec), d2g = g(eDec);
+  el('rect', { x: 330, y: 700, width: 380, height: 40, rx: 8, fill: AC }, d1g); tx(d1g, 520, 780, 'años 1 a 10', 'g-m', 30); tx(d1g, 520, 660, '+967 €', 'g-t', 96, 'middle', AC);
+  el('rect', { x: 1130, y: 280, width: 380, height: 460, rx: 8, fill: OR }, d2g); tx(d2g, 1320, 780, 'años 31 a 40', 'g-m', 30); tx(d2g, 1320, 240, '+7.362 €', 'g-t', 96, 'middle', OR);
+  tx(eDec, 960, 900, 'mismo dinero · mismo porcentaje · lo único que cambia: el tiempo', 'g-f', 40);
+
+  // ===== 7 · FÓRMULA =====
+  const eFor = etapa('formula', A.formula, A.atajo, 'La fórmula');
+  const f1 = g(eFor); tx(f1, 960, 420, 'C = C₀ × (1 + r)ⁿ', 'g-t', 150); tx(f1, 960, 500, 'capital final = capital inicial × (1 + tasa) elevado a los años', 'g-f', 40, 'middle', 'rgba(243,238,230,.7)');
+  const f2 = g(eFor); tx(f2, 960, 640, '1.000 × 1,07³⁰', 'g-t', 110, 'middle', AC);
+  const f3 = g(eFor); tx(f3, 960, 790, '= 1.000 × 7,6', 'g-t', 110, 'middle', OR); tx(f3, 960, 870, 'tu dinero se multiplica por 7,6', 'g-f', 44);
+
+  // ===== 8 · REGLA DEL 72 =====
+  const e72 = etapa('r72', A.atajo, A.pacioli, 'La regla del 72');
+  tx(e72, 960, 260, '72 ÷ tasa = años para duplicar', 'g-t', 100, 'middle', TX);
+  const filas = [[A.r6, '6 %', '72 ÷ 6 = 12 años'], [A.r3, '3 %', '72 ÷ 3 = 24 años'], [A.r9, '9 %', '72 ÷ 9 = 8 años'], [A.r7, '7 %', '72 ÷ 7 ≈ 10 años']].map(([t0, a, b], i) => {
+    const gg = g(e72); const y = 330 + i * 130; tarjeta(gg, 360, y, 1200, 105, i === 3 ? OR : AC); tx(gg, 520, y + 72, a, 'g-t', 70, 'middle', i === 3 ? OR : AC); tx(gg, 1010, y + 70, b, 'g-f', 58); return { gg, t0 }; });
+
+  // ===== 9 · PACIOLI =====
+  const ePac = etapa('pacioli', A.pacioli, A.bonita, 'Una idea de hace 500 años');
+  const lib = g(ePac); el('path', { d: 'M560 360 Q760 320 960 380 Q1160 320 1360 360 L1360 760 Q1160 720 960 780 Q760 720 560 760 Z', fill: 'rgba(23,21,28,.95)', stroke: TX, 'stroke-width': 5, 'stroke-linejoin': 'round' }, lib);
+  el('path', { d: 'M960 380 L960 780', stroke: TX, 'stroke-width': 4, opacity: 0.6 }, lib);
+  tx(lib, 760, 520, '1494', 'g-t', 120, 'middle', OR); tx(lib, 1160, 500, 'Summa de', 'g-t', 54); tx(lib, 1160, 565, 'arithmetica', 'g-t', 54); tx(lib, 1160, 650, 'Luca Pacioli', 'g-f', 44, 'middle', AC); tx(lib, 760, 620, 'Venecia', 'g-m', 32);
+  const aprox = g(ePac); tx(aprox, 960, 880, 'aproximación: muy precisa entre el 6 % y el 10 %', 'g-f', 44, 'middle', OR);
+
+  // ===== 10 · A TU FAVOR / EN TU CONTRA =====
+  const eTur = etapa('turn', A.bonita, A.tarjeta, 'El otro lado');
+  const fav = curva(eTur, { x0: 160, y0: 760, w: 700, h: 420, xmax: 30, ymax: 8, f: (x) => Math.pow(1.07, x), nx: 3, ny: 2, fx: (v) => '', fy: (v) => '', grid: false, color: VD });
+  const con = curva(eTur, { x0: 1060, y0: 760, w: 700, h: 420, xmax: 30, ymax: 8, f: (x) => Math.pow(1.07, x), nx: 3, ny: 2, fx: (v) => '', fy: (v) => '', grid: false, color: RJ });
+  tx(eTur, 510, 250, 'A TU FAVOR', 'g-t', 76, 'middle', VD); tx(eTur, 1410, 250, 'EN TU CONTRA', 'g-t', 76, 'middle', RJ);
+  const favL = tx(eTur, 510, 860, 'ahorro e inversión', 'g-m', 30), conL = tx(eTur, 1410, 860, 'deuda cara', 'g-m', 30);
+
+  // ===== 11 · TARJETA REVOLVING =====
+  const eTar = etapa('tarjeta', A.tarjeta, A.deuda, 'Tarjetas «revolving»');
+  el('rect', { x: 560, y: 260, width: 800, height: 480, rx: 40, fill: '#251B22', stroke: RJ, 'stroke-width': 5 }, eTar); el('rect', { x: 560, y: 330, width: 800, height: 80, fill: '#111' }, eTar);
+  tx(eTar, 960, 580, '≈ 23 % anual', 'g-t', 130, 'middle', RJ); tx(eTar, 960, 660, 'interés medio · Asufin, 2025', 'g-m', 30);
+  tx(eTar, 960, 840, 'dato de una asociación de consumidores · el Banco de España no publica serie oficial', 'g-f', 34, 'middle', 'rgba(243,238,230,.7)');
+
+  // ===== 12 · DEUDA DE 3.000 € =====
+  const eDeu = etapa('deuda', A.deuda, A.cruel, 'Una deuda de 3.000 € sin pagar');
+  const f23 = (a) => 3000 * Math.pow(1.2334, a);
+  const dc = curva(eDeu, { x0: 230, y0: 780, w: 1450, h: 520, xmax: 4, ymax: 7000, f: f23, nx: 4, fx: (v) => v + ' años', fy: (v) => euro(v), color: RJ });
+  const dcK = [[A.deuda, 0], [A.poco3, 0.3], [A.poco3 + 3, 3.3], [A.mas6 + 2, 3.4], [A.mas6 + 4, 4]];
+  const dFlag = g(eDeu); tx(dFlag, 960, 230, '72 ÷ 23 ≈ 3 años para duplicarse', 'g-t', 66, 'middle', RJ);
+
+  // ===== 13 · LO CRUEL =====
+  const eCru = etapa('cruel', A.cruel, A.buena, 'Lo más cruel');
+  const cr1 = g(eCru); tarjeta(cr1, 300, 330, 1320, 200, RJ); tx(cr1, 960, 440, 'Al principio, la deuda casi no asusta', 'g-t', 66, 'middle', TX); tx(cr1, 960, 500, 'una cuota pequeña parece manejable', 'g-f', 36, 'middle', 'rgba(243,238,230,.7)');
+  const cr2 = g(eCru); tarjeta(cr2, 300, 580, 1320, 200, OR); tx(cr2, 960, 690, 'Intereses sobre lo que aún debes…', 'g-t', 66, 'middle', OR); tx(cr2, 960, 750, '…incluidos los intereses anteriores', 'g-f', 40);
+  const cr3 = g(eCru); tarjeta(cr3, 200, 810, 1520, 110, AC); tx(cr3, 960, 877, 'Avisos del Banco de España · sentencias a favor de consumidores', 'g-f', 38);
+
+  // ===== 14 · DOS AHORRADORES =====
+  const eSav = etapa('savers', A.buena, A.signif, 'Empezar antes');
+  const r = Math.pow(1.05, 1 / 12) - 1, fv = (s, age) => (age <= s ? 0 : 200 * (Math.pow(1 + r, 12 * (age - s)) - 1) / r);
+  const sA = curva(eSav, { x0: 230, y0: 800, w: 1400, h: 520, xmax: 65 - 25, ymax: 300000, f: (x) => fv(25, 25 + x), nx: 8, fx: (v) => 25 + Math.round(v), fy: (v) => (v ? Math.round(v / 1000) + ' mil €' : ''), color: AC, label: false });
+  const bLine = el('path', { fill: 'none', stroke: OR, 'stroke-width': 9, 'stroke-linecap': 'round' }, eSav), bDot = el('circle', { r: 14, fill: OR }, eSav);
+  const sHead = g(eSav); tx(sHead, 960, 170, '200 € al mes · 5 % anual (hipótesis)', 'g-t', 60);
+  tx(eSav, 230, 905, 'edad', 'g-m', 28, 'start');
+  const lenA = g(eSav), lenB = g(eSav), lenD = g(eSav);
+  tx(lenA, 1610, 190 + 20, '', 'g-m', 1); // marcador
+  const labA = tx(lenA, 640, 290, '≈ 296.000 €', 'g-t', 76, 'middle', AC), subA = tx(lenA, 640, 335, 'desde los 25 · aporta 96.000 €', 'g-m', 26);
+  const labB = tx(lenB, 640, 450, '≈ 163.000 €', 'g-t', 76, 'middle', OR), subB = tx(lenB, 640, 495, 'desde los 35 · aporta 72.000 €', 'g-m', 26);
+  const dif = g(lenD); tx(dif, 1090, 470, '+133.000 €', 'g-t', 110, 'middle', VD); tx(dif, 1090, 530, 'por empezar 10 años antes', 'g-f', 36);
+  const bw = (u) => { const xmax = 30; let d = ''; const n = 120, xe = X.limita(u, 0, xmax); for (let i = 0; i <= n; i++) { const a = (xe * i) / n, age = 35 + a, px = 230 + 1400 * ((age - 25) / 40), py = 800 - 520 * (fv(35, age) / 300000); d += (i ? ' L' : 'M') + px.toFixed(1) + ' ' + py.toFixed(1); }
+    bLine.setAttribute('d', d); const age = 35 + xe; bDot.setAttribute('cx', 230 + 1400 * ((age - 25) / 40)); bDot.setAttribute('cy', 800 - 520 * (fv(35, age) / 300000)); bDot.setAttribute('opacity', xe > 0.01 ? 1 : 0); };
+
+  // ===== 15 · NO ES CONSEJO FINANCIERO =====
+  const eDis = etapa('disc', A.signif, A.real, 'Importante');
+  tx(eDis, 960, 280, 'NO ES UN CONSEJO FINANCIERO', 'g-t', 90, 'middle', OR);
+  const riesgos = [[A.neg, 'Hay años negativos'], [A.com, 'Hay comisiones'], [A.imp, 'Hay impuestos'], [A.inf, 'Hay inflación']].map(([t0, s], i) => {
+    const gg = g(eDis); const x = i % 2 ? 1000 : 260, y = 400 + Math.floor(i / 2) * 200; tarjeta(gg, x, y, 660, 150, i % 2 ? OR : AC); tx(gg, x + 330, y + 95, s, 'g-t', 54); return { gg, t0 }; });
+  tx(eDis, 960, 880, 'los números del vídeo son un modelo limpio, no una previsión', 'g-f', 40, 'middle', 'rgba(243,238,230,.75)');
+
+  // ===== 16 · CUATRO IDEAS =====
+  const eTk = etapa('take', A.real, A.cosa, 'Cuatro ideas');
+  const ideas = [[A.t1, '1', 'El tiempo pesa más que la cantidad'], [A.t2, '2', 'Un pequeño cambio de % se nota con los años'], [A.t3, '3', 'Las comisiones pequeñas también se componen'], [A.t4, '4', 'Las deudas caras son interés compuesto al revés']].map(([t0, n, s], i) => {
+    const gg = g(eTk); const y = 200 + i * 165; tarjeta(gg, 260, y, 1400, 135, i === 3 ? RJ : AC); tx(gg, 360, y + 92, n, 'g-t', 90, 'middle', i === 3 ? RJ : OR); tx(gg, 1000, y + 86, s, 'g-f', 48); return { gg, t0 }; });
+  const comi = g(eTk); tx(comi, 1000, 895, '30 años: al 5 % ×4,3 · al 3 % solo ×2,4', 'g-m', 32);
+
+  // ===== 17 · FRASE =====
+  const eQ = etapa('quote', A.cosa, A.comoC, 'Para quedarte con algo');
+  tx(eQ, 960, 400, 'Lento al principio…', 'g-t', 130); const q2 = tx(eQ, 960, 600, '…y de repente, todo.', 'g-t', 130, 'middle', OR);
+
+  // ===== 18 · CIERRE =====
+  const eEnd = etapa('end', A.comoC, FIN + 1, 'El céntimo, otra vez');
+  const endBars = barras(eEnd); const endQ = g(eEnd);
+  el('rect', { x: 360, y: 140, width: 1200, height: 130, rx: 24, fill: 'rgba(14,13,17,.92)' }, endQ); tx(endQ, 960, 235, '¿De qué lado de la curva estás?', 'g-t', 76, 'middle', OR);
+  X.sonido(A.seLlama, 'whoosh', 0.8); X.sonido(A.despacio, 'whoosh', 0.6);
+  etapas.forEach((e) => { if (e.ini > 1) X.sonido(e.ini, 'whoosh', 0.45); });
+  X.sonido(A.cinco, 'dinero', 0.9); X.sonido(A.da76, 'pop', 0.7); X.sonido(A.extra, 'pop', 0.7); X.sonido(A.m130, 'dinero', 0.8);
+
+  // ---------- fondo vivo y subtítulos ----------
+  const fondo = g(C, { opacity: 0.5 }); C.insertBefore(fondo, C.firstChild);
+  const orbes = Array.from({ length: 6 }, (_, i) => { const c = el('circle', { r: 160 + i * 30, fill: i % 2 ? AC : OR, opacity: 0.05 }, fondo); c.style.filter = 'blur(60px)'; return c; });
+  const grano = X.grano($('lienzo'), 0.06);
+  const subs = X.subtitulos($('subs'), { max: 4, y: 950, claves: ['compuesto', 'céntimo', 'tiempo', 'deuda', 'dinero'] });
+  const cam = [{ t: 0, x: 960, y: 540, z: 1.0 }, { t: A.d4, x: 960, y: 540, z: 1.02 }, { t: A.dinero, x: 960, y: 540, z: 1.0 }, { t: A.formula, x: 960, y: 540, z: 1.015 }, { t: A.bonita, x: 960, y: 540, z: 1.0 }, { t: A.dos, x: 960, y: 540, z: 1.02 }, { t: A.real, x: 960, y: 540, z: 1.0 }];
+  let capAnt = '';
+  const sOn = (t, a) => t >= a;
+
+  return (t) => {
+    X.camara($('cam'), t, cam, { mano: 0 });
+    $('barra').style.width = (100 * t / X.dur).toFixed(2) + '%';
+    orbes.forEach((o, i) => { o.setAttribute('cx', 960 + 760 * X.ruidoF(t * 0.05 + i * 7, i + 1)); o.setAttribute('cy', 540 + 380 * X.ruidoF(t * 0.045 + i * 5, i + 9)); });
+    let capNow = '';
+    etapas.forEach((e) => { const v = vis(e, t); e.gg.setAttribute('opacity', v.toFixed(3)); e.gg.style.display = v <= 0.001 ? 'none' : ''; if (v > 0.5) capNow = e.cap; });
+    if (capNow !== capAnt) { $('cap').innerHTML = capNow ? '<b>●</b> ' + capNow : ''; capAnt = capNow; }
+
+    // gancho
+    const hd = t < A.durante30 ? 1 : L(1, 30, sm(seg(t, A.durante30, A.cinco + 0.6)));
+    hookBars.dibuja(hd); pop(hookNum, t, A.cinco + 1.2, { dur: 0.7, desde: { y: 14, s: 0.85, blur: 12 }, curva: 'blando' });
+    X.anima(hookTit, t, { entra: 0, dur: 0.5, desde: { y: -20, blur: 12 } });
+    X.traza(tLinea, t, A.seLlama + 0.4, 0.9);
+    // céntimo día a día
+    centBars.dibuja(keys(t, [[A.despacio, 1]].concat(kk)));
+    pop(centNada, t, A.d4 + 0.5, { desde: { y: 14, blur: 10 } }); centNada.style.opacity = (t > A.d10 + 1.5 ? 0 : '');
+    pop(centGlob, t, A.d30 + 1.0, { desde: { y: 18, blur: 10 } });
+    // años
+    pop(yIntro, t, A.dinero + 0.3); pop(yc1, t, A.ano1); pop(yc2, t, A.ano2); pop(yIn, t, A.ano2 + 3.2);
+    // curva 40 años
+    cv.dibuja(keys(t, cvK));
+    // décadas
+    pop(d1g, t, A.prim10); pop(d2g, t, A.ult10);
+    // fórmula
+    pop(f1, t, A.formula + 0.3); pop(f2, t, A.tasa); pop(f3, t, A.da76);
+    // 72
+    filas.forEach((f) => pop(f.gg, t, f.t0));
+    // pacioli
+    pop(lib, t, A.pacioli + 0.3); pop(aprox, t, A.aprox);
+    // a favor / en contra
+    const tu = seg(t, A.nodist - 0.2, A.nodist + 6), tt = X.limita((t - (A.bonita + 1.5)) / 5, 0, 1);
+    fav.dibuja(30 * sm(tt), { label: false }); con.dibuja(30 * sm(tt), { label: false });
+    // tarjeta (nada animado extra)
+    // deuda
+    dc.dibuja(keys(t, dcK)); pop(dFlag, t, A.poco3 - 4);
+    // cruel
+    pop(cr1, t, A.cruel); pop(cr2, t, A.seCalc); pop(cr3, t, A.bde);
+    // ahorradores
+    sA.dibuja(40 * sm(seg(t, A.prim, A.seg + 4.2)), { label: false });
+    bw(30 * sm(seg(t, A.seg, A.segAp + 3)));
+    pop(sHead, t, A.ahorran); pop(labA, t, A.a296 - 0.2, { desde: { y: 12, blur: 8 } }); pop(subA, t, A.priAp);
+    pop(labB, t, A.a163 - 0.2, { desde: { y: 12, blur: 8 } }); pop(subB, t, A.segAp);
+    pop(dif, t, A.m130 - 0.3, { desde: { y: 0, s: 0.8, blur: 12 }, curva: 'blando' });
+    // consejo
+    riesgos.forEach((f) => pop(f.gg, t, f.t0 - 0.2));
+    // ideas
+    ideas.forEach((f) => pop(f.gg, t, f.t0)); pop(comi, t, A.t3 + 2);
+    // frase final
+    X.anima(q2, t, { entra: A.cosa + 5.5, dur: 0.6, desde: { y: 24, blur: 12 } });
+    // cierre: del día 20 al 30
+    endBars.dibuja(t < A.prim20 ? 20 : keys(t, [[A.prim20 + 5, 20], [A.ult10b, 20], [A.ult10b + 2.4, 30]]));
+    pop(endQ, t, A.pregunta);
+    subs.dibuja(t); grano(t);
+  };
+});
+</script></body></html>

@@ -1,0 +1,38 @@
+/* explica.css · estilo base de los vídeos explicativos (oscuro, un acento, líneas claras) */
+@font-face { font-family: 'Bricolage'; src: url('fuentes/bricolage-700.ttf'); font-weight: 700; }
+@font-face { font-family: 'Figtree'; src: url('fuentes/figtree-500.woff2'); font-weight: 500; }
+@font-face { font-family: 'Figtree'; src: url('fuentes/figtree-700.woff2'); font-weight: 700; }
+@font-face { font-family: 'Mono'; src: url('fuentes/jetbrainsmono-700.woff'); font-weight: 700; }
+:root {
+  --fondo: #0E0D11; --fondo2: #17151C; --linea: #F3EEE6; --tenue: rgba(243,238,230,.45); --tenue2: rgba(243,238,230,.14);
+  --acento: #FF8A5B; --agua: #4FB3FF; --gas: #8BD96B; --peligro: #FF5A5F; --ok: #5BE49B; --metal: #9AA3B2;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--fondo); }
+#lienzo { position: relative; width: 1080px; height: 1920px; overflow: hidden;
+  background: radial-gradient(900px 700px at 50% 38%, #1E1B25 0%, var(--fondo) 70%); font-family: 'Figtree', sans-serif; color: var(--linea); }
+#mundo-svg { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+/* rejilla muy suave de fondo */
+.rejilla { position: absolute; inset: 0; background-image: linear-gradient(var(--tenue2) 1px, transparent 1px), linear-gradient(90deg, var(--tenue2) 1px, transparent 1px);
+  background-size: 60px 60px; opacity: .25; -webkit-mask-image: radial-gradient(700px 900px at 50% 40%, #000 30%, transparent 80%); }
+/* trazos tipo «dibujado a mano limpio» */
+.l { fill: none; stroke: var(--linea); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.lf { fill: none; stroke: var(--linea); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.ac { stroke: var(--acento); }
+.t { font-family: 'Figtree'; font-weight: 700; fill: var(--linea); }
+.tm { font-family: 'Mono'; font-weight: 700; fill: var(--tenue); letter-spacing: 2px; }
+/* titular del gancho */
+.titular { position: absolute; left: 80px; right: 80px; text-align: center; font-family: 'Bricolage'; font-weight: 700; font-size: 96px; line-height: 1.0; letter-spacing: -2px; }
+.titular em { font-style: normal; color: var(--acento); }
+/* etiqueta con flecha (HTML encima del SVG) */
+.eti { position: absolute; padding: 14px 22px; border-radius: 16px; background: rgba(23,21,28,.86); border: 2px solid var(--tenue2); font-weight: 700; font-size: 40px; white-space: nowrap; }
+.eti.ac { border-color: var(--acento); color: var(--acento); }
+/* subtítulos: centrados, grandes, palabra a palabra, fuera de las zonas de la interfaz de Reels/TikTok */
+#subs { position: absolute; left: 70px; right: 70px; text-align: center; }
+/* dos tipografías: Figtree para lo que se dice, Bricolage (más grande y en acento) para la palabra clave */
+.subs { font-family: 'Figtree'; font-weight: 700; font-size: 74px; line-height: 1.1; letter-spacing: -0.5px; color: #fff;
+  text-shadow: 0 6px 24px rgba(0,0,0,.75), 0 0 2px rgba(0,0,0,.9); }
+.subs span { display: inline-block; }
+.subs .clave { font-family: 'Bricolage'; font-size: 1.22em; letter-spacing: -1.5px; color: var(--acento); }
+/* barra de progreso fina arriba (retención) */
+.progreso { position: absolute; left: 0; top: 0; height: 8px; background: var(--acento); }

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <radialGradient id="f" cx="50%" cy="38%" r="75%"><stop offset="0" stop-color="#1B2638"/><stop offset="1" stop-color="#090B10"/></radialGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2B550"/><stop offset="1" stop-color="#D98E1F"/></linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#f)"/>
+  <circle cx="400" cy="400" r="356" fill="none" stroke="#E8A33D" stroke-width="14"/>
+  <circle cx="400" cy="400" r="326" fill="none" stroke="#E8A33D" stroke-width="3" opacity="0.55"/>
+  <!-- carpeta de expediente -->
+  <path d="M170 300 L170 250 Q170 232 188 232 L318 232 Q332 232 342 244 L362 268 L612 268 Q630 268 630 286 L630 300 Z" fill="#C57F18"/>
+  <rect x="150" y="298" width="500" height="320" rx="26" fill="url(#a)"/>
+  <rect x="150" y="298" width="500" height="320" rx="26" fill="none" stroke="#0B0D12" stroke-width="6" opacity="0.35"/>
+  <!-- interrogante grande -->
+  <text x="400" y="578" text-anchor="middle" font-family="Georgia, 'DejaVu Serif', serif" font-weight="700" font-size="330" fill="#0B0D12">?</text>
+  <!-- sello inclinado -->
+  <g transform="translate(560 340) rotate(-12)"><rect x="-86" y="-26" width="172" height="52" rx="8" fill="none" stroke="#0B0D12" stroke-width="7"/><text x="0" y="12" text-anchor="middle" font-family="'DejaVu Sans Mono', monospace" font-weight="700" font-size="30" fill="#0B0D12">ABIERTO</text></g>
+</svg>
