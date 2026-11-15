@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Demo · mapa de Bolivia</title>
+<script>window.FORMATO = { w: 1920, h: 1080 };</script>
+<link rel="stylesheet" href="motor/explica.css">
+<script src="mapa.js"></script>
+<script src="voz/timeline.js"></script>
+<script src="motor/explica.js"></script>
+<script src="motor/materiales.js"></script>
+<style>
+  #lienzo { background: radial-gradient(1200px 800px at 40% 50%, #0E2230 0%, #06101A 75%); }
+  .tag { position: absolute; left: 90px; top: 60px; font-family: 'Mono'; font-weight: 700; font-size: 26px; letter-spacing: 6px; color: rgba(243,238,230,.5); }
+  .g-t { font-family: 'Bricolage'; font-weight: 700; fill: #F3EEE6; }
+  .g-m { font-family: 'Mono'; font-weight: 700; fill: rgba(243,238,230,.55); letter-spacing: 4px; }
+</style></head>
+<body><div id="lienzo">
+  <svg id="mundo-svg" viewBox="0 0 1920 1080"><g id="cam"><g id="contenido"></g></g></svg>
+  <div class="tag">● MAPAS QUE PARECEN MENTIRA · BOLIVIA</div>
+  <div id="subs"></div>
+  <div id="barra" class="progreso" style="background:#3FC1B0"></div>
+</div>
+<script>
+X.listo(() => {
+  const NS = 'http://www.w3.org/2000/svg', $ = (id) => document.getElementById(id), C = $('contenido'), M = window.MAPA;
+  const TE = '#3FC1B0', AR = '#E8A33D', RJ = '#D2382E', TX = '#F3EEE6', AR2 = '#FFB84D';
+  const el = (t, a = {}, p = C) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); p.appendChild(e); return e; };
+  const g = (p = C, a = {}) => el('g', a, p);
+  const sm = (u) => u * u * (3 - 2 * u), cl = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v)), L = X.lerp;
+  const ventana = (t, a, b) => sm(cl((t - a) / (b - a)));
+  const tx = (p, x, y, s, c = 'g-t', size = 60, anchor = 'start', fill) => { const e = el('text', { x, y, 'text-anchor': anchor, class: c, 'font-size': size }, p); if (fill) e.setAttribute('fill', fill); e.textContent = s; return e; };
+  // ---- océano y olas ----
+  const mar = g(); el('rect', { x: 0, y: 0, width: 1000, height: 1080, fill: '#07263A' }, mar);
+  const olas = Array.from({ length: 6 }, (_, i) => el('path', { fill: 'none', stroke: TE, 'stroke-width': 3, opacity: 0.25 }, mar));
+  tx(mar, 60, 900, 'OCÉANO', 'g-m', 30, 'start'); tx(mar, 60, 940, 'PACÍFICO', 'g-m', 30, 'start');
+  // ---- países ----
+  const paises = g(); const orden = ['Venezuela', 'Guyana', 'Surinam', 'Colombia', 'Ecuador', 'Peru', 'Brasil', 'Paraguay', 'Uruguay', 'Argentina', 'Chile', 'Bolivia'];
+  const pp = {}; orden.forEach((n) => { pp[n] = el('path', { d: M.paths[n], fill: n === 'Bolivia' ? '#C9A45F' : '#13293A', stroke: n === 'Bolivia' ? '#FFE3A8' : '#2D4D63', 'stroke-width': n === 'Bolivia' ? 4 : 1.8, 'stroke-linejoin': 'round' }, paises); });
+  const etq = (n, p, s) => tx(g(paises), p[0], p[1], s, 'g-m', 24, 'middle');
+  const bc = M.bolivia_centro; etq('B', [bc[0], bc[1] + 8], 'BOLIVIA');
+  // ---- litoral boliviano (histórico, aproximado) ----
+  const lit = el('path', { d: 'M' + M.litoral.map((p) => p.join(' ')).join(' L') + ' Z', fill: AR2, opacity: 0, stroke: AR2, 'stroke-width': 4 }, g());
+  const litTxt = tx(g(), M.litoral[3][0] - 150, M.litoral[3][1], 'LITORAL BOLIVIANO', 'g-m', 24, 'end', AR2);
+  const litNota = tx(g(), M.litoral[3][0] - 150, M.litoral[3][1] + 30, '(aproximado)', 'g-m', 18, 'end'); litTxt.setAttribute('opacity', 0); litNota.setAttribute('opacity', 0);
+  const atac = g(); for (let i = 0; i < 70; i++) { const p = M.litoral[Math.floor((i * 7) % 8)]; el('circle', { cx: p[0] + ((i * 37) % 120) - 20, cy: p[1] + ((i * 53) % 110) - 40, r: 2.4, fill: AR2, opacity: 0 }, atac); }
+  // ---- guerra del pacífico: Chile avanza ----
+  const chRojo = el('path', { d: M.paths.Chile, fill: RJ, opacity: 0 }, g()); const flecha = el('path', { d: `M${M.litoral[4][0] - 10} ${M.litoral[4][1] + 150} L${M.litoral[2][0] - 8} ${M.litoral[2][1]}`, fill: 'none', stroke: RJ, 'stroke-width': 10, 'stroke-linecap': 'round', 'stroke-dasharray': '2 20', opacity: 0 }, g());
+  // ---- barco (armada) ----
+  const barco = (p, s = 1, c = TX) => { const q = g(p); el('path', { d: 'M-60 0 L60 0 L46 22 L-46 22 Z', fill: c }, q); el('rect', { x: -22, y: -22, width: 40, height: 22, fill: c }, q); el('rect', { x: -8, y: -42, width: 14, height: 20, fill: c }, q); el('rect', { x: 18, y: -12, width: 26, height: 5, fill: c }, q); q.setAttribute('data-s', s); return q; };
+  const nave = barco(g(), 1, TX); const naveQ = tx(g(), 0, 0, '?', 'g-t', 110, 'middle', RJ); naveQ.setAttribute('opacity', 0);
+  const lago = el('ellipse', { cx: M.titicaca[0], cy: M.titicaca[1], rx: 26, ry: 14, fill: '#1B6C86', stroke: TE, 'stroke-width': 3, opacity: 0 }, g()); const lagoTxt = tx(g(), M.titicaca[0] - 40, M.titicaca[1] - 28, 'LAGO TITICACA', 'g-m', 22, 'end', TE); lagoTxt.setAttribute('opacity', 0);
+  const r = M.rio_mamore, rio = el('path', { d: `M${r[0][0]} ${r[0][1]} Q${r[1][0] + 40} ${r[1][1]} ${r[2][0]} ${r[2][1]}`, fill: 'none', stroke: TE, 'stroke-width': 7, 'stroke-linecap': 'round', opacity: 0 }, g()); const rioP = rio;
+  const barcoLago = barco(g(), 0.35, TX), barcoRio = barco(g(), 0.35, TX); barcoLago.setAttribute('opacity', 0); barcoRio.setAttribute('opacity', 0);
+  // ---- siete puntos ----
+  const cosas = [[0, -10], [-72, 88], [48, 120], [120, 24], [-32, -96], [112, -88], [-112, 8]].map(([dx, dy], i) => { const q = g(); el('circle', { cx: bc[0] + dx, cy: bc[1] + 50 + dy, r: 26, fill: i === 0 ? AR2 : '#0B1B28', stroke: i === 0 ? AR2 : TE, 'stroke-width': 4 }, q); tx(q, bc[0] + dx, bc[1] + 50 + dy + 10, String(i + 1), 'g-t', 30, 'middle', i === 0 ? '#06101A' : TX); q.setAttribute('opacity', 0); return q; });
+  // ---- textos de la derecha ----
+  const T = (y, l1, l2, c2) => { const q = g(); tx(q, 1090, y, l1, 'g-t', 92, 'start'); if (l2) tx(q, 1090, y + 102, l2, 'g-t', 92, 'start', c2 || AR2); q.setAttribute('opacity', 0); return q; };
+  const t1 = T(430, 'BOLIVIA', 'NO TIENE MAR', AR2), t2 = T(430, 'PERO TIENE', 'UNA ARMADA', TE), t3 = T(430, '¿PARA QUÉ', 'SIRVE?', RJ), t4 = T(420, 'HASTA EL', 'SIGLO XIX', AR2), t5 = T(430, 'SÍ TENÍA', 'COSTA', AR2), t6 = T(430, 'EL DESIERTO', 'DE ATACAMA', AR2), t7 = T(430, 'LA PERDIÓ', 'EN UNA GUERRA', RJ), t8 = T(430, 'LA ARMADA', 'SIGUIÓ', TE), t9 = T(430, 'NAVEGA POR', 'SUS LAGOS', TE), t10 = T(430, 'Y POR', 'SUS RÍOS', TE), t11 = T(430, 'LA PRIMERA DE', '7 COSAS', AR2), t12 = T(430, 'QUE PARECEN', 'MENTIRA', RJ);
+  const anio = tx(g(), 1090, 760, '', 'g-t', 150, 'start', RJ); const anioT = tx(g(), 1090, 810, 'GUERRA DEL PACÍFICO', 'g-m', 30, 'start'); anioT.setAttribute('opacity', 0);
+  const bloques = [[0, 2.0, t1], [2.0, 4.0, t2], [4.0, 5.3, t3], [5.3, 6.9, t4], [6.9, 8.2, t5], [8.2, 10.1, t6], [10.1, 12.0, t7], [12.0, 14.1, t8], [14.1, 15.1, t9], [15.1, 17.2, t10], [17.2, 19.0, t11], [19.0, 21.0, t12]];
+  const subs = X.subtitulos($('subs'), { max: 4, y: 950, claves: ['mar', 'armada', 'costa', 'Atacama', 'Titicaca', 'mentira', 'Bolivia'] });
+  const grano = X.grano($('lienzo'), 0.05);
+  X.sonido(0.1, 'whoosh', 0.7); X.sonido(2.0, 'pop', 0.8); X.sonido(10.1, 'pop', 0.8); X.sonido(17.2, 'whoosh', 0.7);
+
+  return (t) => {
+    $('barra').style.width = (100 * t / X.dur).toFixed(2) + '%';
+    olas.forEach((o, i) => { let d = ''; for (let x = 0; x <= 1000; x += 25) d += (x ? ' L' : 'M') + x + ' ' + (160 + i * 150 + 9 * Math.sin(x / 70 + t * (1 + i * 0.2) + i)).toFixed(1); o.setAttribute('d', d); });
+    // bloques de texto
+    bloques.forEach(([a, b, q]) => { const o = ventana(t, a, a + 0.25) * (1 - ventana(t, b - 0.2, b)); q.setAttribute('opacity', o.toFixed(3)); q.setAttribute('transform', `translate(${(1 - ventana(t, a, a + 0.35)) * 40} 0)`); });
+    // Bolivia respira al principio
+    pp.Bolivia.setAttribute('fill', t < 2.0 ? '#C9A45F' : '#B7954F'); pp.Bolivia.setAttribute('stroke-width', (4 + 2 * Math.sin(t * 5) * (t < 2 ? 1 : 0)).toFixed(1));
+    // barco de la armada: aparece en 2.0, interrogante en 4.0, vuelve en 12.0
+    const sBar = ventana(t, 2.0, 2.6) * (t < 12.0 ? 1 : 1);
+    const posB = [bc[0] + 10, bc[1] - 30]; nave.setAttribute('transform', `translate(${posB[0]} ${posB[1] + 3 * Math.sin(t * 3)}) scale(${(1.3 * sBar).toFixed(3)})`); nave.setAttribute('opacity', (t < 14.1 ? sBar : 0).toFixed(2));
+    naveQ.setAttribute('x', posB[0]); naveQ.setAttribute('y', posB[1] - 70); naveQ.setAttribute('opacity', (ventana(t, 4.0, 4.4) * (1 - ventana(t, 5.1, 5.3))).toFixed(2));
+    // litoral
+    const kl = ventana(t, 6.9, 7.4) * (1 - ventana(t, 11.2, 11.9)); lit.setAttribute('opacity', (0.55 * kl * (0.8 + 0.2 * Math.sin(t * 6))).toFixed(2)); litTxt.setAttribute('opacity', (ventana(t, 7.0, 7.5) * (1 - ventana(t, 11.2, 11.9))).toFixed(2)); litNota.setAttribute('opacity', litTxt.getAttribute('opacity'));
+    Array.from(atac.children).forEach((c, i) => c.setAttribute('opacity', (ventana(t, 8.3 + (i % 10) * 0.05, 8.9) * (1 - ventana(t, 11.2, 11.9)) * 0.75).toFixed(2)));
+    // guerra
+    const kg = ventana(t, 10.1, 10.6) * (1 - ventana(t, 11.8, 12.2)); chRojo.setAttribute('opacity', (0.38 * kg).toFixed(2)); flecha.setAttribute('opacity', kg.toFixed(2)); flecha.setAttribute('stroke-dashoffset', (-t * 40).toFixed(1));
+    const ka = ventana(t, 10.2, 12.0); anio.textContent = ka > 0 ? Math.round(L(1879, 1884, ka)) : ''; anio.setAttribute('opacity', (ventana(t, 10.1, 10.4) * (1 - ventana(t, 12.0, 12.4))).toFixed(2)); anioT.setAttribute('opacity', anio.getAttribute('opacity'));
+    // lago y ríos
+    lago.setAttribute('opacity', ventana(t, 14.1, 14.5).toFixed(2)); lagoTxt.setAttribute('opacity', ventana(t, 14.2, 14.6).toFixed(2));
+    barcoLago.setAttribute('opacity', ventana(t, 14.3, 14.7).toFixed(2)); barcoLago.setAttribute('transform', `translate(${M.titicaca[0] + 14 * Math.sin(t * 2)} ${M.titicaca[1] + 4 * Math.sin(t * 3)}) scale(0.55)`);
+    rio.setAttribute('opacity', ventana(t, 15.1, 15.5).toFixed(2)); const kr = (t - 15.4) / 1.6, kk = cl(kr), rp = rioP.getPointAtLength(kk * rioP.getTotalLength());
+    barcoRio.setAttribute('opacity', (ventana(t, 15.3, 15.6)).toFixed(2)); barcoRio.setAttribute('transform', `translate(${rp.x} ${rp.y}) scale(0.5)`);
+    // siete cosas
+    cosas.forEach((q, i) => q.setAttribute('opacity', ventana(t, 17.3 + i * 0.22, 17.6 + i * 0.22).toFixed(2)));
+    subs.dibuja(t); grano(t);
+  };
+});
+</script></body></html>
