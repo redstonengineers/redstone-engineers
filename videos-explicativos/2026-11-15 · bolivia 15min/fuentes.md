@@ -12,3 +12,11 @@ Estado: RESUMEN = visto en resultados de búsqueda, no leído a fondo. Hay que l
 | 7 | Constitución de 2009: castellano y 36 lenguas indígenas oficiales; Sucre capital constitucional, La Paz sede del gobierno | Constitute Project https://www.constituteproject.org/constitution/Bolivia_2009 | RESUMEN |
 
 ## Por investigar (aún sin datos): Potosí/Cerro Rico, lago Titicaca (altitud y navegación), lago Poopó, cholitas luchadoras, delfín rosado del Amazonas boliviano, Tiwanaku, La Paz como sede de gobierno más alta, otros.
+
+## Datos añadidos 2026-11-15 (búsqueda; RESUMEN, leer fuente antes de publicar)
+| Dato | Fuente | Estado |
+|---|---|---|
+| Potosí: plata hallada 1545, ciudad fundada 1546; >100.000 hab. hacia 1600 (estimaciones 100–150 mil); ~4.000 m; "más de un tercio de la plata mundial 1545–1810" (afirmación de una sola fuente) | https://en.wikipedia.org/wiki/Potos%C3%AD ; https://whc.unesco.org/en/list/420 (UNESCO 1987) | RESUMEN; cifra de 1/3 y lista "en peligro" por confirmar en UNESCO |
+| Titicaca: 3.812 m, 8.372 km², compartido Bolivia–Perú; "navegable comercial más alto" | https://en.wikipedia.org/wiki/Lake_Titicaca ; Guinness | RESUMEN |
+| Cholitas luchadoras: inicios años 2000, Titanes del Ring las incorpora; NO años 90 | bushop.com, borgenproject.org, girlswithguns.org | RESUMEN, fuentes secundarias |
+| Frases sin fuente aún: Día del Mar 23 de marzo; "puente de plata hasta España"; mita; |   | PENDIENTE verificar o quitar |
