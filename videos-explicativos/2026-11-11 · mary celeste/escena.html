@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Mary Celeste</title>
+<script>window.FORMATO = { w: 1920, h: 1080 };</script>
+<link rel="stylesheet" href="motor/explica.css">
+<script src="voz/timeline.js"></script>
+<script src="motor/explica.js"></script>
+<script src="motor/materiales.js"></script>
+<style>
+  :root { --acento: #E8A33D; --fondo: #0B0D12; --fondo2: #141922; }
+  .cap { position: absolute; left: 110px; top: 70px; font-family: 'Mono'; font-weight: 700; font-size: 30px; letter-spacing: 5px; color: var(--tenue); text-transform: uppercase; }
+  .cap b { color: var(--acento); }
+  .nota { position: absolute; right: 90px; top: 78px; font-family: 'Mono'; font-weight: 700; font-size: 20px; letter-spacing: 2px; color: rgba(243,238,230,.38); }
+  .g-t { font-family: 'Bricolage'; font-weight: 700; fill: var(--linea); }
+  .g-f { font-family: 'Figtree'; font-weight: 700; fill: var(--linea); }
+  .g-m { font-family: 'Mono'; font-weight: 700; fill: var(--tenue); letter-spacing: 3px; }
+  .ax { stroke: var(--tenue); stroke-width: 3; fill: none; }
+  .gr { stroke: rgba(243,238,230,.08); stroke-width: 2; fill: none; }
+  #lienzo { background: radial-gradient(1100px 700px at 50% 40%, #182030 0%, var(--fondo) 72%); }
+</style></head>
+<body><div id="lienzo">
+  <div class="rejilla"></div>
+  <svg id="mundo-svg" viewBox="0 0 1920 1080"><g id="cam"><g id="contenido"></g></g></svg>
+  <div id="cap" class="cap"></div>
+  <div class="nota">CASO HISTÓRICO · HIPÓTESIS SEÑALADAS</div>
+  <div id="subs"></div>
+  <div id="barra" class="progreso"></div>
+</div>
+<script>
+X.listo(() => {
+  const NS = 'http://www.w3.org/2000/svg', $ = (id) => document.getElementById(id), C = $('contenido');
+  const AM = '#E8A33D', RJ = '#FF5A5F', VD = '#5BE49B', AZ = '#6FB1D8', TX = '#F3EEE6';
+  const T = (f, n = 1) => X.debe(X.en(f, n), f);
+  const el = (tag, at = {}, p = C) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); p.appendChild(e); return e; };
+  const g = (p = C, at = {}) => el('g', at, p);
+  const tx = (p, x, y, s, cl = 'g-f', size = 48, anchor = 'middle', fill) => { const e = el('text', { x, y, 'text-anchor': anchor, class: cl, 'font-size': size }, p); if (fill) e.setAttribute('fill', fill); e.textContent = s; return e; };
+  const sm = (u) => u * u * (3 - 2 * u), L = X.lerp, seg = X.seg;
+  const tarjeta = (p, x, y, w, h, color = AM) => el('rect', { x, y, width: w, height: h, rx: 24, fill: 'rgba(20,25,34,.94)', stroke: color, 'stroke-width': 3 }, p);
+  // sello de expediente
+  const sello = (p, x, y, texto, color, rot = -6, size = 34) => { const gg = g(p, { transform: `translate(${x},${y}) rotate(${rot})` }); const w = texto.length * size * 0.66 + 40;
+    el('rect', { x: -w / 2, y: -size, width: w, height: size * 1.6, rx: 8, fill: 'rgba(11,13,18,.6)', stroke: color, 'stroke-width': 5 }, gg); tx(gg, 0, size * 0.18, texto, 'g-m', size, 'middle', color); return gg; };
+  // barco: bergantín de dos palos (dibujo propio)
+  function barco(p, color = TX) {
+    const s = g(p); el('path', { d: 'M-210 0 L210 0 L170 70 L-170 70 Z', fill: 'rgba(20,25,34,.95)', stroke: color, 'stroke-width': 5, 'stroke-linejoin': 'round' }, s);
+    el('path', { d: 'M-200 -14 L200 -14 M-190 -28 L190 -28', stroke: color, 'stroke-width': 3, fill: 'none' }, s);
+    el('line', { x1: -70, y1: 0, x2: -70, y2: -250, stroke: color, 'stroke-width': 6 }, s); el('line', { x1: 90, y1: 0, x2: 90, y2: -210, stroke: color, 'stroke-width': 6 }, s);
+    for (const [x, hh] of [[-70, 250], [90, 210]]) { el('path', { d: `M${x - 70} -${hh * 0.2} L${x + 70} -${hh * 0.2} L${x + 55} -${hh * 0.62} L${x - 55} -${hh * 0.62} Z`, fill: 'rgba(243,238,230,.10)', stroke: color, 'stroke-width': 3 }, s);
+      el('path', { d: `M${x - 52} -${hh * 0.66} L${x + 52} -${hh * 0.66} L${x + 40} -${hh * 0.95} L${x - 40} -${hh * 0.95} Z`, fill: 'rgba(243,238,230,.08)', stroke: color, 'stroke-width': 3 }, s); }
+    el('path', { d: 'M-70 -250 L-215 -10 M90 -210 L-70 -250 M90 -210 L215 -10', stroke: color, 'stroke-width': 2, fill: 'none', opacity: 0.7 }, s);
+    return s; }
+  const mar = (p, y0, color = AZ, n = 5) => { const ps = []; for (let i = 0; i < n; i++) ps.push(el('path', { fill: 'none', stroke: color, 'stroke-width': 3, opacity: 0.55 - i * 0.07 }, p));
+    return (t) => ps.forEach((e, i) => { let d = ''; for (let x = -40; x <= 1960; x += 40) d += (x > -40 ? ' L' : 'M') + x + ' ' + (y0 + i * 34 + 10 * Math.sin(x / 120 + t * (0.7 + i * 0.15) + i)).toFixed(1); e.setAttribute('d', d); }); };
+
+  // ---------- anclas ----------
+  const A = {
+    diez: T('Diez personas habían salido'), nunca: T('Nunca más se supo'), historia: T('Esta es la historia del Mary Celeste'), compro: T('Empecemos por lo que está comprobado'),
+    zarpo: T('zarpó de Nueva York'), genova: T('rumbo a Génova'), b1701: T('1.701'), aBordo: T('A bordo iban diez personas'),
+    capitan: T('Benjamin Briggs'), esposa: T('Su esposa'), hija: T('Su hija pequeña'), siete: T('Y siete tripulantes'),
+    dia4: T('El 4 de diciembre'), encontro: T('lo encontró a la deriva'), velas: T('parte de las velas'), bote: T('Faltaba el bote salvavidas'), agua: T('Había agua en la bodega'), apunte: T('El último apunte'), carga: T('La carga, casi toda'), noTorm: T('no parecía haber ocurrido'), vacio: T('Solo había un vacío'),
+    gib: T('El Dei Gratia llevó el barco hasta Gibraltar'), solly: T('Frederick Solly-Flood'), pruebaCrimen: T('no encontraron ninguna prueba de crimen'), que: T('Entonces, ¿qué pasó?'),
+    motin: T('La primera: un motín'), piratas: T('La segunda: piratas'), monstruo: T('La tercera: un monstruo'), luego: T('Y luego están las explicaciones'),
+    alcohol: T('Una es el alcohol'), a2006: T('En 2006'), critica: T('Aun así, ese experimento'), terremoto: T('Otra idea es un terremoto'), tercera: T('Y hay una tercera posibilidad'), ninguna: T('Ninguna de las tres está demostrada'),
+    ahora: T('Y ahora, algo que casi nadie cuenta'), a1884: T('En 1884'), ficcion: T('Era ficción'), fiscal: T('El propio fiscal'), ejemplo: T('Por ejemplo, se suele decir'),
+    resumamos: T('Resumamos'), prim: T('Primero: en 1872'), segu: T('Segundo: el barco'), terc: T('Tercero: la hipótesis'), cuarto: T('Y cuarto: mucho'), nosabemos: T('Y lo que no sabemos'), siglo: T('Más de siglo y medio'),
+  };
+  const FIN = X.dur;
+
+  const etapas = [];
+  const etapa = (ini, fin, cap) => { const gg = g(C, { opacity: 0 }); etapas.push({ gg, ini, fin, cap }); return gg; };
+  const vis = (e, t) => Math.min(sm(seg(t, e.ini - 0.05, e.ini + 0.5)), 1 - sm(seg(t, e.fin - 0.4, e.fin)));
+  const pop = (grupo, t, t0, o = {}) => X.anima(grupo, t, Object.assign({ entra: t0, dur: 0.55, desde: { y: 26, blur: 10, s: 0.97 }, curva: 'firme' }, o));
+
+  // ===== 1 · GANCHO =====
+  const eH = etapa(0, A.historia, 'Diciembre de 1872');
+  const marH = mar(eH, 800); const shipH = g(eH); const b1 = barco(shipH);
+  const hT = tx(eH, 960, 215, 'DICIEMBRE DE 1872', 'g-t', 100, 'middle', AM);
+  const hS = tx(eH, 960, 290, 'un barco navega solo por el Atlántico', 'g-f', 46, 'middle', 'rgba(243,238,230,.8)');
+  const gente = g(eH); const pts = Array.from({ length: 10 }, (_, i) => { const c = el('g', {}, gente); el('circle', { cx: 660 + i * 70, cy: 400, r: 16, fill: AM }, c); el('path', { d: `M${660 + i * 70 - 22} 450 Q${660 + i * 70} 405 ${660 + i * 70 + 22} 450 Z`, fill: AM }, c); return c; });
+  const cero = tx(eH, 960, 515, '0 personas a bordo', 'g-t', 64, 'middle', RJ);
+  // ===== 2 · TÍTULO =====
+  const eT = etapa(A.historia, A.compro, 'Expediente abierto');
+  tx(eT, 960, 470, 'MARY CELESTE', 'g-t', 170, 'middle', TX); tx(eT, 960, 560, '1872 · el barco que apareció sin tripulación', 'g-f', 52, 'middle', AM);
+  const tl = el('path', { d: 'M520 620 L1400 620', stroke: AM, 'stroke-width': 8, fill: 'none', 'stroke-linecap': 'round' }, eT);
+  sello(eT, 1500, 330, 'EXPEDIENTE', AM, -8, 40);
+  // ===== 3 · RUTA =====
+  const eR = etapa(A.compro, A.aBordo, 'Lo comprobado: la ruta');
+  const NY = [330, 520], GE = [1590, 470], GB = [1180, 560];
+  const ruta = el('path', { d: `M${NY[0]} ${NY[1]} Q820 300 ${GE[0]} ${GE[1]}`, fill: 'none', stroke: AM, 'stroke-width': 8, 'stroke-dasharray': '2 18', 'stroke-linecap': 'round' }, eR);
+  el('circle', { cx: NY[0], cy: NY[1], r: 16, fill: AM }, eR); tx(eR, NY[0], NY[1] + 62, 'NUEVA YORK', 'g-t', 44);
+  const geo = g(eR); el('circle', { cx: GE[0], cy: GE[1], r: 16, fill: AM }, geo); tx(geo, GE[0], GE[1] + 62, 'GÉNOVA', 'g-t', 44);
+  tx(eR, 900, 660, 'océano Atlántico', 'g-m', 30); tx(eR, 960, 780, 'esquema, no a escala', 'g-m', 22);
+  const cargaC = g(eR); tarjeta(cargaC, 700, 780, 520, 120); tx(cargaC, 960, 850, '1.701 barriles de alcohol', 'g-t', 44, 'middle', AM); tx(cargaC, 960, 885, 'alcohol industrial desnaturalizado', 'g-m', 22);
+  sello(eR, 1640, 760, 'CONFIRMADO', VD, -5, 30);
+  const shipR = g(eR); const b2 = barco(shipR); shipR.setAttribute('transform', 'translate(0 0) scale(0.35)');
+  // ===== 4 · A BORDO =====
+  const eB = etapa(A.aBordo, A.dia4, 'Las diez personas');
+  const per = [['Capitán', 'Benjamin Briggs', A.capitan], ['Esposa', 'Sarah', A.esposa], ['Hija', 'Sophia', A.hija]];
+  const gb = per.map(([r, n, t0], i) => { const gg = g(eB); const x = 340 + i * 420; tarjeta(gg, x - 180, 330, 360, 280); el('circle', { cx: x, cy: 420, r: 34, fill: AM }, gg); el('path', { d: `M${x - 56} 520 Q${x} 440 ${x + 56} 520 Z`, fill: AM }, gg); tx(gg, x, 560, n, 'g-t', 42); tx(gg, x, 596, r.toUpperCase(), 'g-m', 24); return { gg, t0 }; });
+  const tripu = g(eB); for (let i = 0; i < 7; i++) { el('circle', { cx: 480 + i * 160, cy: 740, r: 24, fill: 'none', stroke: AM, 'stroke-width': 5 }, tripu); el('path', { d: `M${480 + i * 160 - 34} 810 Q${480 + i * 160} 750 ${480 + i * 160 + 34} 810`, fill: 'none', stroke: AM, 'stroke-width': 5 }, tripu); }
+  tx(tripu, 960, 880, '7 tripulantes', 'g-t', 44, 'middle', AM);
+  // ===== 5 · LO ENCONTRADO =====
+  const eF = etapa(A.dia4, A.gib, 'Lo que vieron a bordo');
+  const marF = mar(eF, 800); const shipF = g(eF); const b3 = barco(shipF);
+  const hallazgos = [[A.encontro, 'Hallado a la deriva · Dei Gratia', VD], [A.velas, 'Con parte de las velas desplegadas', VD], [A.bote, 'Falta el bote salvavidas', AM], [A.agua, 'Agua en la bodega (no tanta para hundirlo)', AM], [A.apunte, 'Último apunte del diario: días antes', AM], [A.carga, 'La carga, casi toda, seguía allí', VD]];
+  const fich = hallazgos.map(([t0, s, c], i) => { const gg = g(eF); const col = i % 2, row = Math.floor(i / 2); const x = 1010 - 0 + col * 0, y = 180 + i * 96; tarjeta(gg, 1040, y, 760, 80, c); tx(gg, 1420, y + 53, s, 'g-f', 34); return { gg, t0 }; });
+  const sinTor = g(eF); tx(sinTor, 420, 330, 'sin tormenta', 'g-t', 54, 'middle', AM); tx(sinTor, 420, 385, 'sin ataque · sin incendio', 'g-f', 34);
+  const vacio = g(eF); tx(vacio, 420, 490, 'solo un vacío', 'g-t', 64, 'middle', RJ);
+  // ===== 6 · GIBRALTAR =====
+  const eG = etapa(A.gib, A.que, 'Gibraltar: la investigación');
+  const rg = el('path', { d: `M300 620 Q760 420 ${GB[0]} ${GB[1]}`, fill: 'none', stroke: AM, 'stroke-width': 8, 'stroke-dasharray': '2 18', 'stroke-linecap': 'round' }, eG);
+  el('circle', { cx: GB[0], cy: GB[1], r: 18, fill: AM }, eG); tx(eG, GB[0], GB[1] + 64, 'GIBRALTAR', 'g-t', 48); tx(eG, 760, 560, '≈ 1.300 km', 'g-m', 30);
+  const sol = g(eG); tarjeta(sol, 220, 700, 860, 140); tx(sol, 650, 765, 'Frederick Solly-Flood', 'g-t', 52, 'middle', AM); tx(sol, 650, 810, 'dirige la investigación · sospecha', 'g-m', 24);
+  const sc = g(eG); sello(sc, 1450, 760, 'SIN PRUEBAS DE CRIMEN', RJ, -4, 34);
+  // ===== 7 · TEORÍAS DESCARTADAS =====
+  const eTe = etapa(A.que, A.luego, 'Teorías sin pruebas');
+  const teor = [[A.motin, 'MOTÍN', 'no hay signos de violencia'], [A.piratas, 'PIRATAS', 'la carga seguía allí'], [A.monstruo, 'MONSTRUO MARINO', 'ninguna prueba']].map(([t0, n, s], i) => { const gg = g(eTe); const x = 240 + i * 520; tarjeta(gg, x, 300, 460, 420, RJ); tx(gg, x + 230, 400, n, 'g-t', 52, 'middle', TX); tx(gg, x + 230, 470, s, 'g-f', 32, 'middle', 'rgba(243,238,230,.75)'); sello(gg, x + 230, 600, 'SIN PRUEBAS', RJ, -6, 34); return { gg, t0 }; });
+  tx(eTe, 960, 870, 'lo que no encaja con los hechos', 'g-m', 28);
+  // ===== 8 · HIPÓTESIS =====
+  const eHi = etapa(A.luego, A.ahora, 'Hipótesis (no demostradas)');
+  const cuerpo = g(eHi); el('path', { d: 'M260 520 L860 520 L800 640 L320 640 Z', fill: 'rgba(20,25,34,.95)', stroke: TX, 'stroke-width': 5 }, cuerpo);
+  for (let i = 0; i < 5; i++) { el('ellipse', { cx: 360 + i * 100, cy: 560, rx: 36, ry: 22, fill: 'none', stroke: AM, 'stroke-width': 4 }, cuerpo); }
+  const humo = X.humo(cuerpo, { ruta: (u) => [560, 520 - 210 * u], n: 14, vida: 2.8, tam: [28, 70], color: '#E8A33D', op: 0.5, semilla: 11, viento: [30, -10] });
+  tx(cuerpo, 560, 720, 'BODEGA · vapor de alcohol', 'g-m', 26);
+  const hip1 = g(eHi); tarjeta(hip1, 980, 180, 840, 150, AM); tx(hip1, 1340, 245, '1 · Vapor de alcohol', 'g-f', 34); tx(hip1, 1340, 300, 'miedo a una explosión → abandono en el bote', 'g-m', 24); sello(hip1, 1715, 215, 'HIPÓTESIS', AM, -6, 24);
+  const sella = g(eHi); tarjeta(sella, 980, 350, 840, 130, AZ); tx(sella, 1400, 410, '2006 · UCL (Andrea Sella): maqueta, llamarada', 'g-f', 34); tx(sella, 1400, 455, 'onda de presión sin marcas de fuego', 'g-m', 24);
+  const crit = g(eHi); tarjeta(crit, 980, 500, 840, 130, RJ); tx(crit, 1400, 560, 'Críticas: no usó alcohol real', 'g-f', 34); tx(crit, 1400, 605, 'y en el barco no había señales de explosión', 'g-m', 24);
+  const terr = g(eHi); tarjeta(terr, 980, 650, 840, 100, AM); tx(terr, 1340, 715, '2 · Terremoto submarino', 'g-f', 36); sello(terr, 1715, 700, 'HIPÓTESIS', AM, -6, 24);
+  const aban = g(eHi); tarjeta(aban, 980, 770, 840, 100, AM); tx(aban, 1340, 835, '3 · Abandono preventivo', 'g-f', 36); sello(aban, 1715, 820, 'HIPÓTESIS', AM, -6, 24);
+  const nin = g(eHi); sello(nin, 560, 840, 'NINGUNA DEMOSTRADA', RJ, -4, 34);
+  // ===== 9 · CONAN DOYLE =====
+  const eD = etapa(A.ahora, A.resumamos, 'Lo que la leyenda añadió');
+  tx(eD, 960, 175, 'LO QUE AÑADIÓ LA LEYENDA', 'g-t', 76, 'middle', AM);
+  const rev = g(eD); tarjeta(rev, 360, 230, 520, 380, AM); tx(rev, 620, 330, 'CORNHILL', 'g-t', 54); tx(rev, 620, 385, 'MAGAZINE', 'g-t', 54); tx(rev, 620, 470, 'enero de 1884', 'g-m', 28); tx(rev, 620, 540, '«Marie Celeste»', 'g-t', 52, 'middle', AM); tx(rev, 620, 585, 'relato anónimo', 'g-m', 22);
+  const fic = g(eD); sello(fic, 1260, 330, 'FICCIÓN', RJ, -8, 56); tx(fic, 1260, 420, '(su autor: Arthur Conan Doyle)', 'g-f', 34, 'middle', 'rgba(243,238,230,.8)');
+  const fis = g(eD); tarjeta(fis, 1000, 480, 800, 180, TX); tx(fis, 1400, 560, '«una fabricación de principio a fin»', 'g-t', 44); tx(fis, 1400, 620, 'Solly-Flood, fiscal de Gibraltar', 'g-m', 26);
+  const mesa = g(eD); tarjeta(mesa, 360, 700, 1440, 150, AM); tx(mesa, 1080, 765, 'Mesa puesta, comida caliente…', 'g-t', 54); tx(mesa, 1080, 815, 'parte de la leyenda', 'g-m', 26); sello(mesa, 1650, 770, 'SIN CONFIRMAR', RJ, -5, 28);
+  // ===== 10 · RESUMEN =====
+  const eS = etapa(A.resumamos, A.nosabemos, 'Resumen del expediente');
+  const resu = [[A.prim, 'En 1872 apareció a la deriva sin las 10 personas', VD], [A.segu, 'Apto para navegar · carga casi toda · sin pruebas de crimen', VD], [A.terc, 'Hipótesis más discutida: miedo a una explosión', AM], [A.cuarto, 'Gran parte de la leyenda nació de un cuento', RJ]].map(([t0, s, c], i) => { const gg = g(eS); const y = 230 + i * 150; tarjeta(gg, 260, y, 1400, 120, c); tx(gg, 360, y + 82, String(i + 1), 'g-t', 76, 'middle', c); tx(gg, 1010, y + 76, s, 'g-f', 38); return { gg, t0 }; });
+  // ===== 11 · CIERRE =====
+  const eC = etapa(A.nosabemos, FIN + 1, 'Lo que no sabemos');
+  const marC = mar(eC, 800); const shipC = g(eC); const b4 = barco(shipC);
+  const q = tx(eC, 960, 270, '¿Qué pasó a bordo?', 'g-t', 120, 'middle', AM);
+  const q2 = g(eC); tx(q2, 960, 360, 'quién · cómo · por qué', 'g-m', 36);
+  const ids = A;
+  // ---------- fondo, subtítulos ----------
+  const fondo = g(C, { opacity: 0.5 }); C.insertBefore(fondo, C.firstChild);
+  const orbes = Array.from({ length: 5 }, (_, i) => { const c = el('circle', { r: 180 + i * 30, fill: i % 2 ? AZ : AM, opacity: 0.045 }, fondo); c.style.filter = 'blur(60px)'; return c; });
+  const grano = X.grano($('lienzo'), 0.07);
+  const subs = X.subtitulos($('subs'), { max: 4, y: 950, claves: ['Mary', 'Celeste', 'verdad', 'hipótesis', 'ficción'] });
+  const cam = [{ t: 0, x: 960, y: 540, z: 1.0 }, { t: A.dia4, x: 960, y: 540, z: 1.0 }, { t: A.luego, x: 960, y: 540, z: 1.0 }];
+  X.sonido(A.diez, 'whoosh', 0.5); X.sonido(A.nunca, 'pop', 0.7); X.sonido(A.historia, 'whoosh', 0.8); X.sonido(A.vacio, 'pop', 0.7);
+  etapas.forEach((e) => { if (e.ini > 1) X.sonido(e.ini, 'whoosh', 0.4); });
+  X.sonido(A.ficcion, 'pop', 0.8); X.sonido(A.ninguna, 'pop', 0.7);
+  let capAnt = '';
+
+  return (t) => {
+    X.camara($('cam'), t, cam, { mano: 0 });
+    $('barra').style.width = (100 * t / X.dur).toFixed(2) + '%';
+    orbes.forEach((o, i) => { o.setAttribute('cx', 960 + 760 * X.ruidoF(t * 0.05 + i * 7, i + 1)); o.setAttribute('cy', 540 + 380 * X.ruidoF(t * 0.045 + i * 5, i + 9)); });
+    let capNow = '';
+    etapas.forEach((e) => { const v = vis(e, t); e.gg.setAttribute('opacity', v.toFixed(3)); e.gg.style.display = v <= 0.001 ? 'none' : ''; if (v > 0.5) capNow = e.cap; });
+    if (capNow !== capAnt) { $('cap').innerHTML = capNow ? '<b>●</b> ' + capNow : ''; capAnt = capNow; }
+    const bob = (n, k = 1) => 12 * k * Math.sin(t * 0.9 + n);
+    // gancho
+    marH(t); shipH.setAttribute('transform', `translate(${1150 + 20 * Math.sin(t * 0.3)} ${770 + bob(0)}) rotate(${3 * Math.sin(t * 0.7)}) scale(0.72)`);
+    X.anima(hT, t, { entra: 0, dur: 0.5, desde: { y: -20, blur: 12 } });
+    pts.forEach((p, i) => { const tin = A.diez + i * 0.12, tout = A.nunca + i * 0.1; const o = (t < tin ? 0 : 1) * (1 - sm(seg(t, tout, tout + 0.5))); p.setAttribute('opacity', o.toFixed(3)); });
+    pop(cero, t, A.nunca + 1.3, { desde: { y: 14, s: 0.9, blur: 10 } });
+    // ruta
+    X.traza(ruta, t, A.zarpo, 2.2); pop(geo, t, A.genova); pop(cargaC, t, A.b1701 - 0.3);
+    const pr = sm(seg(t, A.zarpo, A.b1701 + 1)); shipR.setAttribute('transform', `translate(${L(NY[0], GE[0], pr) - 0} ${L(NY[1] - 5, GE[1] - 90, pr) - 20}) scale(0.28)`);
+    // a bordo
+    gb.forEach((o) => pop(o.gg, t, o.t0 - 0.2)); pop(tripu, t, A.siete - 0.2);
+    // hallazgos
+    marF(t); shipF.setAttribute('transform', `translate(${470 + 15 * Math.sin(t * 0.3)} ${820 + bob(2)}) rotate(${2 * Math.sin(t * 0.7)}) scale(0.62)`);
+    fich.forEach((f) => pop(f.gg, t, f.t0 - 0.2)); pop(sinTor, t, A.noTorm); pop(vacio, t, A.vacio);
+    // gibraltar
+    X.traza(rg, t, A.gib, 2.4); pop(sol, t, A.solly - 0.2); pop(sc, t, A.pruebaCrimen, { desde: { y: 0, s: 1.25, blur: 8 }, curva: 'blando' });
+    // teorías
+    teor.forEach((f) => pop(f.gg, t, f.t0 - 0.2));
+    // hipótesis
+    humo.dibuja(t, A.alcohol, null); pop(hip1, t, A.alcohol); pop(sella, t, A.a2006); pop(crit, t, A.critica); pop(terr, t, A.terremoto); pop(aban, t, A.tercera); pop(nin, t, A.ninguna, { desde: { y: 0, s: 1.3, blur: 8 }, curva: 'blando' });
+    // doyle
+    pop(rev, t, A.a1884); pop(fic, t, A.ficcion, { desde: { y: 0, s: 1.4, blur: 10 }, curva: 'blando' }); pop(fis, t, A.fiscal); pop(mesa, t, A.ejemplo);
+    // resumen
+    resu.forEach((f) => pop(f.gg, t, f.t0 - 0.1));
+    // cierre
+    marC(t); shipC.setAttribute('transform', `translate(960 ${700 + bob(4)}) rotate(${2 * Math.sin(t * 0.6)}) scale(0.8)`);
+    shipC.setAttribute('opacity', (1 - 0.65 * sm(seg(t, A.siglo, A.siglo + 4))).toFixed(3));
+    X.anima(q, t, { entra: A.nosabemos + 0.3, dur: 0.8, desde: { y: 18, blur: 14 } }); pop(q2, t, A.nosabemos + 1.6);
+    subs.dibuja(t); grano(t);
+  };
+});
+</script></body></html>

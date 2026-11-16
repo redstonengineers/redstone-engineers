@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: 'Bricolage'; src: url('../../_kit/motor/fuentes/bricolage-700.ttf'); font-weight: 700; }
+@font-face { font-family: 'Mono'; src: url('../../_kit/motor/fuentes/jetbrainsmono-700.woff'); font-weight: 700; }
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#07090D}
+</style></head><body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <radialGradient id="f" cx="30%" cy="45%" r="85%"><stop offset="0" stop-color="#24324A"/><stop offset="1" stop-color="#06080C"/></radialGradient>
+    <linearGradient id="mar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B2A40" stop-opacity="0"/><stop offset="1" stop-color="#0A121D"/></linearGradient>
+    <filter id="g"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="1280" height="720" fill="url(#f)"/>
+  <circle cx="330" cy="330" r="240" fill="#E8A33D" opacity="0.14" filter="url(#g)"/>
+  <!-- mar -->
+  <rect y="470" width="1280" height="250" fill="url(#mar)"/>
+  <g fill="none" stroke="#6FB1D8" stroke-width="5" stroke-linecap="round" opacity="0.55">
+    <path d="M0 520 Q80 495 160 520 T320 520 T480 520 T640 520 T800 520 T960 520 T1120 520 T1280 520"/>
+    <path d="M0 565 Q80 540 160 565 T320 565 T480 565 T640 565 T800 565 T960 565 T1120 565 T1280 565" opacity="0.7"/>
+    <path d="M0 615 Q80 590 160 615 T320 615 T480 615 T640 615 T800 615 T960 615 T1120 615 T1280 615" opacity="0.5"/>
+  </g>
+  <!-- barco -->
+  <g transform="translate(330 500) rotate(-4) scale(1.28)" stroke="#F3EEE6" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <path d="M-210 0 L210 0 L170 70 L-170 70 Z" fill="#0F1622" stroke-width="7"/>
+    <path d="M-200 -14 L200 -14" stroke-width="4"/>
+    <line x1="-70" y1="0" x2="-70" y2="-250" stroke-width="8"/><line x1="90" y1="0" x2="90" y2="-210" stroke-width="8"/>
+    <path d="M-135 -50 L-5 -50 L-17 -155 L-123 -155 Z" fill="#F3EEE6" fill-opacity="0.16" stroke-width="5"/>
+    <path d="M-122 -165 L-18 -165 L-30 -238 L-110 -238 Z" fill="#F3EEE6" fill-opacity="0.12" stroke-width="5"/>
+    <path d="M25 -42 L155 -42 L141 -130 L39 -130 Z" fill="#F3EEE6" fill-opacity="0.16" stroke-width="5"/>
+    <path d="M38 -140 L142 -140 L130 -198 L50 -198 Z" fill="#F3EEE6" fill-opacity="0.12" stroke-width="5"/>
+    <path d="M-70 -250 L-215 -10 M90 -210 L-70 -250 M90 -210 L215 -10" stroke-width="3" opacity="0.7"/>
+  </g>
+  <!-- texto -->
+  <text x="1230" y="285" text-anchor="end" font-family="Bricolage" font-weight="700" font-size="150" fill="#F3EEE6" letter-spacing="-4" stroke="#06080C" stroke-width="10" paint-order="stroke">SIN NADIE</text>
+  <text x="1230" y="440" text-anchor="end" font-family="Bricolage" font-weight="700" font-size="150" fill="#E8A33D" letter-spacing="-4" stroke="#06080C" stroke-width="10" paint-order="stroke">A BORDO</text>
+  <!-- etiqueta caso -->
+  <g font-family="Mono" font-weight="700"><rect x="48" y="44" width="520" height="62" rx="12" fill="#06080C" fill-opacity="0.78" stroke="#E8A33D" stroke-width="4"/><text x="308" y="87" text-anchor="middle" font-size="34" fill="#E8A33D" letter-spacing="5">MARY CELESTE · 1872</text></g>
+  <!-- sello -->
+  <g transform="translate(1085 95) rotate(6)" font-family="Mono" font-weight="700"><rect x="-165" y="-36" width="330" height="72" rx="10" fill="#06080C" fill-opacity="0.7" stroke="#FF5A5F" stroke-width="7"/><text x="0" y="12" text-anchor="middle" font-size="36" fill="#FF5A5F" letter-spacing="4">SIN RESOLVER</text></g>
+</svg></body></html>

@@ -1,0 +1,914 @@
+{
+ "version": 1,
+ "sr": 48000,
+ "origen": "subconjunto propio (sintetizado por Viegas Estudio) de viegas-plantillas/recursos/sfx/biblioteca",
+ "sonidos": [
+  {
+   "id": "whoosh-corto-1",
+   "categoria": "whoosh",
+   "nombre": "Whoosh corto 1",
+   "archivo": "whoosh/whoosh-corto-1.wav",
+   "dur": 0.32,
+   "pico": 0.192,
+   "etiquetas": [
+    "rápido",
+    "corte",
+    "transición",
+    "zoom"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -15.8
+  },
+  {
+   "id": "whoosh-corto-2",
+   "categoria": "whoosh",
+   "nombre": "Whoosh corto 2",
+   "archivo": "whoosh/whoosh-corto-2.wav",
+   "dur": 0.36,
+   "pico": 0.198,
+   "etiquetas": [
+    "rápido",
+    "aire",
+    "whip"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -15.1
+  },
+  {
+   "id": "whoosh-corto-3",
+   "categoria": "whoosh",
+   "nombre": "Whoosh corto 3",
+   "archivo": "whoosh/whoosh-corto-3.wav",
+   "dur": 0.28,
+   "pico": 0.182,
+   "etiquetas": [
+    "rápido",
+    "seco",
+    "cambio de plano"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -15.7
+  },
+  {
+   "id": "whoosh-medio-1",
+   "categoria": "whoosh",
+   "nombre": "Whoosh medio 1",
+   "archivo": "whoosh/whoosh-medio-1.wav",
+   "dur": 0.6,
+   "pico": 0.372,
+   "etiquetas": [
+    "transición",
+    "zoom a través"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -14.5
+  },
+  {
+   "id": "whoosh-medio-2",
+   "categoria": "whoosh",
+   "nombre": "Whoosh medio 2",
+   "archivo": "whoosh/whoosh-medio-2.wav",
+   "dur": 0.65,
+   "pico": 0.377,
+   "etiquetas": [
+    "transición",
+    "deslizar",
+    "aire"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -14.6
+  },
+  {
+   "id": "whoosh-medio-3",
+   "categoria": "whoosh",
+   "nombre": "Whoosh medio 3",
+   "archivo": "whoosh/whoosh-medio-3.wav",
+   "dur": 0.55,
+   "pico": 0.33,
+   "etiquetas": [
+    "transición",
+    "giro",
+    "brillo"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -14.3
+  },
+  {
+   "id": "whoosh-largo-1",
+   "categoria": "whoosh",
+   "nombre": "Whoosh largo 1",
+   "archivo": "whoosh/whoosh-largo-1.wav",
+   "dur": 1.0,
+   "pico": 0.66,
+   "etiquetas": [
+    "transición lenta",
+    "cinemático"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -14.2
+  },
+  {
+   "id": "whoosh-largo-2",
+   "categoria": "whoosh",
+   "nombre": "Whoosh largo 2",
+   "archivo": "whoosh/whoosh-largo-2.wav",
+   "dur": 1.1,
+   "pico": 0.77,
+   "etiquetas": [
+    "cinemático",
+    "paso de cámara"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -15.0
+  },
+  {
+   "id": "whoosh-grave",
+   "categoria": "whoosh",
+   "nombre": "Whoosh grave",
+   "archivo": "whoosh/whoosh-grave.wav",
+   "dur": 0.7,
+   "pico": 0.434,
+   "etiquetas": [
+    "grave",
+    "peso",
+    "entrada fuerte"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -19.0
+  },
+  {
+   "id": "whoosh-paso",
+   "categoria": "whoosh",
+   "nombre": "Whoosh paso",
+   "archivo": "whoosh/whoosh-paso.wav",
+   "dur": 0.5,
+   "pico": 0.25,
+   "etiquetas": [
+    "pasa de izquierda a derecha",
+    "objeto"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -14.7
+  },
+  {
+   "id": "pop-1",
+   "categoria": "pop",
+   "nombre": "Pop 1",
+   "archivo": "pop/pop-1.wav",
+   "dur": 0.16,
+   "pico": 0.004,
+   "etiquetas": [
+    "aparición",
+    "palabra clave",
+    "subtítulo",
+    "burbuja"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -19.6
+  },
+  {
+   "id": "pop-2",
+   "categoria": "pop",
+   "nombre": "Pop 2",
+   "archivo": "pop/pop-2.wav",
+   "dur": 0.16,
+   "pico": 0.004,
+   "etiquetas": [
+    "aparición",
+    "palabra clave",
+    "subtítulo",
+    "burbuja"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -19.5
+  },
+  {
+   "id": "pop-3",
+   "categoria": "pop",
+   "nombre": "Pop 3",
+   "archivo": "pop/pop-3.wav",
+   "dur": 0.16,
+   "pico": 0.004,
+   "etiquetas": [
+    "aparición",
+    "palabra clave",
+    "subtítulo",
+    "burbuja"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -19.4
+  },
+  {
+   "id": "pop-4",
+   "categoria": "pop",
+   "nombre": "Pop 4",
+   "archivo": "pop/pop-4.wav",
+   "dur": 0.16,
+   "pico": 0.004,
+   "etiquetas": [
+    "aparición",
+    "icono",
+    "chip"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -19.3
+  },
+  {
+   "id": "pop-5",
+   "categoria": "pop",
+   "nombre": "Pop 5",
+   "archivo": "pop/pop-5.wav",
+   "dur": 0.16,
+   "pico": 0.004,
+   "etiquetas": [
+    "aparición",
+    "icono",
+    "chip"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -19.6
+  },
+  {
+   "id": "pop-6",
+   "categoria": "pop",
+   "nombre": "Pop 6",
+   "archivo": "pop/pop-6.wav",
+   "dur": 0.16,
+   "pico": 0.004,
+   "etiquetas": [
+    "aparición",
+    "icono",
+    "chip"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -19.0
+  },
+  {
+   "id": "pop-burbuja",
+   "categoria": "pop",
+   "nombre": "Pop burbuja",
+   "archivo": "pop/pop-burbuja.wav",
+   "dur": 0.18,
+   "pico": 0.004,
+   "etiquetas": [
+    "aparición",
+    "sube",
+    "burbuja"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -19.6
+  },
+  {
+   "id": "pop-doble",
+   "categoria": "pop",
+   "nombre": "Pop doble",
+   "archivo": "pop/pop-doble.wav",
+   "dur": 0.25,
+   "pico": 0.004,
+   "etiquetas": [
+    "dos elementos",
+    "aparición doble"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -18.3
+  },
+  {
+   "id": "click-1",
+   "categoria": "click",
+   "nombre": "Click 1",
+   "archivo": "click/click-1.wav",
+   "dur": 0.05,
+   "pico": 0.002,
+   "etiquetas": [
+    "ui",
+    "botón",
+    "cursor"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -25.3
+  },
+  {
+   "id": "click-2",
+   "categoria": "click",
+   "nombre": "Click 2",
+   "archivo": "click/click-2.wav",
+   "dur": 0.05,
+   "pico": 0.002,
+   "etiquetas": [
+    "ui",
+    "botón",
+    "ratón"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -25.0
+  },
+  {
+   "id": "click-3",
+   "categoria": "click",
+   "nombre": "Click 3",
+   "archivo": "click/click-3.wav",
+   "dur": 0.04,
+   "pico": 0.002,
+   "etiquetas": [
+    "ui",
+    "seco",
+    "corte"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -28.5
+  },
+  {
+   "id": "click-suave",
+   "categoria": "click",
+   "nombre": "Click suave",
+   "archivo": "click/click-suave.wav",
+   "dur": 0.05,
+   "pico": 0.002,
+   "etiquetas": [
+    "sutil",
+    "corte seco",
+    "ui"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -24.7
+  },
+  {
+   "id": "click-mecanico",
+   "categoria": "click",
+   "nombre": "Click mecanico",
+   "archivo": "click/click-mecanico.wav",
+   "dur": 0.125,
+   "pico": 0.002,
+   "etiquetas": [
+    "ratón",
+    "doble",
+    "mecánico"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -22.5
+  },
+  {
+   "id": "toggle",
+   "categoria": "click",
+   "nombre": "Toggle",
+   "archivo": "click/toggle.wav",
+   "dur": 0.16,
+   "pico": 0.002,
+   "etiquetas": [
+    "interruptor",
+    "activar",
+    "ui"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -21.3
+  },
+  {
+   "id": "tick-1",
+   "categoria": "click",
+   "nombre": "Tick 1",
+   "archivo": "click/tick-1.wav",
+   "dur": 0.04,
+   "pico": 0.001,
+   "etiquetas": [
+    "número",
+    "cifra",
+    "tick",
+    "lista"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -20.5
+  },
+  {
+   "id": "tick-2",
+   "categoria": "click",
+   "nombre": "Tick 2",
+   "archivo": "click/tick-2.wav",
+   "dur": 0.04,
+   "pico": 0.001,
+   "etiquetas": [
+    "número",
+    "tick agudo"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -20.3
+  },
+  {
+   "id": "tick-3",
+   "categoria": "click",
+   "nombre": "Tick 3",
+   "archivo": "click/tick-3.wav",
+   "dur": 0.05,
+   "pico": 0.001,
+   "etiquetas": [
+    "número",
+    "tick grave",
+    "lista"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -21.2
+  },
+  {
+   "id": "tecla-1",
+   "categoria": "teclado",
+   "nombre": "Tecla 1",
+   "archivo": "teclado/tecla-1.wav",
+   "dur": 0.07,
+   "pico": 0.001,
+   "etiquetas": [
+    "tecla",
+    "escribir",
+    "una"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -24.4
+  },
+  {
+   "id": "tecla-2",
+   "categoria": "teclado",
+   "nombre": "Tecla 2",
+   "archivo": "teclado/tecla-2.wav",
+   "dur": 0.07,
+   "pico": 0.001,
+   "etiquetas": [
+    "tecla",
+    "escribir"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -24.7
+  },
+  {
+   "id": "tecla-espacio",
+   "categoria": "teclado",
+   "nombre": "Tecla espacio",
+   "archivo": "teclado/tecla-espacio.wav",
+   "dur": 0.07,
+   "pico": 0.001,
+   "etiquetas": [
+    "espacio",
+    "tecla grave"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -22.6
+  },
+  {
+   "id": "tecla-enter",
+   "categoria": "teclado",
+   "nombre": "Tecla enter",
+   "archivo": "teclado/tecla-enter.wav",
+   "dur": 0.1,
+   "pico": 0.001,
+   "etiquetas": [
+    "enter",
+    "enviar",
+    "prompt"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -21.3
+  },
+  {
+   "id": "teclado-rafaga-corta",
+   "categoria": "teclado",
+   "nombre": "Teclado rafaga corta",
+   "archivo": "teclado/teclado-rafaga-corta.wav",
+   "dur": 0.9,
+   "pico": 0.02,
+   "etiquetas": [
+    "escribir",
+    "prompt",
+    "texto que aparece"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -20.1
+  },
+  {
+   "id": "teclado-rafaga-media",
+   "categoria": "teclado",
+   "nombre": "Teclado rafaga media",
+   "archivo": "teclado/teclado-rafaga-media.wav",
+   "dur": 1.44,
+   "pico": 0.02,
+   "etiquetas": [
+    "escribir",
+    "terminal",
+    "código"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -21.0
+  },
+  {
+   "id": "teclado-rafaga-larga",
+   "categoria": "teclado",
+   "nombre": "Teclado rafaga larga",
+   "archivo": "teclado/teclado-rafaga-larga.wav",
+   "dur": 2.17,
+   "pico": 0.02,
+   "etiquetas": [
+    "escribir rápido",
+    "máquina",
+    "código"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -19.2
+  },
+  {
+   "id": "ding-1",
+   "categoria": "notificacion",
+   "nombre": "Ding 1",
+   "archivo": "notificacion/ding-1.wav",
+   "dur": 1.88,
+   "pico": 0.004,
+   "etiquetas": [
+    "cta",
+    "notificación",
+    "final"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -14.4
+  },
+  {
+   "id": "ding-2",
+   "categoria": "notificacion",
+   "nombre": "Ding 2",
+   "archivo": "notificacion/ding-2.wav",
+   "dur": 1.88,
+   "pico": 0.004,
+   "etiquetas": [
+    "cta",
+    "aviso",
+    "suave"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -16.2
+  },
+  {
+   "id": "ding-doble",
+   "categoria": "notificacion",
+   "nombre": "Ding doble",
+   "archivo": "notificacion/ding-doble.wav",
+   "dur": 2.01,
+   "pico": 0.004,
+   "etiquetas": [
+    "cta",
+    "mensaje",
+    "dos notas"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -14.3
+  },
+  {
+   "id": "ding-triple",
+   "categoria": "notificacion",
+   "nombre": "Ding triple",
+   "archivo": "notificacion/ding-triple.wav",
+   "dur": 1.86,
+   "pico": 0.004,
+   "etiquetas": [
+    "éxito",
+    "cta",
+    "subir"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -13.2
+  },
+  {
+   "id": "campanita",
+   "categoria": "notificacion",
+   "nombre": "Campanita",
+   "archivo": "notificacion/campanita.wav",
+   "dur": 1.48,
+   "pico": 0.004,
+   "etiquetas": [
+    "aviso agudo",
+    "brillo"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -13.1
+  },
+  {
+   "id": "notif-suave",
+   "categoria": "notificacion",
+   "nombre": "Notif suave",
+   "archivo": "notificacion/notif-suave.wav",
+   "dur": 1.36,
+   "pico": 0.004,
+   "etiquetas": [
+    "mensaje",
+    "chat",
+    "suave"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -13.6
+  },
+  {
+   "id": "mensaje-burbuja",
+   "categoria": "notificacion",
+   "nombre": "Mensaje burbuja",
+   "archivo": "notificacion/mensaje-burbuja.wav",
+   "dur": 0.54,
+   "pico": 0.004,
+   "etiquetas": [
+    "mensaje",
+    "chat",
+    "burbuja"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -13.3
+  },
+  {
+   "id": "swoosh-texto-1",
+   "categoria": "swoosh",
+   "nombre": "Swoosh texto 1",
+   "archivo": "swoosh/swoosh-texto-1.wav",
+   "dur": 0.22,
+   "pico": 0.088,
+   "etiquetas": [
+    "texto",
+    "título",
+    "entra"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -15.5
+  },
+  {
+   "id": "swoosh-texto-2",
+   "categoria": "swoosh",
+   "nombre": "Swoosh texto 2",
+   "archivo": "swoosh/swoosh-texto-2.wav",
+   "dur": 0.26,
+   "pico": 0.117,
+   "etiquetas": [
+    "texto",
+    "chip",
+    "píldora"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -15.5
+  },
+  {
+   "id": "swoosh-texto-3",
+   "categoria": "swoosh",
+   "nombre": "Swoosh texto 3",
+   "archivo": "swoosh/swoosh-texto-3.wav",
+   "dur": 0.3,
+   "pico": 0.15,
+   "etiquetas": [
+    "texto",
+    "recurso",
+    "motion graphic"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -15.5
+  },
+  {
+   "id": "swoosh-texto-4",
+   "categoria": "swoosh",
+   "nombre": "Swoosh texto 4",
+   "archivo": "swoosh/swoosh-texto-4.wav",
+   "dur": 0.34,
+   "pico": 0.17,
+   "etiquetas": [
+    "texto grande",
+    "entra fuerte"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -15.3
+  },
+  {
+   "id": "swish-arriba",
+   "categoria": "swoosh",
+   "nombre": "Swish arriba",
+   "archivo": "swoosh/swish-arriba.wav",
+   "dur": 0.24,
+   "pico": 0.18,
+   "etiquetas": [
+    "sube",
+    "aparece desde abajo"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -16.6
+  },
+  {
+   "id": "swish-abajo",
+   "categoria": "swoosh",
+   "nombre": "Swish abajo",
+   "archivo": "swoosh/swish-abajo.wav",
+   "dur": 0.24,
+   "pico": 0.072,
+   "etiquetas": [
+    "baja",
+    "sale",
+    "desaparece"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -16.9
+  },
+  {
+   "id": "caja-registradora",
+   "categoria": "dinero",
+   "nombre": "Caja registradora",
+   "archivo": "dinero/caja-registradora.wav",
+   "dur": 1.82,
+   "pico": 0.12,
+   "etiquetas": [
+    "dinero",
+    "venta",
+    "precio",
+    "euros"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -11.9
+  },
+  {
+   "id": "cha-ching",
+   "categoria": "dinero",
+   "nombre": "Cha ching",
+   "archivo": "dinero/cha-ching.wav",
+   "dur": 1.65,
+   "pico": 0.05,
+   "etiquetas": [
+    "dinero",
+    "ganar",
+    "precio"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -11.8
+  },
+  {
+   "id": "monedas",
+   "categoria": "dinero",
+   "nombre": "Monedas",
+   "archivo": "dinero/monedas.wav",
+   "dur": 1.5,
+   "pico": 0.0,
+   "etiquetas": [
+    "monedas",
+    "caen",
+    "dinero"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -12.5
+  },
+  {
+   "id": "contador-rafaga",
+   "categoria": "dinero",
+   "nombre": "Contador rafaga",
+   "archivo": "dinero/contador-rafaga.wav",
+   "dur": 0.629,
+   "pico": 0.0,
+   "etiquetas": [
+    "cifra que sube",
+    "contador",
+    "número"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -11.9
+  },
+  {
+   "id": "contador-lento",
+   "categoria": "dinero",
+   "nombre": "Contador lento",
+   "archivo": "dinero/contador-lento.wav",
+   "dur": 0.565,
+   "pico": 0.0,
+   "etiquetas": [
+    "contador",
+    "número",
+    "ticks"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -14.2
+  },
+  {
+   "id": "correcto-1",
+   "categoria": "feedback",
+   "nombre": "Correcto 1",
+   "archivo": "feedback/correcto-1.wav",
+   "dur": 0.68,
+   "pico": 0.004,
+   "etiquetas": [
+    "correcto",
+    "check",
+    "sí"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -15.9
+  },
+  {
+   "id": "correcto-2",
+   "categoria": "feedback",
+   "nombre": "Correcto 2",
+   "archivo": "feedback/correcto-2.wav",
+   "dur": 0.68,
+   "pico": 0.004,
+   "etiquetas": [
+    "correcto",
+    "éxito",
+    "sube"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -15.6
+  },
+  {
+   "id": "check-suave",
+   "categoria": "feedback",
+   "nombre": "Check suave",
+   "archivo": "feedback/check-suave.wav",
+   "dur": 0.49,
+   "pico": 0.004,
+   "etiquetas": [
+    "check",
+    "lista",
+    "suave"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -17.7
+  },
+  {
+   "id": "error-1",
+   "categoria": "feedback",
+   "nombre": "Error 1",
+   "archivo": "feedback/error-1.wav",
+   "dur": 0.68,
+   "pico": 0.004,
+   "etiquetas": [
+    "error",
+    "no",
+    "mal"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -15.5
+  },
+  {
+   "id": "error-zumbido",
+   "categoria": "feedback",
+   "nombre": "Error zumbido",
+   "archivo": "feedback/error-zumbido.wav",
+   "dur": 0.69,
+   "pico": 0.004,
+   "etiquetas": [
+    "error",
+    "buzzer",
+    "incorrecto"
+   ],
+   "licencia": "Propia (sintetizado por Viegas Estudio con numpy/scipy) — uso libre, también comercial",
+   "origen": "sintetizado",
+   "lufs_m": -15.5
+  }
+ ]
+}

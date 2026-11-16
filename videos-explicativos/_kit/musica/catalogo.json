@@ -1,0 +1,2976 @@
+{
+ "version": 1,
+ "sr": 48000,
+ "lufs": -16,
+ "licencia": "Propia: sintetizado por Viegas Estudio con numpy/scipy. Uso libre, también comercial.",
+ "moods": [
+  "alegre",
+  "cafe",
+  "calma",
+  "cercano",
+  "confianza",
+  "consejos",
+  "divertido",
+  "elegante",
+  "emotivo",
+  "energia",
+  "epico",
+  "foco",
+  "historia",
+  "inspirador",
+  "juego",
+  "lifestyle",
+  "misterio",
+  "moderno",
+  "motivacion",
+  "natural",
+  "negocio",
+  "nostalgia",
+  "opinion",
+  "optimista",
+  "oscuro",
+  "reflexion",
+  "tecnologia",
+  "tension",
+  "urbano"
+ ],
+ "estilos": [
+  {
+   "id": "lofi",
+   "nombre": "Lo-fi chill",
+   "mood": [
+    "calma",
+    "foco",
+    "nostalgia"
+   ],
+   "energia": 1,
+   "etiquetas": [
+    "lofi",
+    "chill",
+    "estudio",
+    "relajado"
+   ],
+   "variantes": [
+    "lofi-1",
+    "lofi-2",
+    "lofi-3",
+    "lofi-4"
+   ]
+  },
+  {
+   "id": "tech",
+   "nombre": "Pulso tech minimal",
+   "mood": [
+    "tecnologia",
+    "foco",
+    "moderno"
+   ],
+   "energia": 3,
+   "etiquetas": [
+    "tech",
+    "minimal",
+    "ia",
+    "código"
+   ],
+   "variantes": [
+    "tech-1",
+    "tech-2",
+    "tech-3",
+    "tech-4"
+   ]
+  },
+  {
+   "id": "corporate",
+   "nombre": "Corporate optimista",
+   "mood": [
+    "optimista",
+    "negocio",
+    "confianza"
+   ],
+   "energia": 3,
+   "etiquetas": [
+    "corporate",
+    "empresa",
+    "positivo"
+   ],
+   "variantes": [
+    "corporate-1",
+    "corporate-2",
+    "corporate-3",
+    "corporate-4"
+   ]
+  },
+  {
+   "id": "synthwave",
+   "nombre": "Synthwave 80s",
+   "mood": [
+    "nostalgia",
+    "energia",
+    "tecnologia"
+   ],
+   "energia": 4,
+   "etiquetas": [
+    "synthwave",
+    "retro",
+    "80s",
+    "neón"
+   ],
+   "variantes": [
+    "synthwave-1",
+    "synthwave-2",
+    "synthwave-3",
+    "synthwave-4",
+    "synthwave-5"
+   ]
+  },
+  {
+   "id": "ambient",
+   "nombre": "Ambient cálido",
+   "mood": [
+    "calma",
+    "emotivo",
+    "reflexion"
+   ],
+   "energia": 1,
+   "etiquetas": [
+    "ambient",
+    "atmósfera",
+    "suave"
+   ],
+   "variantes": [
+    "ambient-1",
+    "ambient-2",
+    "ambient-3",
+    "ambient-4"
+   ]
+  },
+  {
+   "id": "house",
+   "nombre": "House suave",
+   "mood": [
+    "energia",
+    "moderno",
+    "lifestyle"
+   ],
+   "energia": 4,
+   "etiquetas": [
+    "house",
+    "baile",
+    "groove"
+   ],
+   "variantes": [
+    "house-1",
+    "house-2",
+    "house-3"
+   ]
+  },
+  {
+   "id": "cinematic",
+   "nombre": "Cinematic tensión",
+   "mood": [
+    "tension",
+    "epico",
+    "misterio"
+   ],
+   "energia": 3,
+   "etiquetas": [
+    "cine",
+    "tensión",
+    "suspense"
+   ],
+   "variantes": [
+    "cinematic-1",
+    "cinematic-2",
+    "cinematic-3",
+    "cinematic-4"
+   ]
+  },
+  {
+   "id": "acustico",
+   "nombre": "Acústico pluck",
+   "mood": [
+    "alegre",
+    "cercano",
+    "natural"
+   ],
+   "energia": 2,
+   "etiquetas": [
+    "acústico",
+    "guitarra",
+    "cercano"
+   ],
+   "variantes": [
+    "acustico-1",
+    "acustico-2",
+    "acustico-3"
+   ]
+  },
+  {
+   "id": "boombap",
+   "nombre": "Hip-hop boom bap",
+   "mood": [
+    "urbano",
+    "confianza",
+    "opinion"
+   ],
+   "energia": 3,
+   "etiquetas": [
+    "hiphop",
+    "boom bap",
+    "calle"
+   ],
+   "variantes": [
+    "boombap-1",
+    "boombap-2",
+    "boombap-3"
+   ]
+  },
+  {
+   "id": "piano",
+   "nombre": "Piano emotivo",
+   "mood": [
+    "emotivo",
+    "inspirador",
+    "historia"
+   ],
+   "energia": 1,
+   "etiquetas": [
+    "piano",
+    "emoción",
+    "historia"
+   ],
+   "variantes": [
+    "piano-1",
+    "piano-2",
+    "piano-3"
+   ]
+  },
+  {
+   "id": "funk",
+   "nombre": "Funk",
+   "mood": [
+    "divertido",
+    "energia",
+    "alegre"
+   ],
+   "energia": 4,
+   "etiquetas": [
+    "funk",
+    "groove",
+    "bajo"
+   ],
+   "variantes": [
+    "funk-1",
+    "funk-2",
+    "funk-3"
+   ]
+  },
+  {
+   "id": "chiptune",
+   "nombre": "Retro chiptune",
+   "mood": [
+    "divertido",
+    "juego",
+    "tecnologia"
+   ],
+   "energia": 4,
+   "etiquetas": [
+    "8 bits",
+    "videojuego",
+    "retro"
+   ],
+   "variantes": [
+    "chiptune-1",
+    "chiptune-2",
+    "chiptune-3"
+   ]
+  },
+  {
+   "id": "jazz",
+   "nombre": "Jazz suave",
+   "mood": [
+    "elegante",
+    "calma",
+    "cafe"
+   ],
+   "energia": 2,
+   "etiquetas": [
+    "jazz",
+    "café",
+    "elegante"
+   ],
+   "variantes": [
+    "jazz-1",
+    "jazz-2",
+    "jazz-3"
+   ]
+  },
+  {
+   "id": "trap",
+   "nombre": "Trap ligero",
+   "mood": [
+    "urbano",
+    "confianza",
+    "moderno"
+   ],
+   "energia": 3,
+   "etiquetas": [
+    "trap",
+    "808",
+    "urbano"
+   ],
+   "variantes": [
+    "trap-1",
+    "trap-2",
+    "trap-3"
+   ]
+  },
+  {
+   "id": "marimba",
+   "nombre": "Marimba alegre",
+   "mood": [
+    "alegre",
+    "divertido",
+    "consejos"
+   ],
+   "energia": 3,
+   "etiquetas": [
+    "marimba",
+    "tropical",
+    "feliz"
+   ],
+   "variantes": [
+    "marimba-1",
+    "marimba-2",
+    "marimba-3"
+   ]
+  },
+  {
+   "id": "drone",
+   "nombre": "Drone oscuro",
+   "mood": [
+    "oscuro",
+    "misterio",
+    "tension"
+   ],
+   "energia": 1,
+   "etiquetas": [
+    "oscuro",
+    "drone",
+    "misterio"
+   ],
+   "variantes": [
+    "drone-1",
+    "drone-2",
+    "drone-3"
+   ]
+  },
+  {
+   "id": "garage",
+   "nombre": "UK garage 2-step",
+   "mood": [
+    "urbano",
+    "energia",
+    "moderno"
+   ],
+   "energia": 4,
+   "etiquetas": [
+    "garage",
+    "2-step",
+    "club"
+   ],
+   "variantes": [
+    "garage-1",
+    "garage-2",
+    "garage-3"
+   ]
+  },
+  {
+   "id": "pop",
+   "nombre": "Pop brillante",
+   "mood": [
+    "optimista",
+    "energia",
+    "alegre"
+   ],
+   "energia": 4,
+   "etiquetas": [
+    "pop",
+    "brillante",
+    "pegadizo"
+   ],
+   "variantes": [
+    "pop-1",
+    "pop-2",
+    "pop-3"
+   ]
+  },
+  {
+   "id": "deeptech",
+   "nombre": "Deep tech",
+   "mood": [
+    "foco",
+    "tecnologia",
+    "elegante"
+   ],
+   "energia": 3,
+   "etiquetas": [
+    "deep",
+    "techno",
+    "noche"
+   ],
+   "variantes": [
+    "deeptech-1",
+    "deeptech-2",
+    "deeptech-3"
+   ]
+  },
+  {
+   "id": "orquestal",
+   "nombre": "Orquestal ligero",
+   "mood": [
+    "inspirador",
+    "epico",
+    "historia"
+   ],
+   "energia": 2,
+   "etiquetas": [
+    "orquesta",
+    "pizzicato",
+    "cuento"
+   ],
+   "variantes": [
+    "orquestal-1",
+    "orquestal-2",
+    "orquestal-3"
+   ]
+  },
+  {
+   "id": "outrun",
+   "nombre": "Synthwave outrun",
+   "mood": [
+    "energia",
+    "nostalgia",
+    "motivacion"
+   ],
+   "energia": 5,
+   "etiquetas": [
+    "synthwave",
+    "outrun",
+    "carretera",
+    "neón"
+   ],
+   "variantes": [
+    "outrun-1",
+    "outrun-2",
+    "outrun-3"
+   ]
+  },
+  {
+   "id": "darksynth",
+   "nombre": "Darksynth",
+   "mood": [
+    "oscuro",
+    "tension",
+    "tecnologia"
+   ],
+   "energia": 4,
+   "etiquetas": [
+    "synthwave",
+    "dark",
+    "cyberpunk",
+    "noche"
+   ],
+   "variantes": [
+    "darksynth-1",
+    "darksynth-2",
+    "darksynth-3"
+   ]
+  },
+  {
+   "id": "chillwave",
+   "nombre": "Chillwave",
+   "mood": [
+    "calma",
+    "nostalgia",
+    "lifestyle"
+   ],
+   "energia": 2,
+   "etiquetas": [
+    "synthwave",
+    "chill",
+    "atardecer",
+    "retro"
+   ],
+   "variantes": [
+    "chillwave-1",
+    "chillwave-2",
+    "chillwave-3"
+   ]
+  },
+  {
+   "id": "vaporwave",
+   "nombre": "Vaporwave lento",
+   "mood": [
+    "nostalgia",
+    "calma",
+    "divertido"
+   ],
+   "energia": 1,
+   "etiquetas": [
+    "vaporwave",
+    "retro",
+    "mall",
+    "90s"
+   ],
+   "variantes": [
+    "vaporwave-1",
+    "vaporwave-2",
+    "vaporwave-3"
+   ]
+  },
+  {
+   "id": "lofihop",
+   "nombre": "Lo-fi hip-hop",
+   "mood": [
+    "calma",
+    "foco",
+    "cafe"
+   ],
+   "energia": 2,
+   "etiquetas": [
+    "lofi",
+    "hiphop",
+    "estudio",
+    "beats"
+   ],
+   "variantes": [
+    "lofihop-1",
+    "lofihop-2",
+    "lofihop-3"
+   ]
+  },
+  {
+   "id": "hiphopsuave",
+   "nombre": "Hip-hop suave",
+   "mood": [
+    "urbano",
+    "cercano",
+    "confianza"
+   ],
+   "energia": 2,
+   "etiquetas": [
+    "hiphop",
+    "suave",
+    "jazzy",
+    "vlog"
+   ],
+   "variantes": [
+    "hiphopsuave-1",
+    "hiphopsuave-2",
+    "hiphopsuave-3"
+   ]
+  },
+  {
+   "id": "upbeat",
+   "nombre": "Corporativo upbeat",
+   "mood": [
+    "optimista",
+    "negocio",
+    "energia"
+   ],
+   "energia": 4,
+   "etiquetas": [
+    "corporate",
+    "upbeat",
+    "startup",
+    "presentación"
+   ],
+   "variantes": [
+    "upbeat-1",
+    "upbeat-2",
+    "upbeat-3"
+   ]
+  },
+  {
+   "id": "motivacional",
+   "nombre": "Motivacional épico",
+   "mood": [
+    "inspirador",
+    "motivacion",
+    "epico"
+   ],
+   "energia": 4,
+   "etiquetas": [
+    "motivación",
+    "himno",
+    "superación"
+   ],
+   "variantes": [
+    "motivacional-1",
+    "motivacional-2",
+    "motivacional-3"
+   ]
+  },
+  {
+   "id": "trailer",
+   "nombre": "Épico tráiler",
+   "mood": [
+    "epico",
+    "tension",
+    "inspirador"
+   ],
+   "energia": 5,
+   "etiquetas": [
+    "tráiler",
+    "épico",
+    "cine",
+    "percusión"
+   ],
+   "variantes": [
+    "trailer-1",
+    "trailer-2",
+    "trailer-3"
+   ]
+  },
+  {
+   "id": "minimal",
+   "nombre": "Tech minimal clic",
+   "mood": [
+    "tecnologia",
+    "foco",
+    "moderno"
+   ],
+   "energia": 2,
+   "etiquetas": [
+    "minimal",
+    "tech",
+    "clics",
+    "ia"
+   ],
+   "variantes": [
+    "minimal-1",
+    "minimal-2",
+    "minimal-3"
+   ]
+  },
+  {
+   "id": "espacial",
+   "nombre": "Ambient espacial",
+   "mood": [
+    "calma",
+    "misterio",
+    "reflexion"
+   ],
+   "energia": 1,
+   "etiquetas": [
+    "ambient",
+    "espacio",
+    "flotante",
+    "pads"
+   ],
+   "variantes": [
+    "espacial-1",
+    "espacial-2",
+    "espacial-3"
+   ]
+  },
+  {
+   "id": "pianoambient",
+   "nombre": "Piano y ambiente",
+   "mood": [
+    "emotivo",
+    "calma",
+    "reflexion"
+   ],
+   "energia": 1,
+   "etiquetas": [
+    "piano",
+    "ambient",
+    "suave",
+    "emoción"
+   ],
+   "variantes": [
+    "pianoambient-1",
+    "pianoambient-2",
+    "pianoambient-3"
+   ]
+  },
+  {
+   "id": "tropical",
+   "nombre": "Tropical house",
+   "mood": [
+    "alegre",
+    "lifestyle",
+    "energia"
+   ],
+   "energia": 3,
+   "etiquetas": [
+    "tropical",
+    "verano",
+    "house",
+    "playa"
+   ],
+   "variantes": [
+    "tropical-1",
+    "tropical-2",
+    "tropical-3"
+   ]
+  },
+  {
+   "id": "dnb",
+   "nombre": "Liquid drum & bass",
+   "mood": [
+    "energia",
+    "tecnologia",
+    "moderno"
+   ],
+   "energia": 5,
+   "etiquetas": [
+    "dnb",
+    "liquid",
+    "rápido",
+    "breakbeat"
+   ],
+   "variantes": [
+    "dnb-1",
+    "dnb-2",
+    "dnb-3"
+   ]
+  }
+ ],
+ "pistas": [
+  {
+   "id": "lofi-1",
+   "estilo": "lofi",
+   "nombre": "Lo-fi chill · A",
+   "tono": "Re mayor",
+   "tempo": 80,
+   "energia": 1,
+   "mood": [
+    "calma",
+    "foco",
+    "nostalgia"
+   ],
+   "etiquetas": [
+    "lofi",
+    "chill",
+    "estudio",
+    "relajado"
+   ],
+   "previa": "previas/lofi-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "lofi-2",
+   "estilo": "lofi",
+   "nombre": "Lo-fi chill · B",
+   "tono": "Fa mayor",
+   "tempo": 84,
+   "energia": 1,
+   "mood": [
+    "calma",
+    "foco",
+    "nostalgia"
+   ],
+   "etiquetas": [
+    "lofi",
+    "chill",
+    "estudio",
+    "relajado"
+   ],
+   "previa": "previas/lofi-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "lofi-3",
+   "estilo": "lofi",
+   "nombre": "Lo-fi chill · C",
+   "tono": "La mayor",
+   "tempo": 74,
+   "energia": 1,
+   "mood": [
+    "calma",
+    "foco",
+    "nostalgia"
+   ],
+   "etiquetas": [
+    "lofi",
+    "chill",
+    "estudio",
+    "relajado"
+   ],
+   "previa": "previas/lofi-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "lofi-4",
+   "estilo": "lofi",
+   "nombre": "Lo-fi chill · D",
+   "tono": "Do mayor",
+   "tempo": 78,
+   "energia": 1,
+   "mood": [
+    "calma",
+    "foco",
+    "nostalgia"
+   ],
+   "etiquetas": [
+    "lofi",
+    "chill",
+    "estudio",
+    "relajado"
+   ],
+   "previa": "previas/lofi-4.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "tech-1",
+   "estilo": "tech",
+   "nombre": "Pulso tech minimal · A",
+   "tono": "La menor",
+   "tempo": 120,
+   "energia": 3,
+   "mood": [
+    "tecnologia",
+    "foco",
+    "moderno"
+   ],
+   "etiquetas": [
+    "tech",
+    "minimal",
+    "ia",
+    "código"
+   ],
+   "previa": "previas/tech-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "tech-2",
+   "estilo": "tech",
+   "nombre": "Pulso tech minimal · B",
+   "tono": "Do menor",
+   "tempo": 124,
+   "energia": 3,
+   "mood": [
+    "tecnologia",
+    "foco",
+    "moderno"
+   ],
+   "etiquetas": [
+    "tech",
+    "minimal",
+    "ia",
+    "código"
+   ],
+   "previa": "previas/tech-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "tech-3",
+   "estilo": "tech",
+   "nombre": "Pulso tech minimal · C",
+   "tono": "Sol menor",
+   "tempo": 112,
+   "energia": 3,
+   "mood": [
+    "tecnologia",
+    "foco",
+    "moderno"
+   ],
+   "etiquetas": [
+    "tech",
+    "minimal",
+    "ia",
+    "código"
+   ],
+   "previa": "previas/tech-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "tech-4",
+   "estilo": "tech",
+   "nombre": "Pulso tech minimal · D",
+   "tono": "Re menor",
+   "tempo": 116,
+   "energia": 3,
+   "mood": [
+    "tecnologia",
+    "foco",
+    "moderno"
+   ],
+   "etiquetas": [
+    "tech",
+    "minimal",
+    "ia",
+    "código"
+   ],
+   "previa": "previas/tech-4.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "corporate-1",
+   "estilo": "corporate",
+   "nombre": "Corporate optimista · A",
+   "tono": "Do mayor",
+   "tempo": 112,
+   "energia": 3,
+   "mood": [
+    "optimista",
+    "negocio",
+    "confianza"
+   ],
+   "etiquetas": [
+    "corporate",
+    "empresa",
+    "positivo"
+   ],
+   "previa": "previas/corporate-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "corporate-2",
+   "estilo": "corporate",
+   "nombre": "Corporate optimista · B",
+   "tono": "Re mayor",
+   "tempo": 118,
+   "energia": 3,
+   "mood": [
+    "optimista",
+    "negocio",
+    "confianza"
+   ],
+   "etiquetas": [
+    "corporate",
+    "empresa",
+    "positivo"
+   ],
+   "previa": "previas/corporate-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "corporate-3",
+   "estilo": "corporate",
+   "nombre": "Corporate optimista · C",
+   "tono": "Sol mayor",
+   "tempo": 104,
+   "energia": 3,
+   "mood": [
+    "optimista",
+    "negocio",
+    "confianza"
+   ],
+   "etiquetas": [
+    "corporate",
+    "empresa",
+    "positivo"
+   ],
+   "previa": "previas/corporate-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "corporate-4",
+   "estilo": "corporate",
+   "nombre": "Corporate optimista · D",
+   "tono": "Mi mayor",
+   "tempo": 122,
+   "energia": 3,
+   "mood": [
+    "optimista",
+    "negocio",
+    "confianza"
+   ],
+   "etiquetas": [
+    "corporate",
+    "empresa",
+    "positivo"
+   ],
+   "previa": "previas/corporate-4.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "synthwave-1",
+   "estilo": "synthwave",
+   "nombre": "Synthwave 80s · A",
+   "tono": "La menor",
+   "tempo": 118,
+   "energia": 4,
+   "mood": [
+    "nostalgia",
+    "energia",
+    "tecnologia"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "retro",
+    "80s",
+    "neón"
+   ],
+   "previa": "previas/synthwave-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "synthwave-2",
+   "estilo": "synthwave",
+   "nombre": "Synthwave 80s · B",
+   "tono": "Re menor",
+   "tempo": 108,
+   "energia": 4,
+   "mood": [
+    "nostalgia",
+    "energia",
+    "tecnologia"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "retro",
+    "80s",
+    "neón"
+   ],
+   "previa": "previas/synthwave-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "synthwave-3",
+   "estilo": "synthwave",
+   "nombre": "Synthwave 80s · C",
+   "tono": "Mi menor",
+   "tempo": 100,
+   "energia": 4,
+   "mood": [
+    "nostalgia",
+    "energia",
+    "tecnologia"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "retro",
+    "80s",
+    "neón"
+   ],
+   "previa": "previas/synthwave-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "synthwave-4",
+   "estilo": "synthwave",
+   "nombre": "Synthwave 80s · D",
+   "tono": "Sol menor",
+   "tempo": 112,
+   "energia": 4,
+   "mood": [
+    "nostalgia",
+    "energia",
+    "tecnologia"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "retro",
+    "80s",
+    "neón"
+   ],
+   "previa": "previas/synthwave-4.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "synthwave-5",
+   "estilo": "synthwave",
+   "nombre": "Synthwave 80s · E",
+   "tono": "Si menor",
+   "tempo": 104,
+   "energia": 4,
+   "mood": [
+    "nostalgia",
+    "energia",
+    "tecnologia"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "retro",
+    "80s",
+    "neón"
+   ],
+   "previa": "previas/synthwave-5.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "ambient-1",
+   "estilo": "ambient",
+   "nombre": "Ambient cálido · A",
+   "tono": "Do mayor",
+   "tempo": 70,
+   "energia": 1,
+   "mood": [
+    "calma",
+    "emotivo",
+    "reflexion"
+   ],
+   "etiquetas": [
+    "ambient",
+    "atmósfera",
+    "suave"
+   ],
+   "previa": "previas/ambient-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "ambient-2",
+   "estilo": "ambient",
+   "nombre": "Ambient cálido · B",
+   "tono": "Sol mayor",
+   "tempo": 64,
+   "energia": 1,
+   "mood": [
+    "calma",
+    "emotivo",
+    "reflexion"
+   ],
+   "etiquetas": [
+    "ambient",
+    "atmósfera",
+    "suave"
+   ],
+   "previa": "previas/ambient-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "ambient-3",
+   "estilo": "ambient",
+   "nombre": "Ambient cálido · C",
+   "tono": "Mib mayor",
+   "tempo": 76,
+   "energia": 1,
+   "mood": [
+    "calma",
+    "emotivo",
+    "reflexion"
+   ],
+   "etiquetas": [
+    "ambient",
+    "atmósfera",
+    "suave"
+   ],
+   "previa": "previas/ambient-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "ambient-4",
+   "estilo": "ambient",
+   "nombre": "Ambient cálido · D",
+   "tono": "Sib mayor",
+   "tempo": 68,
+   "energia": 1,
+   "mood": [
+    "calma",
+    "emotivo",
+    "reflexion"
+   ],
+   "etiquetas": [
+    "ambient",
+    "atmósfera",
+    "suave"
+   ],
+   "previa": "previas/ambient-4.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "house-1",
+   "estilo": "house",
+   "nombre": "House suave · A",
+   "tono": "La menor",
+   "tempo": 120,
+   "energia": 4,
+   "mood": [
+    "energia",
+    "moderno",
+    "lifestyle"
+   ],
+   "etiquetas": [
+    "house",
+    "baile",
+    "groove"
+   ],
+   "previa": "previas/house-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "house-2",
+   "estilo": "house",
+   "nombre": "House suave · B",
+   "tono": "Do menor",
+   "tempo": 122,
+   "energia": 4,
+   "mood": [
+    "energia",
+    "moderno",
+    "lifestyle"
+   ],
+   "etiquetas": [
+    "house",
+    "baile",
+    "groove"
+   ],
+   "previa": "previas/house-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "house-3",
+   "estilo": "house",
+   "nombre": "House suave · C",
+   "tono": "Fa menor",
+   "tempo": 118,
+   "energia": 4,
+   "mood": [
+    "energia",
+    "moderno",
+    "lifestyle"
+   ],
+   "etiquetas": [
+    "house",
+    "baile",
+    "groove"
+   ],
+   "previa": "previas/house-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "cinematic-1",
+   "estilo": "cinematic",
+   "nombre": "Cinematic tensión · A",
+   "tono": "Re menor",
+   "tempo": 90,
+   "energia": 3,
+   "mood": [
+    "tension",
+    "epico",
+    "misterio"
+   ],
+   "etiquetas": [
+    "cine",
+    "tensión",
+    "suspense"
+   ],
+   "previa": "previas/cinematic-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "cinematic-2",
+   "estilo": "cinematic",
+   "nombre": "Cinematic tensión · B",
+   "tono": "Mi menor",
+   "tempo": 84,
+   "energia": 3,
+   "mood": [
+    "tension",
+    "epico",
+    "misterio"
+   ],
+   "etiquetas": [
+    "cine",
+    "tensión",
+    "suspense"
+   ],
+   "previa": "previas/cinematic-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "cinematic-3",
+   "estilo": "cinematic",
+   "nombre": "Cinematic tensión · C",
+   "tono": "La menor",
+   "tempo": 96,
+   "energia": 3,
+   "mood": [
+    "tension",
+    "epico",
+    "misterio"
+   ],
+   "etiquetas": [
+    "cine",
+    "tensión",
+    "suspense"
+   ],
+   "previa": "previas/cinematic-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "cinematic-4",
+   "estilo": "cinematic",
+   "nombre": "Cinematic tensión · D",
+   "tono": "Si menor",
+   "tempo": 88,
+   "energia": 3,
+   "mood": [
+    "tension",
+    "epico",
+    "misterio"
+   ],
+   "etiquetas": [
+    "cine",
+    "tensión",
+    "suspense"
+   ],
+   "previa": "previas/cinematic-4.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "acustico-1",
+   "estilo": "acustico",
+   "nombre": "Acústico pluck · A",
+   "tono": "Sol mayor",
+   "tempo": 100,
+   "energia": 2,
+   "mood": [
+    "alegre",
+    "cercano",
+    "natural"
+   ],
+   "etiquetas": [
+    "acústico",
+    "guitarra",
+    "cercano"
+   ],
+   "previa": "previas/acustico-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "acustico-2",
+   "estilo": "acustico",
+   "nombre": "Acústico pluck · B",
+   "tono": "Do mayor",
+   "tempo": 92,
+   "energia": 2,
+   "mood": [
+    "alegre",
+    "cercano",
+    "natural"
+   ],
+   "etiquetas": [
+    "acústico",
+    "guitarra",
+    "cercano"
+   ],
+   "previa": "previas/acustico-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "acustico-3",
+   "estilo": "acustico",
+   "nombre": "Acústico pluck · C",
+   "tono": "Re mayor",
+   "tempo": 108,
+   "energia": 2,
+   "mood": [
+    "alegre",
+    "cercano",
+    "natural"
+   ],
+   "etiquetas": [
+    "acústico",
+    "guitarra",
+    "cercano"
+   ],
+   "previa": "previas/acustico-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "boombap-1",
+   "estilo": "boombap",
+   "nombre": "Hip-hop boom bap · A",
+   "tono": "La menor",
+   "tempo": 90,
+   "energia": 3,
+   "mood": [
+    "urbano",
+    "confianza",
+    "opinion"
+   ],
+   "etiquetas": [
+    "hiphop",
+    "boom bap",
+    "calle"
+   ],
+   "previa": "previas/boombap-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "boombap-2",
+   "estilo": "boombap",
+   "nombre": "Hip-hop boom bap · B",
+   "tono": "Mi menor",
+   "tempo": 86,
+   "energia": 3,
+   "mood": [
+    "urbano",
+    "confianza",
+    "opinion"
+   ],
+   "etiquetas": [
+    "hiphop",
+    "boom bap",
+    "calle"
+   ],
+   "previa": "previas/boombap-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "boombap-3",
+   "estilo": "boombap",
+   "nombre": "Hip-hop boom bap · C",
+   "tono": "Do menor",
+   "tempo": 94,
+   "energia": 3,
+   "mood": [
+    "urbano",
+    "confianza",
+    "opinion"
+   ],
+   "etiquetas": [
+    "hiphop",
+    "boom bap",
+    "calle"
+   ],
+   "previa": "previas/boombap-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "piano-1",
+   "estilo": "piano",
+   "nombre": "Piano emotivo · A",
+   "tono": "La menor",
+   "tempo": 72,
+   "energia": 1,
+   "mood": [
+    "emotivo",
+    "inspirador",
+    "historia"
+   ],
+   "etiquetas": [
+    "piano",
+    "emoción",
+    "historia"
+   ],
+   "previa": "previas/piano-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "piano-2",
+   "estilo": "piano",
+   "nombre": "Piano emotivo · B",
+   "tono": "Do menor",
+   "tempo": 66,
+   "energia": 1,
+   "mood": [
+    "emotivo",
+    "inspirador",
+    "historia"
+   ],
+   "etiquetas": [
+    "piano",
+    "emoción",
+    "historia"
+   ],
+   "previa": "previas/piano-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "piano-3",
+   "estilo": "piano",
+   "nombre": "Piano emotivo · C",
+   "tono": "Sol menor",
+   "tempo": 80,
+   "energia": 1,
+   "mood": [
+    "emotivo",
+    "inspirador",
+    "historia"
+   ],
+   "etiquetas": [
+    "piano",
+    "emoción",
+    "historia"
+   ],
+   "previa": "previas/piano-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "funk-1",
+   "estilo": "funk",
+   "nombre": "Funk · A",
+   "tono": "Mi dórico",
+   "tempo": 108,
+   "energia": 4,
+   "mood": [
+    "divertido",
+    "energia",
+    "alegre"
+   ],
+   "etiquetas": [
+    "funk",
+    "groove",
+    "bajo"
+   ],
+   "previa": "previas/funk-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "funk-2",
+   "estilo": "funk",
+   "nombre": "Funk · B",
+   "tono": "La dórico",
+   "tempo": 104,
+   "energia": 4,
+   "mood": [
+    "divertido",
+    "energia",
+    "alegre"
+   ],
+   "etiquetas": [
+    "funk",
+    "groove",
+    "bajo"
+   ],
+   "previa": "previas/funk-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "funk-3",
+   "estilo": "funk",
+   "nombre": "Funk · C",
+   "tono": "Sol dórico",
+   "tempo": 114,
+   "energia": 4,
+   "mood": [
+    "divertido",
+    "energia",
+    "alegre"
+   ],
+   "etiquetas": [
+    "funk",
+    "groove",
+    "bajo"
+   ],
+   "previa": "previas/funk-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "chiptune-1",
+   "estilo": "chiptune",
+   "nombre": "Retro chiptune · A",
+   "tono": "Do mayor",
+   "tempo": 128,
+   "energia": 4,
+   "mood": [
+    "divertido",
+    "juego",
+    "tecnologia"
+   ],
+   "etiquetas": [
+    "8 bits",
+    "videojuego",
+    "retro"
+   ],
+   "previa": "previas/chiptune-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "chiptune-2",
+   "estilo": "chiptune",
+   "nombre": "Retro chiptune · B",
+   "tono": "La mayor",
+   "tempo": 140,
+   "energia": 4,
+   "mood": [
+    "divertido",
+    "juego",
+    "tecnologia"
+   ],
+   "etiquetas": [
+    "8 bits",
+    "videojuego",
+    "retro"
+   ],
+   "previa": "previas/chiptune-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "chiptune-3",
+   "estilo": "chiptune",
+   "nombre": "Retro chiptune · C",
+   "tono": "Mi mayor",
+   "tempo": 120,
+   "energia": 4,
+   "mood": [
+    "divertido",
+    "juego",
+    "tecnologia"
+   ],
+   "etiquetas": [
+    "8 bits",
+    "videojuego",
+    "retro"
+   ],
+   "previa": "previas/chiptune-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "jazz-1",
+   "estilo": "jazz",
+   "nombre": "Jazz suave · A",
+   "tono": "Sol mayor",
+   "tempo": 92,
+   "energia": 2,
+   "mood": [
+    "elegante",
+    "calma",
+    "cafe"
+   ],
+   "etiquetas": [
+    "jazz",
+    "café",
+    "elegante"
+   ],
+   "previa": "previas/jazz-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "jazz-2",
+   "estilo": "jazz",
+   "nombre": "Jazz suave · B",
+   "tono": "Do mayor",
+   "tempo": 84,
+   "energia": 2,
+   "mood": [
+    "elegante",
+    "calma",
+    "cafe"
+   ],
+   "etiquetas": [
+    "jazz",
+    "café",
+    "elegante"
+   ],
+   "previa": "previas/jazz-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "jazz-3",
+   "estilo": "jazz",
+   "nombre": "Jazz suave · C",
+   "tono": "Fa mayor",
+   "tempo": 100,
+   "energia": 2,
+   "mood": [
+    "elegante",
+    "calma",
+    "cafe"
+   ],
+   "etiquetas": [
+    "jazz",
+    "café",
+    "elegante"
+   ],
+   "previa": "previas/jazz-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "trap-1",
+   "estilo": "trap",
+   "nombre": "Trap ligero · A",
+   "tono": "Fa# menor",
+   "tempo": 140,
+   "energia": 3,
+   "mood": [
+    "urbano",
+    "confianza",
+    "moderno"
+   ],
+   "etiquetas": [
+    "trap",
+    "808",
+    "urbano"
+   ],
+   "previa": "previas/trap-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "trap-2",
+   "estilo": "trap",
+   "nombre": "Trap ligero · B",
+   "tono": "La menor",
+   "tempo": 130,
+   "energia": 3,
+   "mood": [
+    "urbano",
+    "confianza",
+    "moderno"
+   ],
+   "etiquetas": [
+    "trap",
+    "808",
+    "urbano"
+   ],
+   "previa": "previas/trap-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "trap-3",
+   "estilo": "trap",
+   "nombre": "Trap ligero · C",
+   "tono": "Mi menor",
+   "tempo": 150,
+   "energia": 3,
+   "mood": [
+    "urbano",
+    "confianza",
+    "moderno"
+   ],
+   "etiquetas": [
+    "trap",
+    "808",
+    "urbano"
+   ],
+   "previa": "previas/trap-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "marimba-1",
+   "estilo": "marimba",
+   "nombre": "Marimba alegre · A",
+   "tono": "Do mayor",
+   "tempo": 116,
+   "energia": 3,
+   "mood": [
+    "alegre",
+    "divertido",
+    "consejos"
+   ],
+   "etiquetas": [
+    "marimba",
+    "tropical",
+    "feliz"
+   ],
+   "previa": "previas/marimba-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "marimba-2",
+   "estilo": "marimba",
+   "nombre": "Marimba alegre · B",
+   "tono": "Fa mayor",
+   "tempo": 124,
+   "energia": 3,
+   "mood": [
+    "alegre",
+    "divertido",
+    "consejos"
+   ],
+   "etiquetas": [
+    "marimba",
+    "tropical",
+    "feliz"
+   ],
+   "previa": "previas/marimba-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "marimba-3",
+   "estilo": "marimba",
+   "nombre": "Marimba alegre · C",
+   "tono": "Re mayor",
+   "tempo": 108,
+   "energia": 3,
+   "mood": [
+    "alegre",
+    "divertido",
+    "consejos"
+   ],
+   "etiquetas": [
+    "marimba",
+    "tropical",
+    "feliz"
+   ],
+   "previa": "previas/marimba-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "drone-1",
+   "estilo": "drone",
+   "nombre": "Drone oscuro · A",
+   "tono": "La frigio",
+   "tempo": 60,
+   "energia": 1,
+   "mood": [
+    "oscuro",
+    "misterio",
+    "tension"
+   ],
+   "etiquetas": [
+    "oscuro",
+    "drone",
+    "misterio"
+   ],
+   "previa": "previas/drone-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "drone-2",
+   "estilo": "drone",
+   "nombre": "Drone oscuro · B",
+   "tono": "Sol frigio",
+   "tempo": 70,
+   "energia": 1,
+   "mood": [
+    "oscuro",
+    "misterio",
+    "tension"
+   ],
+   "etiquetas": [
+    "oscuro",
+    "drone",
+    "misterio"
+   ],
+   "previa": "previas/drone-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "drone-3",
+   "estilo": "drone",
+   "nombre": "Drone oscuro · C",
+   "tono": "Do frigio",
+   "tempo": 54,
+   "energia": 1,
+   "mood": [
+    "oscuro",
+    "misterio",
+    "tension"
+   ],
+   "etiquetas": [
+    "oscuro",
+    "drone",
+    "misterio"
+   ],
+   "previa": "previas/drone-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "garage-1",
+   "estilo": "garage",
+   "nombre": "UK garage 2-step · A",
+   "tono": "La menor",
+   "tempo": 132,
+   "energia": 4,
+   "mood": [
+    "urbano",
+    "energia",
+    "moderno"
+   ],
+   "etiquetas": [
+    "garage",
+    "2-step",
+    "club"
+   ],
+   "previa": "previas/garage-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "garage-2",
+   "estilo": "garage",
+   "nombre": "UK garage 2-step · B",
+   "tono": "Fa menor",
+   "tempo": 130,
+   "energia": 4,
+   "mood": [
+    "urbano",
+    "energia",
+    "moderno"
+   ],
+   "etiquetas": [
+    "garage",
+    "2-step",
+    "club"
+   ],
+   "previa": "previas/garage-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "garage-3",
+   "estilo": "garage",
+   "nombre": "UK garage 2-step · C",
+   "tono": "Do menor",
+   "tempo": 134,
+   "energia": 4,
+   "mood": [
+    "urbano",
+    "energia",
+    "moderno"
+   ],
+   "etiquetas": [
+    "garage",
+    "2-step",
+    "club"
+   ],
+   "previa": "previas/garage-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "pop-1",
+   "estilo": "pop",
+   "nombre": "Pop brillante · A",
+   "tono": "Do mayor",
+   "tempo": 118,
+   "energia": 4,
+   "mood": [
+    "optimista",
+    "energia",
+    "alegre"
+   ],
+   "etiquetas": [
+    "pop",
+    "brillante",
+    "pegadizo"
+   ],
+   "previa": "previas/pop-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "pop-2",
+   "estilo": "pop",
+   "nombre": "Pop brillante · B",
+   "tono": "Re mayor",
+   "tempo": 124,
+   "energia": 4,
+   "mood": [
+    "optimista",
+    "energia",
+    "alegre"
+   ],
+   "etiquetas": [
+    "pop",
+    "brillante",
+    "pegadizo"
+   ],
+   "previa": "previas/pop-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "pop-3",
+   "estilo": "pop",
+   "nombre": "Pop brillante · C",
+   "tono": "La mayor",
+   "tempo": 110,
+   "energia": 4,
+   "mood": [
+    "optimista",
+    "energia",
+    "alegre"
+   ],
+   "etiquetas": [
+    "pop",
+    "brillante",
+    "pegadizo"
+   ],
+   "previa": "previas/pop-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "deeptech-1",
+   "estilo": "deeptech",
+   "nombre": "Deep tech · A",
+   "tono": "Fa menor",
+   "tempo": 122,
+   "energia": 3,
+   "mood": [
+    "foco",
+    "tecnologia",
+    "elegante"
+   ],
+   "etiquetas": [
+    "deep",
+    "techno",
+    "noche"
+   ],
+   "previa": "previas/deeptech-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "deeptech-2",
+   "estilo": "deeptech",
+   "nombre": "Deep tech · B",
+   "tono": "Sol menor",
+   "tempo": 124,
+   "energia": 3,
+   "mood": [
+    "foco",
+    "tecnologia",
+    "elegante"
+   ],
+   "etiquetas": [
+    "deep",
+    "techno",
+    "noche"
+   ],
+   "previa": "previas/deeptech-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "deeptech-3",
+   "estilo": "deeptech",
+   "nombre": "Deep tech · C",
+   "tono": "Re menor",
+   "tempo": 120,
+   "energia": 3,
+   "mood": [
+    "foco",
+    "tecnologia",
+    "elegante"
+   ],
+   "etiquetas": [
+    "deep",
+    "techno",
+    "noche"
+   ],
+   "previa": "previas/deeptech-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "orquestal-1",
+   "estilo": "orquestal",
+   "nombre": "Orquestal ligero · A",
+   "tono": "Do mayor",
+   "tempo": 96,
+   "energia": 2,
+   "mood": [
+    "inspirador",
+    "epico",
+    "historia"
+   ],
+   "etiquetas": [
+    "orquesta",
+    "pizzicato",
+    "cuento"
+   ],
+   "previa": "previas/orquestal-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "orquestal-2",
+   "estilo": "orquestal",
+   "nombre": "Orquestal ligero · B",
+   "tono": "Sol mayor",
+   "tempo": 88,
+   "energia": 2,
+   "mood": [
+    "inspirador",
+    "epico",
+    "historia"
+   ],
+   "etiquetas": [
+    "orquesta",
+    "pizzicato",
+    "cuento"
+   ],
+   "previa": "previas/orquestal-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "orquestal-3",
+   "estilo": "orquestal",
+   "nombre": "Orquestal ligero · C",
+   "tono": "Re mayor",
+   "tempo": 104,
+   "energia": 2,
+   "mood": [
+    "inspirador",
+    "epico",
+    "historia"
+   ],
+   "etiquetas": [
+    "orquesta",
+    "pizzicato",
+    "cuento"
+   ],
+   "previa": "previas/orquestal-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "outrun-1",
+   "estilo": "outrun",
+   "nombre": "Synthwave outrun · A",
+   "tono": "Mi menor",
+   "tempo": 124,
+   "energia": 5,
+   "mood": [
+    "energia",
+    "nostalgia",
+    "motivacion"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "outrun",
+    "carretera",
+    "neón"
+   ],
+   "previa": "previas/outrun-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "outrun-2",
+   "estilo": "outrun",
+   "nombre": "Synthwave outrun · B",
+   "tono": "La menor",
+   "tempo": 128,
+   "energia": 5,
+   "mood": [
+    "energia",
+    "nostalgia",
+    "motivacion"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "outrun",
+    "carretera",
+    "neón"
+   ],
+   "previa": "previas/outrun-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "outrun-3",
+   "estilo": "outrun",
+   "nombre": "Synthwave outrun · C",
+   "tono": "Sol menor",
+   "tempo": 120,
+   "energia": 5,
+   "mood": [
+    "energia",
+    "nostalgia",
+    "motivacion"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "outrun",
+    "carretera",
+    "neón"
+   ],
+   "previa": "previas/outrun-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "darksynth-1",
+   "estilo": "darksynth",
+   "nombre": "Darksynth · A",
+   "tono": "La frigio",
+   "tempo": 110,
+   "energia": 4,
+   "mood": [
+    "oscuro",
+    "tension",
+    "tecnologia"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "dark",
+    "cyberpunk",
+    "noche"
+   ],
+   "previa": "previas/darksynth-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "darksynth-2",
+   "estilo": "darksynth",
+   "nombre": "Darksynth · B",
+   "tono": "Do frigio",
+   "tempo": 104,
+   "energia": 4,
+   "mood": [
+    "oscuro",
+    "tension",
+    "tecnologia"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "dark",
+    "cyberpunk",
+    "noche"
+   ],
+   "previa": "previas/darksynth-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "darksynth-3",
+   "estilo": "darksynth",
+   "nombre": "Darksynth · C",
+   "tono": "Sol frigio",
+   "tempo": 116,
+   "energia": 4,
+   "mood": [
+    "oscuro",
+    "tension",
+    "tecnologia"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "dark",
+    "cyberpunk",
+    "noche"
+   ],
+   "previa": "previas/darksynth-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "chillwave-1",
+   "estilo": "chillwave",
+   "nombre": "Chillwave · A",
+   "tono": "Re mayor",
+   "tempo": 96,
+   "energia": 2,
+   "mood": [
+    "calma",
+    "nostalgia",
+    "lifestyle"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "chill",
+    "atardecer",
+    "retro"
+   ],
+   "previa": "previas/chillwave-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "chillwave-2",
+   "estilo": "chillwave",
+   "nombre": "Chillwave · B",
+   "tono": "La mayor",
+   "tempo": 90,
+   "energia": 2,
+   "mood": [
+    "calma",
+    "nostalgia",
+    "lifestyle"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "chill",
+    "atardecer",
+    "retro"
+   ],
+   "previa": "previas/chillwave-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "chillwave-3",
+   "estilo": "chillwave",
+   "nombre": "Chillwave · C",
+   "tono": "Mi mayor",
+   "tempo": 100,
+   "energia": 2,
+   "mood": [
+    "calma",
+    "nostalgia",
+    "lifestyle"
+   ],
+   "etiquetas": [
+    "synthwave",
+    "chill",
+    "atardecer",
+    "retro"
+   ],
+   "previa": "previas/chillwave-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "vaporwave-1",
+   "estilo": "vaporwave",
+   "nombre": "Vaporwave lento · A",
+   "tono": "Sib mayor",
+   "tempo": 78,
+   "energia": 1,
+   "mood": [
+    "nostalgia",
+    "calma",
+    "divertido"
+   ],
+   "etiquetas": [
+    "vaporwave",
+    "retro",
+    "mall",
+    "90s"
+   ],
+   "previa": "previas/vaporwave-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "vaporwave-2",
+   "estilo": "vaporwave",
+   "nombre": "Vaporwave lento · B",
+   "tono": "Mib mayor",
+   "tempo": 72,
+   "energia": 1,
+   "mood": [
+    "nostalgia",
+    "calma",
+    "divertido"
+   ],
+   "etiquetas": [
+    "vaporwave",
+    "retro",
+    "mall",
+    "90s"
+   ],
+   "previa": "previas/vaporwave-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "vaporwave-3",
+   "estilo": "vaporwave",
+   "nombre": "Vaporwave lento · C",
+   "tono": "Sol mayor",
+   "tempo": 84,
+   "energia": 1,
+   "mood": [
+    "nostalgia",
+    "calma",
+    "divertido"
+   ],
+   "etiquetas": [
+    "vaporwave",
+    "retro",
+    "mall",
+    "90s"
+   ],
+   "previa": "previas/vaporwave-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "lofihop-1",
+   "estilo": "lofihop",
+   "nombre": "Lo-fi hip-hop · A",
+   "tono": "La dórico",
+   "tempo": 86,
+   "energia": 2,
+   "mood": [
+    "calma",
+    "foco",
+    "cafe"
+   ],
+   "etiquetas": [
+    "lofi",
+    "hiphop",
+    "estudio",
+    "beats"
+   ],
+   "previa": "previas/lofihop-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "lofihop-2",
+   "estilo": "lofihop",
+   "nombre": "Lo-fi hip-hop · B",
+   "tono": "Do dórico",
+   "tempo": 90,
+   "energia": 2,
+   "mood": [
+    "calma",
+    "foco",
+    "cafe"
+   ],
+   "etiquetas": [
+    "lofi",
+    "hiphop",
+    "estudio",
+    "beats"
+   ],
+   "previa": "previas/lofihop-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "lofihop-3",
+   "estilo": "lofihop",
+   "nombre": "Lo-fi hip-hop · C",
+   "tono": "Fa dórico",
+   "tempo": 82,
+   "energia": 2,
+   "mood": [
+    "calma",
+    "foco",
+    "cafe"
+   ],
+   "etiquetas": [
+    "lofi",
+    "hiphop",
+    "estudio",
+    "beats"
+   ],
+   "previa": "previas/lofihop-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "hiphopsuave-1",
+   "estilo": "hiphopsuave",
+   "nombre": "Hip-hop suave · A",
+   "tono": "Sol menor",
+   "tempo": 88,
+   "energia": 2,
+   "mood": [
+    "urbano",
+    "cercano",
+    "confianza"
+   ],
+   "etiquetas": [
+    "hiphop",
+    "suave",
+    "jazzy",
+    "vlog"
+   ],
+   "previa": "previas/hiphopsuave-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "hiphopsuave-2",
+   "estilo": "hiphopsuave",
+   "nombre": "Hip-hop suave · B",
+   "tono": "Do menor",
+   "tempo": 92,
+   "energia": 2,
+   "mood": [
+    "urbano",
+    "cercano",
+    "confianza"
+   ],
+   "etiquetas": [
+    "hiphop",
+    "suave",
+    "jazzy",
+    "vlog"
+   ],
+   "previa": "previas/hiphopsuave-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "hiphopsuave-3",
+   "estilo": "hiphopsuave",
+   "nombre": "Hip-hop suave · C",
+   "tono": "Mi menor",
+   "tempo": 84,
+   "energia": 2,
+   "mood": [
+    "urbano",
+    "cercano",
+    "confianza"
+   ],
+   "etiquetas": [
+    "hiphop",
+    "suave",
+    "jazzy",
+    "vlog"
+   ],
+   "previa": "previas/hiphopsuave-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "upbeat-1",
+   "estilo": "upbeat",
+   "nombre": "Corporativo upbeat · A",
+   "tono": "Re mayor",
+   "tempo": 124,
+   "energia": 4,
+   "mood": [
+    "optimista",
+    "negocio",
+    "energia"
+   ],
+   "etiquetas": [
+    "corporate",
+    "upbeat",
+    "startup",
+    "presentación"
+   ],
+   "previa": "previas/upbeat-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "upbeat-2",
+   "estilo": "upbeat",
+   "nombre": "Corporativo upbeat · B",
+   "tono": "Do mayor",
+   "tempo": 120,
+   "energia": 4,
+   "mood": [
+    "optimista",
+    "negocio",
+    "energia"
+   ],
+   "etiquetas": [
+    "corporate",
+    "upbeat",
+    "startup",
+    "presentación"
+   ],
+   "previa": "previas/upbeat-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "upbeat-3",
+   "estilo": "upbeat",
+   "nombre": "Corporativo upbeat · C",
+   "tono": "Fa mayor",
+   "tempo": 128,
+   "energia": 4,
+   "mood": [
+    "optimista",
+    "negocio",
+    "energia"
+   ],
+   "etiquetas": [
+    "corporate",
+    "upbeat",
+    "startup",
+    "presentación"
+   ],
+   "previa": "previas/upbeat-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "motivacional-1",
+   "estilo": "motivacional",
+   "nombre": "Motivacional épico · A",
+   "tono": "Do mayor",
+   "tempo": 100,
+   "energia": 4,
+   "mood": [
+    "inspirador",
+    "motivacion",
+    "epico"
+   ],
+   "etiquetas": [
+    "motivación",
+    "himno",
+    "superación"
+   ],
+   "previa": "previas/motivacional-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "motivacional-2",
+   "estilo": "motivacional",
+   "nombre": "Motivacional épico · B",
+   "tono": "Re mayor",
+   "tempo": 96,
+   "energia": 4,
+   "mood": [
+    "inspirador",
+    "motivacion",
+    "epico"
+   ],
+   "etiquetas": [
+    "motivación",
+    "himno",
+    "superación"
+   ],
+   "previa": "previas/motivacional-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "motivacional-3",
+   "estilo": "motivacional",
+   "nombre": "Motivacional épico · C",
+   "tono": "La mayor",
+   "tempo": 104,
+   "energia": 4,
+   "mood": [
+    "inspirador",
+    "motivacion",
+    "epico"
+   ],
+   "etiquetas": [
+    "motivación",
+    "himno",
+    "superación"
+   ],
+   "previa": "previas/motivacional-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "trailer-1",
+   "estilo": "trailer",
+   "nombre": "Épico tráiler · A",
+   "tono": "Re menor",
+   "tempo": 100,
+   "energia": 5,
+   "mood": [
+    "epico",
+    "tension",
+    "inspirador"
+   ],
+   "etiquetas": [
+    "tráiler",
+    "épico",
+    "cine",
+    "percusión"
+   ],
+   "previa": "previas/trailer-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "trailer-2",
+   "estilo": "trailer",
+   "nombre": "Épico tráiler · B",
+   "tono": "La menor",
+   "tempo": 92,
+   "energia": 5,
+   "mood": [
+    "epico",
+    "tension",
+    "inspirador"
+   ],
+   "etiquetas": [
+    "tráiler",
+    "épico",
+    "cine",
+    "percusión"
+   ],
+   "previa": "previas/trailer-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "trailer-3",
+   "estilo": "trailer",
+   "nombre": "Épico tráiler · C",
+   "tono": "Mi menor",
+   "tempo": 108,
+   "energia": 5,
+   "mood": [
+    "epico",
+    "tension",
+    "inspirador"
+   ],
+   "etiquetas": [
+    "tráiler",
+    "épico",
+    "cine",
+    "percusión"
+   ],
+   "previa": "previas/trailer-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "minimal-1",
+   "estilo": "minimal",
+   "nombre": "Tech minimal clic · A",
+   "tono": "La menor",
+   "tempo": 118,
+   "energia": 2,
+   "mood": [
+    "tecnologia",
+    "foco",
+    "moderno"
+   ],
+   "etiquetas": [
+    "minimal",
+    "tech",
+    "clics",
+    "ia"
+   ],
+   "previa": "previas/minimal-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "minimal-2",
+   "estilo": "minimal",
+   "nombre": "Tech minimal clic · B",
+   "tono": "Mi menor",
+   "tempo": 122,
+   "energia": 2,
+   "mood": [
+    "tecnologia",
+    "foco",
+    "moderno"
+   ],
+   "etiquetas": [
+    "minimal",
+    "tech",
+    "clics",
+    "ia"
+   ],
+   "previa": "previas/minimal-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "minimal-3",
+   "estilo": "minimal",
+   "nombre": "Tech minimal clic · C",
+   "tono": "Do menor",
+   "tempo": 114,
+   "energia": 2,
+   "mood": [
+    "tecnologia",
+    "foco",
+    "moderno"
+   ],
+   "etiquetas": [
+    "minimal",
+    "tech",
+    "clics",
+    "ia"
+   ],
+   "previa": "previas/minimal-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "espacial-1",
+   "estilo": "espacial",
+   "nombre": "Ambient espacial · A",
+   "tono": "Re dórico",
+   "tempo": 60,
+   "energia": 1,
+   "mood": [
+    "calma",
+    "misterio",
+    "reflexion"
+   ],
+   "etiquetas": [
+    "ambient",
+    "espacio",
+    "flotante",
+    "pads"
+   ],
+   "previa": "previas/espacial-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "espacial-2",
+   "estilo": "espacial",
+   "nombre": "Ambient espacial · B",
+   "tono": "Fa dórico",
+   "tempo": 66,
+   "energia": 1,
+   "mood": [
+    "calma",
+    "misterio",
+    "reflexion"
+   ],
+   "etiquetas": [
+    "ambient",
+    "espacio",
+    "flotante",
+    "pads"
+   ],
+   "previa": "previas/espacial-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "espacial-3",
+   "estilo": "espacial",
+   "nombre": "Ambient espacial · C",
+   "tono": "Do dórico",
+   "tempo": 56,
+   "energia": 1,
+   "mood": [
+    "calma",
+    "misterio",
+    "reflexion"
+   ],
+   "etiquetas": [
+    "ambient",
+    "espacio",
+    "flotante",
+    "pads"
+   ],
+   "previa": "previas/espacial-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "pianoambient-1",
+   "estilo": "pianoambient",
+   "nombre": "Piano y ambiente · A",
+   "tono": "Do mayor",
+   "tempo": 68,
+   "energia": 1,
+   "mood": [
+    "emotivo",
+    "calma",
+    "reflexion"
+   ],
+   "etiquetas": [
+    "piano",
+    "ambient",
+    "suave",
+    "emoción"
+   ],
+   "previa": "previas/pianoambient-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "pianoambient-2",
+   "estilo": "pianoambient",
+   "nombre": "Piano y ambiente · B",
+   "tono": "La mayor",
+   "tempo": 62,
+   "energia": 1,
+   "mood": [
+    "emotivo",
+    "calma",
+    "reflexion"
+   ],
+   "etiquetas": [
+    "piano",
+    "ambient",
+    "suave",
+    "emoción"
+   ],
+   "previa": "previas/pianoambient-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "pianoambient-3",
+   "estilo": "pianoambient",
+   "nombre": "Piano y ambiente · C",
+   "tono": "Mi mayor",
+   "tempo": 72,
+   "energia": 1,
+   "mood": [
+    "emotivo",
+    "calma",
+    "reflexion"
+   ],
+   "etiquetas": [
+    "piano",
+    "ambient",
+    "suave",
+    "emoción"
+   ],
+   "previa": "previas/pianoambient-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "tropical-1",
+   "estilo": "tropical",
+   "nombre": "Tropical house · A",
+   "tono": "Do mayor",
+   "tempo": 108,
+   "energia": 3,
+   "mood": [
+    "alegre",
+    "lifestyle",
+    "energia"
+   ],
+   "etiquetas": [
+    "tropical",
+    "verano",
+    "house",
+    "playa"
+   ],
+   "previa": "previas/tropical-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "tropical-2",
+   "estilo": "tropical",
+   "nombre": "Tropical house · B",
+   "tono": "Fa mayor",
+   "tempo": 112,
+   "energia": 3,
+   "mood": [
+    "alegre",
+    "lifestyle",
+    "energia"
+   ],
+   "etiquetas": [
+    "tropical",
+    "verano",
+    "house",
+    "playa"
+   ],
+   "previa": "previas/tropical-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "tropical-3",
+   "estilo": "tropical",
+   "nombre": "Tropical house · C",
+   "tono": "Re mayor",
+   "tempo": 104,
+   "energia": 3,
+   "mood": [
+    "alegre",
+    "lifestyle",
+    "energia"
+   ],
+   "etiquetas": [
+    "tropical",
+    "verano",
+    "house",
+    "playa"
+   ],
+   "previa": "previas/tropical-3.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "dnb-1",
+   "estilo": "dnb",
+   "nombre": "Liquid drum & bass · A",
+   "tono": "La menor",
+   "tempo": 172,
+   "energia": 5,
+   "mood": [
+    "energia",
+    "tecnologia",
+    "moderno"
+   ],
+   "etiquetas": [
+    "dnb",
+    "liquid",
+    "rápido",
+    "breakbeat"
+   ],
+   "previa": "previas/dnb-1.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "dnb-2",
+   "estilo": "dnb",
+   "nombre": "Liquid drum & bass · B",
+   "tono": "Do menor",
+   "tempo": 170,
+   "energia": 5,
+   "mood": [
+    "energia",
+    "tecnologia",
+    "moderno"
+   ],
+   "etiquetas": [
+    "dnb",
+    "liquid",
+    "rápido",
+    "breakbeat"
+   ],
+   "previa": "previas/dnb-2.mp3",
+   "lufs": -16.0
+  },
+  {
+   "id": "dnb-3",
+   "estilo": "dnb",
+   "nombre": "Liquid drum & bass · C",
+   "tono": "Fa menor",
+   "tempo": 174,
+   "energia": 5,
+   "mood": [
+    "energia",
+    "tecnologia",
+    "moderno"
+   ],
+   "etiquetas": [
+    "dnb",
+    "liquid",
+    "rápido",
+    "breakbeat"
+   ],
+   "previa": "previas/dnb-3.mp3",
+   "lufs": -16.0
+  }
+ ]
+}

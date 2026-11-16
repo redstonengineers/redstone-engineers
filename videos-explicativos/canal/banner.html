@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face { font-family: 'Bricolage'; src: url('../_kit/motor/fuentes/bricolage-700.ttf'); font-weight: 700; }
+@font-face { font-family: 'Figtree'; src: url('../_kit/motor/fuentes/figtree-700.woff2'); font-weight: 700; }
+@font-face { font-family: 'Mono'; src: url('../_kit/motor/fuentes/jetbrainsmono-700.woff'); font-weight: 700; }
+html,body{margin:0;width:2560px;height:1440px;overflow:hidden;background:#090B10}
+</style></head><body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2560 1440" width="2560" height="1440">
+  <defs>
+    <radialGradient id="f" cx="50%" cy="45%" r="75%"><stop offset="0" stop-color="#1B2638"/><stop offset="1" stop-color="#07090D"/></radialGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F5BC5A"/><stop offset="1" stop-color="#D68A1C"/></linearGradient>
+    <pattern id="g" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" fill="none" stroke="#F3EEE6" stroke-opacity="0.045" stroke-width="2"/></pattern>
+  </defs>
+  <rect width="2560" height="1440" fill="url(#f)"/><rect width="2560" height="1440" fill="url(#g)"/>
+  <!-- líneas de expediente a los lados (fuera de la zona segura) -->
+  <g stroke="#E8A33D" stroke-opacity="0.55" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M0 360H380 M0 400H260 M0 1080H300 M0 1040H420"/><path d="M2560 360H2180 M2560 400H2300 M2560 1080H2260 M2560 1040H2140"/>
+  </g>
+  <!-- sellos decorativos -->
+  <g font-family="Mono" font-weight="700" fill="none" stroke-width="7">
+    <g transform="translate(260 240) rotate(-9)" stroke="#E8A33D"><rect x="-225" y="-44" width="450" height="88" rx="10"/><text x="0" y="14" text-anchor="middle" font-size="42" fill="#E8A33D" stroke="none" letter-spacing="6">SIN RESOLVER</text></g>
+    <g transform="translate(2300 1210) rotate(-7)" stroke="#FF5A5F"><rect x="-225" y="-44" width="450" height="88" rx="10"/><text x="0" y="14" text-anchor="middle" font-size="42" fill="#FF5A5F" stroke="none" letter-spacing="6">SIN PRUEBAS</text></g>
+    <g transform="translate(2310 230) rotate(7)" stroke="#5BE49B"><rect x="-225" y="-44" width="450" height="88" rx="10"/><text x="0" y="14" text-anchor="middle" font-size="42" fill="#5BE49B" stroke="none" letter-spacing="6">CONFIRMADO</text></g>
+    <g transform="translate(270 1220) rotate(6)" stroke="#E8A33D"><rect x="-225" y="-44" width="450" height="88" rx="10"/><text x="0" y="14" text-anchor="middle" font-size="42" fill="#E8A33D" stroke="none" letter-spacing="6">HIPÓTESIS</text></g>
+  </g>
+  <!-- ZONA SEGURA (1546×423, centrada) -->
+  <g transform="translate(1280 692)">
+    <!-- carpeta -->
+    <g transform="translate(-690 -150)">
+      <path d="M0 40 L0 12 Q0 0 12 0 L96 0 Q108 0 116 10 L132 30 L270 30 Q286 30 286 46 L286 60 Z" fill="#C57F18"/>
+      <rect x="-14" y="56" width="314" height="210" rx="20" fill="url(#a)"/>
+      <text x="143" y="228" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="210" fill="#0B0D12">?</text>
+    </g>
+    <text x="120" y="-20" text-anchor="middle" font-family="Bricolage" font-weight="700" font-size="170" fill="#F3EEE6" letter-spacing="-3">EXPEDIENTE</text>
+    <text x="120" y="140" text-anchor="middle" font-family="Bricolage" font-weight="700" font-size="170" fill="#E8A33D" letter-spacing="-3">ABIERTO</text>
+    <text x="120" y="215" text-anchor="middle" font-family="Figtree" font-weight="700" font-size="44" fill="#F3EEE6" fill-opacity="0.82">Casos reales y misterios históricos · lo que se sabe y lo que no</text>
+  </g>
+</svg></body></html>

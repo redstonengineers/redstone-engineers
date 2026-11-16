@@ -1,0 +1,104 @@
+{
+  "version": 3,
+  "nota": "Pesos del modelo de puntuación de nichos (hipótesis iniciales; recalibrar con datos propios tras >=5 vídeos por nicho). v2 (2026-11-10): añadido 'audiencia_organica' (vistas/suscriptores) y reequilibrados demanda 20→15 y accesibilidad 20→15. Detalle: skills/produccion-audiovisual/referencias/busqueda_de_nichos.md",
+  "pesos": {
+    "rpm_esperado": 25,
+    "demanda": 15,
+    "accesibilidad": 15,
+    "audiencia_organica": 20,
+    "producible_con_motor": 15,
+    "profundidad_subnichos": 10,
+    "riesgo_max_resta": 10
+  },
+  "confianza_valida": [
+    "alta",
+    "media",
+    "baja",
+    "sin_dato"
+  ],
+  "sin_dato_puntua": 0,
+  "puertas_de_exclusion": [
+    "menos de 20 subnichos posibles",
+    "sin fuentes verificables citables",
+    "exige material con derechos de terceros",
+    "promete resultados medicos o financieros",
+    "formato 100% plantilla repetible sin aporte propio"
+  ],
+  "accesibilidad": {
+    "canal_pequeno_max_suscriptores": 10000,
+    "outlier_minimo_multiplo": 3,
+    "comparar_ventanas_meses": 3
+  },
+  "reglas_subnicho": {
+    "min_ideas_por_nicho": 15,
+    "min_posibles_por_nicho": 20,
+    "nunca_repetir": true,
+    "nicho_puede_repetirse": true,
+    "videos_por_peticion_por_defecto": 1,
+    "cola_candidatos_por_defecto": 4
+  },
+  "validacion": {
+    "videos_minimos_para_decidir_nicho": 5,
+    "medir_a_los_dias": [
+      7,
+      28
+    ],
+    "umbrales": "pendiente: fijar con el primer lote real, no inventar"
+  },
+  "audiencia_organica": {
+    "min_subs": 1000,
+    "min_videos": 5,
+    "dias_min": 14,
+    "dias_max": 365,
+    "ratio_un_exito": 5.0,
+    "largo": {
+      "depende_de_suscriptores_bajo": 0.2,
+      "organico_desde": 1.0
+    },
+    "short": {
+      "depende_de_suscriptores_bajo": 0.6,
+      "organico_desde": 3.0
+    },
+    "subs_canal_pequeno": 50000,
+    "min_organicos_pequenos": 3,
+    "tope_si_faltan_pequenos": 10,
+    "confianza_muestra": [
+      [
+        8,
+        1.0
+      ],
+      [
+        4,
+        0.6
+      ],
+      [
+        1,
+        0.3
+      ]
+    ],
+    "puntos_max": 20,
+    "_nota": "Umbrales = HIPOTESIS iniciales, no medidos. Implementación: engines/research/audiencia_organica.py"
+  },
+  "ciclo": {
+    "cola_sana": 12,
+    "min_inventario": 15,
+    "colision_alerta": 0.5,
+    "colision_suma": 25,
+    "ideas_recientes_min": 5,
+    "min_videos_rendimiento": 6,
+    "caida_total": 0.5,
+    "min_outliers_previos": 3,
+    "pesos": {
+      "oferta": 40,
+      "rendimiento": 40,
+      "mercado": 20
+    },
+    "verde_hasta": 40,
+    "rojo_desde": 70,
+    "confirmaciones_rojo": 2,
+    "videos_entre_mediciones": 2,
+    "revision_programada_dias": 60,
+    "remedir_mercado_dias": 30,
+    "_nota": "HIPOTESIS iniciales no medidas. Implementación: engines/research/ciclo.py"
+  }
+}

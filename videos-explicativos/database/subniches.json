@@ -1,0 +1,308 @@
+[
+ {
+  "estado": "usado",
+  "subnicho": "¿Por qué el interés compuesto lo cambia todo? (números cotidianos)",
+  "proyecto": "2026-11-10 · interés compuesto",
+  "nota": "Producido ANTES de fijar el nicho de ciencia; cuenta como usado"
+ },
+ {
+  "estado": "pausado",
+  "subnicho": "¿Por qué el hielo flota (y por qué eso salvó la vida en lagos y mares)?",
+  "proyecto": "2026-11-10 · por qué flota el hielo",
+  "nota": "Vídeo del hielo: guion hecho, voz sin generar; nicho cambiado"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Cómo se sostiene un avión en el aire? (por qué la explicación de las alas es incompleta)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué el cielo es azul y los atardeceres rojos? (dispersión de Rayleigh)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué nos mareamos en un coche leyendo? (conflicto de señales; sin consejo médico)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué un cohete tiene etapas? (la ecuación del cohete)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Cómo funciona un microondas y por qué calienta el agua primero?",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué el agua hirviendo sube más despacio en alta montaña? (presión y punto de ebullición)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué los relojes atómicos son tan exactos y qué es un segundo?",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Cómo sabemos la edad de la Tierra? (datación radiactiva)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué los terremotos se miden en escala logarítmica?",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Cómo funciona el GPS y por qué necesita la relatividad?",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué el hielo seco 'no se derrite'? (sublimación)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿por qué las burbujas del champán suben en línea? (nucleación)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Cómo funciona una batería de litio por dentro?",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué el arcoíris es un círculo completo? (geometría de la luz)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué las pompas de jabón tienen colores? (interferencia en láminas delgadas)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Cómo se forman los relámpagos? (carga en nubes)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué la Luna siempre muestra la misma cara? (acoplamiento de marea)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Qué es un agujero negro y cómo se midió la primera imagen? (EHT)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué el aluminio no se oxida como el hierro? (capa de óxido protectora)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Cómo funciona un MRI sin radiación ionizante? (solo mecanismo físico)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué un huevo duro se vuelve duro? (desnaturalización de proteínas)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué el sonido viaja más rápido en el agua?",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Cómo se mide la distancia a las estrellas? (paralaje y cefeidas)",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Por qué los metales sienten más fríos que la madera a la misma temperatura?",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "candidato_nicho_anterior",
+  "subnicho": "¿Cómo funciona el efecto Doppler y por qué sabemos que el universo se expande?",
+  "proyecto": "",
+  "nota": "Candidato del nicho «ciencia explicada» (descartado el 2026-11-11 por cambio de nicho)"
+ },
+ {
+  "estado": "descartado",
+  "subnicho": "El mecanismo de Anticitera: ¿quién construyó una máquina de cálculo hace 2.000 años?",
+  "proyecto": "2026-11-10 · mecanismo de anticitera",
+  "nota": "El usuario pidió el 2026-11-11 NO producir este tema. Guion y fuentes se conservan, no se usa."
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "La colonia perdida de Roanoke (1587): ¿qué pasó con 115 colonos?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "en_produccion",
+  "subnicho": "La Mary Celeste (1872): el barco que apareció sin tripulación",
+  "proyecto": "2026-11-11 · mary celeste",
+  "nota": ""
+ },
+ {
+  "estado": "descartado",
+  "subnicho": "El Manuscrito Voynich: el libro que nadie ha podido leer",
+  "proyecto": "2026-11-11 · manuscrito voynich",
+  "nota": "El usuario lo descartó el 2026-11-11 (quiere un caso más interesante). Guion y carpeta se conservan, no se usan."
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "Göbekli Tepe: el templo que reescribió la prehistoria",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "El Fuego Griego: el arma secreta de Bizancio",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "La Legión IX Hispana: ¿desapareció en Britania?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "La isla de Pascua: ¿qué pasó con los rapanui y los moáis?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "El cometa o meteorito de Tunguska (1908): la explosión sin cráter",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "Las Líneas de Nazca: qué sabemos y qué no",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "El Tesoro de Oak Island: la excavación más larga de la historia",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "El Ejército de Terracota: lo que esconde la tumba de Qin Shi Huang",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "Dyatlov (1959): lo que se sabe del caso (solo registros públicos, sin morbo)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "La Biblioteca de Alejandría: ¿cómo desapareció de verdad?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "El Cuarto Ámbar: el tesoro perdido de la Segunda Guerra Mundial",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "Los pueblos del mar: la oleada que hundió las civilizaciones del Bronce",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "El código Beale: ¿tesoro real o leyenda?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "La Gran Pirámide: ¿cómo se construyó? (qué dicen las pruebas)",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "El barco vikingo de Oseberg y los rituales funerarios",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "El misterio de las piedras de Stonehenge: de dónde vinieron",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "La Atlántida de Platón: ¿mito o memoria de un desastre?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "El incendio de Roma (64 d. C.): ¿fue Nerón?",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "candidato",
+  "subnicho": "El Santo Grial del Imperio: la Lanza de Longinos y otras reliquias",
+  "proyecto": "",
+  "nota": "pendiente de comprobar duplicado, fuentes y sensibilidad"
+ },
+ {
+  "estado": "en_produccion",
+  "subnicho": "H. H. Holmes y el «Castillo del asesino» (Chicago, 1893): leyenda frente a lo documentado",
+  "proyecto": "2026-11-11 · hh holmes",
+  "nota": "Pedido por el usuario (vídeo de miedo). Sin detalles gráficos; niños víctimas tratados con sobriedad."
+ }
+]

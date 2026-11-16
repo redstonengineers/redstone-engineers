@@ -1,0 +1,10 @@
+{
+  "extraKnownMarketplaces": {
+    "redstone-plugins": {
+      "source": { "source": "github", "repo": "redstonengineers/redstone-engineers" }
+    }
+  },
+  "enabledPlugins": {
+    "earshot@redstone-plugins": true
+  }
+}

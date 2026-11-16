@@ -1,0 +1,85 @@
+{
+ "dur": 373.8,
+ "eventos": [
+  {
+   "t": 22.4,
+   "tipo": "whoosh",
+   "ganancia": 0.5
+  },
+  {
+   "t": 25.84,
+   "tipo": "pop",
+   "ganancia": 0.7
+  },
+  {
+   "t": 28.48,
+   "tipo": "whoosh",
+   "ganancia": 0.8
+  },
+  {
+   "t": 109.8,
+   "tipo": "pop",
+   "ganancia": 0.7
+  },
+  {
+   "t": 28.48,
+   "tipo": "whoosh",
+   "ganancia": 0.4
+  },
+  {
+   "t": 36.88,
+   "tipo": "whoosh",
+   "ganancia": 0.4
+  },
+  {
+   "t": 55.56,
+   "tipo": "whoosh",
+   "ganancia": 0.4
+  },
+  {
+   "t": 66.64,
+   "tipo": "whoosh",
+   "ganancia": 0.4
+  },
+  {
+   "t": 113.84,
+   "tipo": "whoosh",
+   "ganancia": 0.4
+  },
+  {
+   "t": 149.68,
+   "tipo": "whoosh",
+   "ganancia": 0.4
+  },
+  {
+   "t": 186.4,
+   "tipo": "whoosh",
+   "ganancia": 0.4
+  },
+  {
+   "t": 268.52,
+   "tipo": "whoosh",
+   "ganancia": 0.4
+  },
+  {
+   "t": 321.08,
+   "tipo": "whoosh",
+   "ganancia": 0.4
+  },
+  {
+   "t": 349.56,
+   "tipo": "whoosh",
+   "ganancia": 0.4
+  },
+  {
+   "t": 293.32,
+   "tipo": "pop",
+   "ganancia": 0.8
+  },
+  {
+   "t": 262.72,
+   "tipo": "pop",
+   "ganancia": 0.7
+  }
+ ]
+}

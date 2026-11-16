@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<defs><pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2.2" fill="#2b3640" opacity=".18"/></pattern>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9aabb6"/><stop offset="1" stop-color="#7f929e"/></linearGradient></defs>
+<rect width="1920" height="1080" fill="url(#bg)"/><rect width="1920" height="1080" fill="url(#dots)"/>
+<rect y="900" width="1920" height="180" fill="#6c7e8a"/>
+<!-- título -->
+<text x="110" y="190" font-family="Arial, sans-serif" font-weight="900" font-size="120" fill="#e8eef2" stroke="#2b3640" stroke-width="6" paint-order="stroke">EL GUEPARDO</text>
+<text x="110" y="300" font-family="Arial, sans-serif" font-weight="900" font-size="120" fill="#f2c14e" stroke="#2b3640" stroke-width="6" paint-order="stroke">PIERDE 3 DE 4</text>
+<!-- gráfico simple -->
+<g font-family="Arial, sans-serif" font-weight="900">
+<rect x="110" y="400" width="760" height="70" rx="12" fill="#e8eef2" stroke="#2b3640" stroke-width="5"/>
+<rect x="110" y="400" width="190" height="70" rx="12" fill="#f2c14e" stroke="#2b3640" stroke-width="5"/>
+<text x="900" y="452" font-size="46" fill="#2b3640">25 % de éxito</text>
+<text x="110" y="540" font-size="34" fill="#e8eef2" stroke="#2b3640" stroke-width="3" paint-order="stroke">93 km/h máximo · ~50 km/h de media</text>
+<text x="110" y="595" font-size="26" fill="#2b3640">Wilson et al., Nature 2013</text></g>
+<!-- personaje original: cazador sin cara -->
+<g transform="translate(1330,250)" stroke="#161c22" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+ <!-- piernas -->
+ <path d="M120 440 L110 760 L170 770 L260 500 Z" fill="#37424c"/>
+ <path d="M260 500 L340 760 L400 770 L400 440 Z" fill="#37424c"/>
+ <path d="M95 755 L205 775 L195 810 L70 800 Z" fill="#232b33"/><path d="M335 755 L440 770 L445 808 L330 802 Z" fill="#232b33"/>
+ <!-- torso -->
+ <path d="M90 250 Q250 190 410 250 L390 420 Q330 520 260 520 Q190 520 120 420 Z" fill="#37424c"/>
+ <path d="M170 300 Q250 280 330 300 M250 300 L250 440 M185 380 Q250 400 315 380 M195 440 Q250 462 305 440" fill="none" stroke="#5a6b78" stroke-width="5"/>
+ <!-- brazos flexionando -->
+ <path d="M90 255 Q20 240 5 330 Q0 380 60 400 Q110 410 130 350 Z" fill="#37424c"/>
+ <circle cx="55" cy="335" r="45" fill="#4a5967"/>
+ <path d="M410 255 Q490 240 505 330 Q510 380 450 400 Q400 410 380 350 Z" fill="#37424c"/>
+ <circle cx="455" cy="335" r="45" fill="#4a5967"/>
+ <!-- cabeza máscara -->
+ <path d="M250 25 C330 25 365 95 350 165 C338 222 300 255 250 255 C200 255 162 222 150 165 C135 95 170 25 250 25Z" fill="#2c353e"/>
+ <path d="M205 120 Q232 98 258 120 Q232 138 205 120Z" fill="#f4f4f0" stroke="#161c22" stroke-width="6"/><circle cx="232" cy="119" r="9" fill="#161c22"/>
+ <path d="M272 124 L322 112" stroke="#f4f4f0" stroke-width="9"/>
+ <!-- marca: tres arañazos -->
+ <path d="M228 42 L262 100 M246 40 L280 98 M264 42 L298 96" stroke="#f2c14e" stroke-width="9" fill="none"/>
+</g>
+<!-- bocadillo -->
+<g transform="translate(760,640)"><path d="M30 0 H520 Q550 0 550 30 V95 L640 150 L550 140 V150 Q550 180 520 180 H30 Q0 180 0 150 V30 Q0 0 30 0Z" fill="#fff" stroke="#161c22" stroke-width="7"/>
+<text x="275" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="46" fill="#161c22">¡No gana por correr!</text>
+<text x="275" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="46" fill="#161c22">Gana por <tspan fill="#c0392b">frenar</tspan></text></g>
+</svg>

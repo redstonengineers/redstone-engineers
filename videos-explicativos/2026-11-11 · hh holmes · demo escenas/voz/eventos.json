@@ -1,0 +1,25 @@
+{
+ "dur": 49.3,
+ "eventos": [
+  {
+   "t": 0.2,
+   "tipo": "whoosh",
+   "ganancia": 0.7
+  },
+  {
+   "t": 2.3,
+   "tipo": "pop",
+   "ganancia": 0.8
+  },
+  {
+   "t": 20.7,
+   "tipo": "pop",
+   "ganancia": 0.9
+  },
+  {
+   "t": 43.1,
+   "tipo": "whoosh",
+   "ganancia": 0.7
+  }
+ ]
+}

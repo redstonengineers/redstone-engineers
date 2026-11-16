@@ -1,0 +1,50 @@
+{
+ "dur": 365.48,
+ "eventos": [
+  {
+   "t": 0.1,
+   "tipo": "whoosh",
+   "ganancia": 0.6
+  },
+  {
+   "t": 23.7,
+   "tipo": "pop",
+   "ganancia": 0.8
+  },
+  {
+   "t": 53.5,
+   "tipo": "pop",
+   "ganancia": 0.8
+  },
+  {
+   "t": 74.1,
+   "tipo": "pop",
+   "ganancia": 0.8
+  },
+  {
+   "t": 136.5,
+   "tipo": "pop",
+   "ganancia": 0.8
+  },
+  {
+   "t": 179,
+   "tipo": "pop",
+   "ganancia": 0.8
+  },
+  {
+   "t": 236.8,
+   "tipo": "pop",
+   "ganancia": 0.8
+  },
+  {
+   "t": 275.5,
+   "tipo": "pop",
+   "ganancia": 0.8
+  },
+  {
+   "t": 227.5,
+   "tipo": "dinero",
+   "ganancia": 0.8
+  }
+ ]
+}

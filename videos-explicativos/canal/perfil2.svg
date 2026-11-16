@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <radialGradient id="f" cx="50%" cy="35%" r="80%"><stop offset="0" stop-color="#1D2A3F"/><stop offset="1" stop-color="#080A0F"/></radialGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F5BC5A"/><stop offset="1" stop-color="#D68A1C"/></linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#f)"/>
+  <!-- ondas -->
+  <g fill="none" stroke="#6FB1D8" stroke-width="5" opacity="0.35" stroke-linecap="round">
+    <path d="M0 690 Q100 660 200 690 T400 690 T600 690 T800 690"/><path d="M0 735 Q100 705 200 735 T400 735 T600 735 T800 735"/>
+  </g>
+  <!-- cerradura -->
+  <path d="M400 150 a190 190 0 1 1 0.01 0 Z M400 150" fill="none"/>
+  <circle cx="400" cy="330" r="190" fill="url(#a)"/>
+  <path d="M330 470 L470 470 L520 700 L280 700 Z" fill="url(#a)"/>
+  <!-- barco dentro de la cerradura -->
+  <g fill="#0B0D12" stroke="#0B0D12" stroke-linejoin="round" stroke-width="6">
+    <path d="M285 365 L515 365 L480 410 L320 410 Z"/>
+    <path d="M360 355 L360 205 M445 355 L445 235" stroke-width="9" fill="none"/>
+    <path d="M360 215 L430 345 L360 345 Z M445 245 L500 345 L445 345 Z"/>
+  </g>
+  <circle cx="400" cy="330" r="190" fill="none" stroke="#0B0D12" stroke-width="6" opacity="0.25"/>
+  <!-- ojo de la cerradura inferior -->
+  <rect x="385" y="520" width="30" height="120" rx="15" fill="#0B0D12"/>
+</svg>
