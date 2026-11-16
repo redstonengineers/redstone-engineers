@@ -1,0 +1,10 @@
+{
+  "extraKnownMarketplaces": {
+    "earshot": {
+      "source": { "source": "github", "repo": "OlegTheSnowman/earshot" }
+    }
+  },
+  "enabledPlugins": {
+    "earshot@earshot": true
+  }
+}
