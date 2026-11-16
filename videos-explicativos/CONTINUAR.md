@@ -6,3 +6,10 @@
 - Siguiente: piloto de 60 s con clips reales + subtítulos, sin tarjetas grandes, para aprobación ANTES de gastar créditos. Motor/kit: _kit/ (render reanudable, mezcla.py).
 - Reglas: no pegar secretos en el chat; hechos con fuente; hipótesis marcadas; quitar lo no verificado.
 - Descartado: países (borrador Bolivia en «2026-11-15 · bolivia 15min/»), Anticitera, Voynich, hielo.
+
+## Estilo visual probado (2026-11-16)
+- Referencia: canal Captain Workout (fondo azul claro, personaje gris oscuro anatómico, comparaciones DÍA 1/DÍA 30, resaltado rojo/verde). NO copiar su mascota (cabeza con "W"): usar personaje propio (gris grafito, visor amarillo).
+- Imágenes: ElevenLabs conector «ElevenLabs-7e8f506f», modelo bytedance-seedream-5.5, sin texto en la imagen. Coste medido: ~98 créditos (sin referencia), ~127 (con referencia del personaje). Para mantener el personaje: creative_add_flow_asset_node + connect_from.
+- Rótulos: se ponen aparte (HTML→PNG + ffmpeg overlay con fade), nunca dentro de la imagen (el modelo comete erratas).
+- Magnific (plan gratuito): sin referencias de imagen; descartado para este estilo.
+- Pruebas: pruebas-estilo/prueba_estilo_seedream_10s.mp4 y creatina_*.jpg
