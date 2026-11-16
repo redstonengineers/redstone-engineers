@@ -1,0 +1,500 @@
+[
+ {
+  "text": "Te han dicho que la creatina te deja calvo, que te destroza los riñones y que te llena de agua.",
+  "s": 0.0,
+  "e": 6.885,
+  "id": 1
+ },
+ {
+  "text": "Hoy miramos qué dicen de verdad los estudios, sin exagerar ni en un sentido ni en otro.",
+  "s": 7.384,
+  "e": 13.932,
+  "id": 2
+ },
+ {
+  "text": "Y al final te cuento qué dosis se usa en la investigación, porque casi nadie la explica bien.",
+  "s": 14.431,
+  "e": 20.794,
+  "id": 3
+ },
+ {
+  "text": "Antes de empezar, un aviso. Esto es información general, no consejo médico.",
+  "s": 21.537,
+  "e": 27.806,
+  "id": 4
+ },
+ {
+  "text": "Si tienes una enfermedad, sobre todo de riñón, o tomas medicación, habla con tu médico antes de tomar cualquier suplemento.",
+  "s": 28.549,
+  "e": 35.898,
+  "id": 5
+ },
+ {
+  "text": "Primero: qué es la creatina.",
+  "s": 36.641,
+  "e": 38.824,
+  "id": 6
+ },
+ {
+  "text": "Es una sustancia que tu cuerpo produce y que también está en alimentos como la carne y el pescado.",
+  "s": 39.973,
+  "e": 46.045,
+  "id": 7
+ },
+ {
+  "text": "Se almacena sobre todo en los músculos, y sirve para regenerar energía rápida en esfuerzos cortos e intensos, como una serie pesada o un esprint.",
+  "s": 47.206,
+  "e": 58.177,
+  "id": 8
+ },
+ {
+  "text": "Cuando se toma como suplemento, aumenta la creatina que hay dentro del músculo. Esa es la idea central.",
+  "s": 59.199,
+  "e": 66.026,
+  "id": 9
+ },
+ {
+  "text": "No es un esteroide ni una hormona, y tampoco hace magia: solo añade más de algo que el músculo ya usa.",
+  "s": 66.327,
+  "e": 73.305,
+  "id": 10
+ },
+ {
+  "text": "Ahora, la pregunta importante: ¿funciona?",
+  "s": 74.338,
+  "e": 77.682,
+  "id": 11
+ },
+ {
+  "text": "La Sociedad Internacional de Nutrición Deportiva publicó en dos mil diecisiete una guía de posición, firmada por Richard Kreider y su equipo, que revisa toda la literatura.",
+  "s": 78.715,
+  "e": 89.454,
+  "id": 12
+ },
+ {
+  "text": "Su conclusión es clara:",
+  "s": 90.685,
+  "e": 92.31,
+  "id": 13
+ },
+ {
+  "text": "el monohidrato de creatina es el suplemento nutricional ergogénico más eficaz que tienen hoy los deportistas para aumentar la capacidad de ejercicio de alta intensidad y la masa magra durante el entrenamiento.",
+  "s": 92.403,
+  "e": 107.334,
+  "id": 14
+ },
+ {
+  "text": "Fíjate en las palabras: capacidad de ejercicio de alta intensidad y masa magra durante el entrenamiento.",
+  "s": 108.309,
+  "e": 114.834,
+  "id": 15
+ },
+ {
+  "text": "Eso significa que ayuda a entrenar más fuerte. No significa que sin entrenar vayas a cambiar de cuerpo.",
+  "s": 115.809,
+  "e": 122.914,
+  "id": 16
+ },
+ {
+  "text": "Vamos con los mitos. Mito número uno: la creatina te deja calvo.",
+  "s": 123.413,
+  "e": 129.021,
+  "id": 17
+ },
+ {
+  "text": "Esta idea viene de un estudio de dos mil nueve con veinte jugadores de rugby, jóvenes universitarios, en Sudáfrica.",
+  "s": 129.52,
+  "e": 138.193,
+  "id": 18
+ },
+ {
+  "text": "Fue un estudio doble ciego con placebo, en el que los mismos jugadores tomaron creatina y placebo en dos fases distintas.",
+  "s": 138.692,
+  "e": 147.469,
+  "id": 19
+ },
+ {
+  "text": "Tomaron veinticinco gramos al día durante una semana, y luego cinco gramos al día durante dos semanas más.",
+  "s": 147.736,
+  "e": 155.527,
+  "id": 20
+ },
+ {
+  "text": "Los investigadores midieron la testosterona y una hormona llamada DHT.",
+  "s": 155.794,
+  "e": 161.947,
+  "id": 21
+ },
+ {
+  "text": "La testosterona no cambió.",
+  "s": 162.469,
+  "e": 164.664,
+  "id": 22
+ },
+ {
+  "text": "Pero la DHT subió un cincuenta y seis por ciento tras la semana de carga, y seguía un cuarenta por ciento por encima después de las dos semanas de mantenimiento.",
+  "s": 164.861,
+  "e": 176.03,
+  "id": 23
+ },
+ {
+  "text": "Y como la DHT se relaciona con la caída del pelo en personas predispuestas, de ahí nació el mito.",
+  "s": 176.506,
+  "e": 183.425,
+  "id": 24
+ },
+ {
+  "text": "Pero fíjate en lo que no hizo ese estudio: no midió el pelo. Midió hormonas.",
+  "s": 184.458,
+  "e": 191.332,
+  "id": 25
+ },
+ {
+  "text": "Los propios autores dijeron que hacía falta investigar más.",
+  "s": 192.225,
+  "e": 195.917,
+  "id": 26
+ },
+ {
+  "text": "Y en lo que yo he encontrado, no hay una réplica que haya medido pérdida de cabello. Así que, con lo que hay hoy:",
+  "s": 196.185,
+  "e": 204.451,
+  "id": 27
+ },
+ {
+  "text": "un estudio pequeño, de tres semanas, que vio un cambio hormonal, sin medir calvicie.",
+  "s": 204.718,
+  "e": 212.555,
+  "id": 28
+ },
+ {
+  "text": "No es una prueba de que la creatina cause calvicie. Tampoco es una prueba de que no pueda ocurrir.",
+  "s": 212.822,
+  "e": 220.032,
+  "id": 29
+ },
+ {
+  "text": "Lo honesto es decir que no está demostrado, y que si te preocupa por tu historia familiar, lo hables con un médico.",
+  "s": 221.123,
+  "e": 227.939,
+  "id": 30
+ },
+ {
+  "text": "Mito número dos: la creatina te destroza los riñones.",
+  "s": 228.74,
+  "e": 232.734,
+  "id": 31
+ },
+ {
+  "text": "Aquí hay un hecho que sí es verdad, y por eso el mito se sostiene.",
+  "s": 233.662,
+  "e": 238.028,
+  "id": 32
+ },
+ {
+  "text": "La creatina que tomas se convierte en una sustancia llamada creatinina, y los análisis de sangre usan la creatinina para estimar cómo funcionan los riñones.",
+  "s": 238.968,
+  "e": 249.301,
+  "id": 33
+ },
+ {
+  "text": "Por eso, si tomas creatina, tu creatinina en sangre puede salir más alta.",
+  "s": 249.801,
+  "e": 254.99,
+  "id": 34
+ },
+ {
+  "text": "Eso no significa que tus riñones estén peor. Significa que el marcador se ha movido por otra razón.",
+  "s": 255.49,
+  "e": 262.792,
+  "id": 35
+ },
+ {
+  "text": "Una revisión narrativa de dos mil veintitrés, publicada en la revista Nutrients, concluyó que, en los estudios que miden la función renal con métodos fiables, la creatina parece segura en personas sanas.",
+  "s": 263.292,
+  "e": 277.7,
+  "id": 36
+ },
+ {
+  "text": "Y la guía de la ISSN dice que no hay evidencia convincente de que dañe el riñón en personas sanas.",
+  "s": 278.768,
+  "e": 286.743,
+  "id": 37
+ },
+ {
+  "text": "Pero ojo con la letra pequeña.",
+  "s": 287.243,
+  "e": 289.483,
+  "id": 38
+ },
+ {
+  "text": "Las revisiones dicen que hacen falta más estudios en personas que ya tienen una enfermedad renal.",
+  "s": 289.983,
+  "e": 295.799,
+  "id": 39
+ },
+ {
+  "text": "Si es tu caso, no te guíes por un vídeo: pregunta a tu médico.",
+  "s": 296.298,
+  "e": 301.511,
+  "id": 40
+ },
+ {
+  "text": "Y si te haces un análisis, avisa de que tomas creatina para que lo interpreten bien. Mito número tres:",
+  "s": 302.568,
+  "e": 310.412,
+  "id": 41
+ },
+ {
+  "text": "la creatina te hincha de agua. Hay una parte cierta.",
+  "s": 310.934,
+  "e": 315.23,
+  "id": 42
+ },
+ {
+  "text": "La creatina retiene un poco de agua porque tiene un efecto osmótico.",
+  "s": 315.845,
+  "e": 319.816,
+  "id": 43
+ },
+ {
+  "text": "La guía de la ISSN recoge estudios iniciales que vieron retención de líquido de entre medio litro y un litro cuando se hace la fase de carga.",
+  "s": 320.431,
+  "e": 331.112,
+  "id": 44
+ },
+ {
+  "text": "Y es importante dónde se queda esa agua.",
+  "s": 331.855,
+  "e": 334.281,
+  "id": 45
+ },
+ {
+  "text": "Uno de los estudios que cita la guía encontró que la creatina aumentó el agua intracelular, es decir, dentro de las células.",
+  "s": 335.025,
+  "e": 343.709,
+  "id": 46
+ },
+ {
+  "text": "Eso sí:",
+  "s": 344.452,
+  "e": 345.346,
+  "id": 47
+ },
+ {
+  "text": "la guía habla de retención de líquido proporcional al aumento de peso inicial, así que parte de lo que sube la báscula en esos primeros días es agua, no músculo nuevo.",
+  "s": 345.892,
+  "e": 356.852,
+  "id": 48
+ },
+ {
+  "text": "Ahora lo que mucha gente quiere saber: cómo se toma. La guía de la ISSN describe dos formas.",
+  "s": 357.676,
+  "e": 365.454,
+  "id": 49
+ },
+ {
+  "text": "La más rápida es una fase de carga, con unos veinte gramos al día, repartidos en cuatro tomas de cinco gramos, durante cinco a siete días.",
+  "s": 365.849,
+  "e": 376.588,
+  "id": 50
+ },
+ {
+  "text": "La guía también lo expresa como unos cero coma tres gramos por kilo de peso al día.",
+  "s": 376.971,
+  "e": 382.8,
+  "id": 51
+ },
+ {
+  "text": "Es lo que se hace en investigación, y también es lo que más agua retiene.",
+  "s": 383.705,
+  "e": 388.372,
+  "id": 52
+ },
+ {
+  "text": "Después de esa fase, para mantener los depósitos llenos, se usan tres a cinco gramos al día.",
+  "s": 389.278,
+  "e": 395.838,
+  "id": 53
+ },
+ {
+  "text": "Y la guía añade que algunos estudios indican que deportistas grandes podrían necesitar más, hasta cinco a diez gramos.",
+  "s": 396.743,
+  "e": 405.486,
+  "id": 54
+ },
+ {
+  "text": "La alternativa, sin carga, es tomar tres a cinco gramos al día desde el principio.",
+  "s": 406.507,
+  "e": 411.372,
+  "id": 55
+ },
+ {
+  "text": "Según la guía, así los depósitos del músculo suben igualmente, pero tardan más:",
+  "s": 412.382,
+  "e": 417.652,
+  "id": 56
+ },
+ {
+  "text": "entre tres y cuatro semanas.",
+  "s": 418.094,
+  "e": 420.961,
+  "id": 57
+ },
+ {
+  "text": "Y sobre la seguridad a largo plazo, la guía dice que la suplementación a corto y largo plazo, hasta treinta gramos al día durante cinco años, es segura y bien tolerada en personas sanas.",
+  "s": 422.041,
+  "e": 435.254,
+  "id": 58
+ },
+ {
+  "text": "Es un dato de estudios en personas sanas. No es una invitación a tomar esa cantidad.",
+  "s": 436.333,
+  "e": 441.929,
+  "id": 59
+ },
+ {
+  "text": "Ahora, quién debería pensárselo antes. Primero, si tienes una enfermedad de riñón.",
+  "s": 442.696,
+  "e": 448.396,
+  "id": 60
+ },
+ {
+  "text": "La guía de la ISSN concluye que no hay evidencia convincente de daño renal en personas sanas ni en poblaciones clínicas.",
+  "s": 449.162,
+  "e": 458.706,
+  "id": 61
+ },
+ {
+  "text": "Pero también recoge que algunos autores recomiendan que quien ya tenga una enfermedad renal consulte con su médico antes de tomarla, por precaución.",
+  "s": 459.275,
+  "e": 470.455,
+  "id": 62
+ },
+ {
+  "text": "Este es un caso en el que no te guíes por un vídeo.",
+  "s": 471.024,
+  "e": 474.658,
+  "id": 63
+ },
+ {
+  "text": "Segundo, si estás embarazada o dando el pecho.",
+  "s": 475.517,
+  "e": 480.08,
+  "id": 64
+ },
+ {
+  "text": "La guía cuenta que hay interés científico por la creatina durante el embarazo, sobre todo por estudios en animales sobre la supervivencia del recién nacido.",
+  "s": 481.252,
+  "e": 491.423,
+  "id": 65
+ },
+ {
+  "text": "Pero eso es investigación, no una recomendación para tomarla por tu cuenta. Habla con tu médico.",
+  "s": 492.317,
+  "e": 499.793,
+  "id": 66
+ },
+ {
+  "text": "Tercero, si eres menor de edad.",
+  "s": 500.211,
+  "e": 502.65,
+  "id": 67
+ },
+ {
+  "text": "Hay estudios en adolescentes sobre rendimiento, pero lo razonable es hablarlo antes con tu médico y con tus padres.",
+  "s": 503.543,
+  "e": 510.915,
+  "id": 68
+ },
+ {
+  "text": "Cuarto, si tomas medicación o tienes cualquier problema de salud.",
+  "s": 511.74,
+  "e": 516.976,
+  "id": 69
+ },
+ {
+  "text": "Un vídeo no puede saber qué interacciones puede haber en tu caso. Y un dato que tranquiliza, pero sin pasarse.",
+  "s": 517.788,
+  "e": 525.52,
+  "id": 70
+ },
+ {
+  "text": "La guía dice que, desde que la creatina se hizo popular en los años noventa, se han hecho más de mil estudios, y que el único efecto secundario descrito de forma constante es el aumento de peso.",
+  "s": 526.333,
+  "e": 539.905,
+  "id": 71
+ },
+ {
+  "text": "Eso no quiere decir que a todo el mundo le siente igual. Si notas algo raro, para y consulta.",
+  "s": 540.95,
+  "e": 548.659,
+  "id": 72
+ },
+ {
+  "text": "Un último apunte: qué tipo comprar. La forma más estudiada es el monohidrato de creatina.",
+  "s": 549.704,
+  "e": 556.821,
+  "id": 73
+ },
+ {
+  "text": "Es la que sale en casi toda la literatura que he citado.",
+  "s": 557.007,
+  "e": 560.13,
+  "id": 74
+ },
+ {
+  "text": "Para el resto de formas que venden más caras, no he encontrado en estas fuentes pruebas de que funcionen mejor.",
+  "s": 560.896,
+  "e": 567.804,
+  "id": 75
+ },
+ {
+  "text": "Resumiendo. La creatina es de los suplementos más estudiados.",
+  "s": 568.791,
+  "e": 573.76,
+  "id": 76
+ },
+ {
+  "text": "Ayuda al rendimiento en esfuerzos intensos y a ganar masa magra si entrenas.",
+  "s": 574.503,
+  "e": 579.588,
+  "id": 77
+ },
+ {
+  "text": "La idea de que te deja calvo se apoya en un estudio pequeño que midió hormonas, no pelo.",
+  "s": 580.575,
+  "e": 586.694,
+  "id": 78
+ },
+ {
+  "text": "En personas sanas, las revisiones no encuentran daño renal con las dosis estudiadas.",
+  "s": 587.727,
+  "e": 593.068,
+  "id": 79
+ },
+ {
+  "text": "Y la retención de agua existe, aunque parte de ella se queda dentro de las células.",
+  "s": 594.101,
+  "e": 599.802,
+  "id": 80
+ },
+ {
+  "text": "No hace milagros, no sustituye al entrenamiento ni a comer bien, y no es para todo el mundo.",
+  "s": 600.905,
+  "e": 607.151,
+  "id": 81
+ },
+ {
+  "text": "Si tienes dudas, habla con un médico o con un dietista.",
+  "s": 608.254,
+  "e": 612.085,
+  "id": 82
+ },
+ {
+  "text": "Si quieres que mire otro suplemento o otro mito del gimnasio, suscríbete y dime en los comentarios cuál.",
+  "s": 613.188,
+  "e": 620.189,
+  "id": 83
+ }
+]
