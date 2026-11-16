@@ -22,3 +22,7 @@ Pendiente: confirmar cifra de DHT y diseño del estudio de 2009 en el artículo 
 | Más de 1.000 estudios desde los 90; único efecto adverso descrito de forma constante: aumento de peso | ISSN 2017, apartado «Safety» | PRIMARIA |
 | Menores y medicación: recomendación de consultar al médico | criterio del guion, sin cita; no afirma hechos | PRUDENCIA |
 Importante: fuentes comerciales (creatine.pages.dev, creatinepedia) NO se usan.
+
+## Producción (2026-11-16)
+Voz: ElevenLabs eleven_multilingual_v2, Duke (5vRWedd4xV6g3a1SoelU), 2 tomas = 3.984 + 3.937 créditos. Referencia del personaje: 98. 50 imágenes Seedream 5.5 con referencia: 50 × 127 = 6.350. Total ≈ 14.370 créditos de 137.169 (periodo hasta 2026-12-16). Scribe: 0 créditos.
+Vídeo final: resultados/video-final.mp4 (620,1 s, 1080p30, −15,5 LUFS). Subtítulos: subtitulos.srt. Descripción/capítulos: youtube/descripcion.md.

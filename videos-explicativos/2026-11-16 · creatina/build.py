@@ -29,10 +29,10 @@ for i,g in enumerate(G):
     sid=g['id']; img,flip,_=m.SC[sid]
     d=round(en[i]-st[i],3)
     out=f'clips/c{sid:02d}.mp4'
-    vf=("hflip," if flip else "")+"scale=1920:1080:flags=lanczos"
-    cmd=['ffmpeg','-loglevel','error','-y','-loop','1','-t',str(d),'-framerate','30','-i',f'img/{img}.png','-loop','1','-t',str(d),'-framerate','30','-i',f'ov/{sid:02d}.png',
+    vf="null"
+    cmd=['ffmpeg','-loglevel','error','-y','-loop','1','-t',str(d),'-framerate','30','-i',f'img1080/{img}{"f" if flip else ""}.png','-loop','1','-t',str(d),'-framerate','30','-i',f'ov/{sid:02d}.png',
          '-filter_complex',f"[0]{vf}[b];[1]format=rgba,fade=t=in:st=0.2:d=0.25:alpha=1[o];[b][o]overlay=0:0",
-         '-c:v','libx264','-preset','veryfast','-crf','20','-pix_fmt','yuv420p','-r','30',out]
+         '-c:v','libx264','-preset','ultrafast','-tune','stillimage','-crf','20','-pix_fmt','yuv420p','-r','30',out]
     jobs.append((out,cmd))
 from concurrent.futures import ThreadPoolExecutor
 def run(j):
