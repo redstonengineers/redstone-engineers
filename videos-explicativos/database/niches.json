@@ -1,27 +1,32 @@
 {
-  "nicho_activo": "Depredadores y supervivencia en el reino animal (lista numerada / duelos X vs Y)",
-  "idioma": "español",
-  "voz": "Duke - Warm Spanish Narrator (5vRWedd4xV6g3a1SoelU)",
-  "formato": "horizontal 16:9, ~15 min, imagen real con licencia (Pexels), sin diapositivas ni zoom",
-  "decidido": "2026-11-15",
-  "confianza": "baja (RPM de Entertainment ≈ 2,43 $ mediano según AIR; demanda sin medir; NexLev sin cupo hasta 2026-11-15)",
-  "validacion": "decidir escalar/mantener/abandonar con >=5 vídeos publicados medidos a 7 y 28 días",
-  "reglas": [
-    "el nicho no cambia",
-    "el subnicho NUNCA se repite (ni reformulado)",
-    "solo casos históricos o de dominio público bien documentados",
-    "nada sobre personas privadas vivas ni familias de víctimas; sin morbo",
-    "hipótesis etiquetadas como hipótesis; decir siempre qué se sabe y qué no",
-    "dibujo vectorial propio: sin imágenes de terceros",
-    "cada afirmación con fuente; lo no verificado se marca",
-    "formato: gancho + preguntas abiertas + qué dicen las pruebas"
-  ],
-  "historial": [
-    {
-      "nicho": "Ciencia explicada «cómo funciona» (física, química, espacio, mecanismos cotidianos; sin medicina)",
-      "hasta": "2026-11-11",
-      "motivo": "El usuario lo ve aburrido y de poco interés general (la demanda estaba «sin dato»)"
-    }
-  ],
-  "descartado_2026-11-15": "Documentales de países en lista numerada (Bolivia 10 puntos queda como borrador); el usuario no lo quiso"
+ "nicho_activo": "Deporte y salud: entrenamiento, hábitos y nutrición deportiva explicados (comparativas, mitos, rutinas)",
+ "idioma": "español",
+ "voz": "Duke - Warm Spanish Narrator (5vRWedd4xV6g3a1SoelU)",
+ "formato": "horizontal 16:9, ~8-10 min, sin cara; ilustración con IA en estilo propio y personaje propio (no copiar la mascota de ningún canal); gancho en la primera frase; comparativas «día 1 / semana 8»; sin diapositivas",
+ "decidido": "2026-11-16",
+ "confianza": "baja (nicho muy competido; referencia: @captainworkoutYT, 610 K subs en ~4 meses, RPM estimado ≈ 1,27 $ en su vídeo top; ingresos sobre todo por programas propios; demanda en español sin medir)",
+ "validacion": "decidir escalar/mantener/abandonar con >=5 vídeos publicados medidos a 7 y 28 días",
+ "reglas": [
+  "el subnicho NUNCA se repite (ni reformulado)",
+  "no prometer resultados médicos ni de salud: sin diagnosticar, sin tratar enfermedades ni lesiones, sin dietas milagro; incluir aviso «consulta a un profesional» cuando toque",
+  "cada afirmación con fuente (estudio, metaanálisis, guía oficial); lo no verificado se marca; hipótesis etiquetadas",
+  "nada de cifras inventadas (porcentajes, plazos, «ganarás X kg»); decir el tamaño y calidad del estudio",
+  "personaje e imágenes propios (IA con estilo propio); sin imágenes de terceros ni copiar personajes de otros canales",
+  "marcar el contenido sintético realista según las normas de YouTube",
+  "formato: gancho en la primera frase + por qué importa + qué dicen las pruebas + qué hacer"
+ ],
+ "historial": [
+  {
+   "nicho": "Ciencia explicada «cómo funciona» (física, química, espacio, mecanismos cotidianos; sin medicina)",
+   "hasta": "2026-11-11",
+   "motivo": "El usuario lo ve aburrido y de poco interés general (la demanda estaba «sin dato»)"
+  },
+  {
+   "nicho": "Depredadores y supervivencia en el reino animal (lista numerada / duelos X vs Y)",
+   "hasta": "2026-11-16",
+   "motivo": "El usuario quiere deporte y salud con formato tipo Captain Workout; depredadores 1 queda como borrador (guion, fuentes y previa muda en «2026-11-15 · depredadores 1»)"
+  }
+ ],
+ "descartado_2026-11-15": "Documentales de países en lista numerada (Bolivia 10 puntos queda como borrador); el usuario no lo quiso",
+ "referencia": "@captainworkoutYT (UCGhTq7eI2yg2m6Hbo4nrKxg): tomado solo el tipo de formato, no el personaje ni los guiones"
 }
