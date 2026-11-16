@@ -1,0 +1,11 @@
+{
+  "name": "redstone-plugins",
+  "owner": { "name": "Redstone Engineers" },
+  "plugins": [
+    {
+      "name": "earshot",
+      "description": "Accessibility sounds and screen-reader speech for Claude Code (OlegTheSnowman/earshot)",
+      "source": { "source": "github", "repo": "OlegTheSnowman/earshot" }
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 {
   "extraKnownMarketplaces": {
-    "earshot": {
-      "source": { "source": "github", "repo": "OlegTheSnowman/earshot" }
+    "redstone-plugins": {
+      "source": { "source": "github", "repo": "redstonengineers/redstone-engineers" }
     }
   },
   "enabledPlugins": {
-    "earshot@earshot": true
+    "earshot@redstone-plugins": true
   }
 }
