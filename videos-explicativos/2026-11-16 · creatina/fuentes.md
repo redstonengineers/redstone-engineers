@@ -8,7 +8,17 @@ Estado: [PRIMARIA] = leído en el texto de la fuente; [SECUNDARIA] = visto en re
 | Retención de líquido 0,5–1 L en carga, proporcional al aumento de peso; creatina aumentó el agua intracelular en un estudio | misma guía ISSN | PRIMARIA |
 | Revisión narrativa 2023: creatina segura con métodos fiables de función renal; faltan estudios con enfermedad renal previa | https://pubmed.ncbi.nlm.nih.gov/36986197/ (Nutrients) | SECUNDARIA (resumen) |
 | La creatina sube la creatinina sérica sin implicar peor filtrado | resumen de búsqueda (varias fuentes) | SECUNDARIA; leer revisión |
-| Calvicie: estudio 2009, 20 jugadores de rugby, DHT sube, no se midió pelo, sin réplica clara; grupo creatina con DHT basal 23 % menor (Henselmans) | resúmenes de clínicas y blogs; original: van der Merwe et al., Clin J Sport Med 2009 | SECUNDARIA; leer el original antes de publicar |
+| Calvicie: van der Merwe et al., Clin J Sport Med 2009 (PMID 19741313): n=20 jugadores de rugby, crossover doble ciego con placebo (lavado 6 sem.), carga 25 g/día 7 días + 5 g/día 14 días; T sin cambio; DHT +56 % (7 d) y +40 % (tras mantenimiento); ratio DHT:T +36 %/+22 %; autores piden más investigación; no se midió pelo | resumen del artículo vía Europe PMC (https://europepmc.org/article/MED/19741313) | PRIMARIA (abstract) |
+| Sin réplica que midiera cabello | resúmenes de clínicas/blogs | SECUNDARIA: el guion dice «en lo que yo he encontrado» |
 | Un ensayo de 2025 sin diferencia en folículos | getfitcraft.com | NO VERIFICADO: no usado en el guion |
 Avisos en el guion: no es consejo médico; consultar al médico con enfermedad renal o medicación.
 Pendiente: confirmar cifra de DHT y diseño del estudio de 2009 en el artículo original; la forma «monohidrato es la más estudiada» viene de la ISSN, el resto de formas: no hay datos en estas fuentes.
+
+## Sección «quién debería pensárselo antes» (añadida 2026-11-16)
+| Afirmación | Fuente | Estado |
+|---|---|---|
+| Algunos autores recomiendan que quien tenga enfermedad renal previa consulte al médico, por precaución | ISSN 2017 (texto completo) | PRIMARIA |
+| Interés científico por creatina en embarazo, sobre todo estudios animales de supervivencia neonatal; no es recomendación de uso | ISSN 2017, apartado «Pregnancy» | PRIMARIA |
+| Más de 1.000 estudios desde los 90; único efecto adverso descrito de forma constante: aumento de peso | ISSN 2017, apartado «Safety» | PRIMARIA |
+| Menores y medicación: recomendación de consultar al médico | criterio del guion, sin cita; no afirma hechos | PRUDENCIA |
+Importante: fuentes comerciales (creatine.pages.dev, creatinepedia) NO se usan.
