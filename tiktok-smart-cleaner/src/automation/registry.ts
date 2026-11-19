@@ -27,7 +27,35 @@ export const manualProvider: AutomationProvider = {
   },
 };
 
-const providers = new Map<string, AutomationProvider>([[manualProvider.id, manualProvider]]);
+/**
+ * Autoclicker: la web solo GENERA el script; lo ejecuta el usuario en su propia sesión
+ * de tiktok.com (ver autoclickerScript.ts). La web no se comunica con TikTok.
+ */
+export const autoclickerProvider: AutomationProvider = {
+  id: "autoclicker",
+  label: "Autoclicker (script en tu navegador)",
+  requiresConfirmation: true,
+  async getAuthorization(): Promise<AuthorizationState> {
+    return {
+      authorized: true,
+      scopes: ["browser-session"],
+      description: "Lo ejecutas tú en tu sesión de TikTok y puedes detenerlo en cualquier momento.",
+    };
+  },
+  async dryRun(targets) {
+    return targets.map((t): ActionResult => ({ key: t.key, status: "pending" }));
+  },
+  async execute(targets) {
+    return targets.map((t): ActionResult => ({
+      key: t.key, status: "pending", message: "Pendiente: se ejecuta con el script en tu navegador.",
+    }));
+  },
+};
+
+const providers = new Map<string, AutomationProvider>([
+  [manualProvider.id, manualProvider],
+  [autoclickerProvider.id, autoclickerProvider],
+]);
 
 /** Punto de extensión futuro: registrar una integración autorizada. */
 export function registerProvider(p: AutomationProvider) {

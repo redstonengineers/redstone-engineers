@@ -3,11 +3,12 @@ import { Bot, Check, ClipboardCopy, Download, ListChecks, Plus, Shield, X } from
 import { download, toCsv, toTxt } from "../core/export";
 import type { Cleaner } from "../hooks/useCleaner";
 import { listProviders, prepareTargets } from "../automation/registry";
+import { AutoclickerPanel } from "./AutoclickerPanel";
 import { Button, Card } from "./ui";
 
 export function ReviewPanel({ c }: { c: Cleaner }) {
   const [copied, setCopied] = useState(false);
-  const [provider, setProvider] = useState("manual");
+  const [provider, setProvider] = useState("autoclicker");
 
   // Doble barrera: la selección ya excluye lista blanca, y prepareTargets la vuelve a filtrar.
   const chosen = c.accounts.filter((a) => c.selected.has(a.key));
@@ -35,7 +36,7 @@ export function ReviewPanel({ c }: { c: Cleaner }) {
         <Button disabled={!safeChosen.length} onClick={c.clearSelection}><X size={14} /> Limpiar</Button>
       </div>
       <p className="mt-3 text-xs leading-relaxed text-zinc-500">
-        Esta app no deja de seguir a nadie por ti. Exporta la lista, abre cada perfil con el icono <span className="text-zinc-300">↗</span> y decide en TikTok.
+        Revisa la selección antes de actuar. Puedes exportarla y abrir cada perfil con <span className="text-zinc-300">↗</span>, o usar el autoclicker de abajo.
       </p>
 
       <div className="mt-4 border-t border-ink-700 pt-4">
@@ -44,9 +45,11 @@ export function ReviewPanel({ c }: { c: Cleaner }) {
           className="mt-2 w-full rounded-lg border border-ink-600 bg-ink-900 px-3 py-2 text-sm text-zinc-300">
           {listProviders().map((p) => <option key={p.id} value={p.id}>{p.label}</option>)}
         </select>
-        <p className="mt-2 text-xs leading-relaxed text-zinc-500">
-          Preparado para integrar en el futuro una API autorizada (con tu consentimiento explícito). Hoy solo existe la revisión manual; no hay scraping ni acciones automáticas.
-        </p>
+        {provider === "autoclicker" ? (
+          <AutoclickerPanel keys={targets.map((t) => t.key)} />
+        ) : (
+          <p className="mt-2 text-xs leading-relaxed text-zinc-500">Revisión manual: no se automatiza nada. Cambia a «Autoclicker» para generar el script.</p>
+        )}
       </div>
     </Card>
   );
