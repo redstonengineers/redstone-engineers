@@ -62,6 +62,7 @@ const BODY = String.raw`
   function rows() {
     var out = {};
     document.querySelectorAll('a[href*="/@"]').forEach(function (a) {
+      if (a.closest('[id*="inbox"],[data-e2e*="inbox"],[data-e2e*="notification"]')) return;   // panel de notificaciones: no es la lista Siguiendo
       var key = handleOf(a); if (!key || out[key]) return;
       var el = a;
       for (var i = 0; i < 7 && el.parentElement; i++) {
