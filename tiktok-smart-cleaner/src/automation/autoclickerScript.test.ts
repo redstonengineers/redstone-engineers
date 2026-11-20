@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { MIN_DELAY_MS, buildAutoclickerScript, buildUserscript } from "./autoclickerScript";
 
 describe("buildAutoclickerScript", () => {
-  const cfg = { targets: ["ana", "bob.x", "</script><b>"], delayMs: 100, maxPerRun: 0, dryRun: false };
+  const cfg = { targets: ["ana", "bob.x", "</script><b>"], delayMs: 100, maxPerRun: 0, maxPerDay: 0, dryRun: false };
   it("genera JavaScript sintácticamente válido", () => {
     expect(() => new Function(buildAutoclickerScript(cfg))).not.toThrow();
     expect(() => new Function(buildUserscript(cfg))).not.toThrow();
@@ -11,6 +11,7 @@ describe("buildAutoclickerScript", () => {
     const s = buildAutoclickerScript(cfg);
     expect(s).toContain(`"delayMs":${MIN_DELAY_MS}`);
     expect(s).toContain('"maxPerRun":1');
+    expect(s).toContain('"maxPerDay":1');
   });
   it("escapa < y no deja inyectar etiquetas", () => {
     expect(buildAutoclickerScript(cfg)).not.toContain("</script>");

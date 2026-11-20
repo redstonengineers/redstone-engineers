@@ -8,11 +8,12 @@ import { Button } from "./ui";
 export function AutoclickerPanel({ keys }: { keys: string[] }) {
   const [delay, setDelay] = useState(4);
   const [max, setMax] = useState(25);
+  const [perDay, setPerDay] = useState(100);
   const [dry, setDry] = useState(true);
   const [ack, setAck] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const cfg = useMemo(() => ({ targets: keys, delayMs: Math.max(MIN_DELAY_MS, delay * 1000), maxPerRun: max, dryRun: dry }), [keys, delay, max, dry]);
+  const cfg = useMemo(() => ({ targets: keys, delayMs: Math.max(MIN_DELAY_MS, delay * 1000), maxPerRun: max, maxPerDay: Math.max(1, perDay), dryRun: dry }), [keys, delay, max, perDay, dry]);
   const ready = keys.length > 0 && (dry || ack);
 
   const copy = async () => {
@@ -33,6 +34,10 @@ export function AutoclickerPanel({ keys }: { keys: string[] }) {
             className="w-full rounded-md border border-ink-600 bg-ink-850 px-2 py-1.5 text-sm text-zinc-200" />
         </label>
       </div>
+      <label className="block space-y-1">Máx. por día (se cuenta en tu navegador)
+        <input type="number" min={1} max={1000} value={perDay} onChange={(e) => setPerDay(Math.max(1, Number(e.target.value) || 100))}
+          className="w-full rounded-md border border-ink-600 bg-ink-850 px-2 py-1.5 text-sm text-zinc-200" />
+      </label>
       <label className="flex items-center gap-2 text-zinc-300"><input type="checkbox" checked={dry} onChange={(e) => setDry(e.target.checked)} /> Simulación (solo resalta, no hace clic)</label>
       {!dry && (
         <label className="flex items-start gap-2 rounded-md border border-amber-500/30 bg-amber-500/10 p-2 text-amber-200">
@@ -46,7 +51,7 @@ export function AutoclickerPanel({ keys }: { keys: string[] }) {
       </div>
       <ol className="list-decimal space-y-1 pl-4">
         <li>Empieza con <b>Simulación</b> para ver qué marcaría.</li>
-        <li>En tiktok.com abre tu perfil → <b>Siguiendo</b>.</li>
+        <li>En tiktok.com abre <b>tu perfil</b> y pulsa el contador <b>Siguiendo</b> (no el menú de la izquierda).</li>
         <li>Abre la consola (F12) y pega el script, o instala el .user.js.</li>
         <li>Pulsa <b>Iniciar</b>. <b>Esc</b> o <b>Detener</b> lo paran al instante.</li>
       </ol>
